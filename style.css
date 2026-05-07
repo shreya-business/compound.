@@ -1,378 +1,155 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Case Studies — Shreya Kulkarni</title>
-<meta name="description" content="Real results from real campaigns across McDonald's, Volkswagen, Coles, FireDaemon and more.">
-<link rel="stylesheet" href="style.css">
-<style>
-.page-header { padding: calc(var(--nav-h) + 4rem) 2.5rem 3rem; background: var(--off-white); border-bottom: 1px solid var(--border); }
-.page-header-inner { max-width: var(--max-w); margin: 0 auto; }
-.page-header .section-title { font-size: clamp(2.4rem,5vw,4.2rem); }
+/* ============================================================
+   SHREYA KULKARNI — DESIGN SYSTEM v2
+   ============================================================ */
 
-/* FILTER */
-.filter-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 1.1rem 2.5rem; position: sticky; top: var(--nav-h); z-index: 80; }
-.filter-bar-inner { max-width: var(--max-w); margin: 0 auto; display: flex; gap: 0.45rem; flex-wrap: wrap; }
-.filter-btn {
-  font-size: 0.78rem; font-weight: 500; color: var(--muted);
-  background: var(--off-white); border: 1px solid var(--border);
-  border-radius: 100px; padding: 0.32rem 0.95rem;
-  cursor: pointer; transition: all 0.2s; white-space: nowrap;
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  --white:       #FFFFFF;
+  --off-white:   #F7F6F3;
+  --cream:       #F0EDE6;
+  --ink:         #0D0D0D;
+  --ink-soft:    #3D3D3D;
+  --muted:       #888888;
+  --border:      #E4E2DC;
+  --border-soft: #EDEBE4;
+  --violet:      #6D28D9;
+  --violet-mid:  #7C3AED;
+  --violet-light:#8B5CF6;
+  --violet-pale: #EDE9FE;
+  --violet-glow: rgba(109,40,217,0.15);
+  --font-display:'Fraunces', Georgia, serif;
+  --font-body:   'DM Sans', sans-serif;
+  --font-mono:   'DM Mono', monospace;
+  --max-w: 1200px;
+  --nav-h: 68px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
-.filter-btn:hover { background: var(--cream); color: var(--ink); }
-.filter-btn.active { background: var(--ink); color: var(--white); border-color: var(--ink); }
 
-/* CASES GRID */
-.cases-section { padding: 4rem 2.5rem 5.5rem; background: var(--white); }
-.cases-inner { max-width: var(--max-w); margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--font-body); background: var(--white); color: var(--ink); line-height: 1.6; overflow-x: hidden; }
 
-.case-card {
-  background: var(--white); border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
-  display: grid; grid-template-columns: 1fr 220px;
-  transition: box-shadow 0.3s, transform 0.2s;
-  animation: fadeUp 0.4s var(--ease-out) both;
+/* NAV */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+  height: var(--nav-h);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2.5rem;
+  background: rgba(255,255,255,0.93);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.3s;
 }
-.case-card:hover { box-shadow: 0 8px 36px rgba(0,0,0,0.07); transform: translateY(-2px); }
-.case-card.hidden { display: none; }
-
-.case-card-left { padding: 2rem 2rem; border-right: 1px solid var(--border); }
-
-/* Logo + client row */
-.case-header { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.85rem; }
-.case-logo {
-  width: 40px; height: 40px; border-radius: 8px;
-  background: var(--off-white); border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem; flex-shrink: 0; font-weight: 700;
-  font-family: var(--font-display); color: var(--ink);
+.nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.07); }
+.nav-logo { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; }
+.nav-logo .dot { color: var(--violet); }
+.nav-links { display: flex; align-items: center; gap: 0.1rem; list-style: none; }
+.nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--ink-soft); text-decoration: none; padding: 0.38rem 0.75rem; border-radius: 6px; transition: color 0.2s, background 0.2s; }
+.nav-links a:hover { color: var(--ink); background: var(--cream); }
+.nav-links a.active { color: var(--violet); background: var(--violet-pale); }
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  background: var(--violet); color: var(--white) !important;
+  padding: 0.48rem 1.1rem !important; border-radius: 7px !important;
+  font-weight: 600 !important; font-size: 0.82rem !important;
+  text-decoration: none; transition: background 0.2s, transform 0.15s, box-shadow 0.2s !important;
 }
-.case-meta {}
-.case-client-tag { font-family: var(--font-mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--violet); font-weight: 500; }
-.case-year { font-family: var(--font-mono); font-size: 0.65rem; color: var(--muted); letter-spacing: 0.06em; }
+.nav-cta:hover { background: var(--violet-mid) !important; transform: translateY(-1px) !important; box-shadow: 0 4px 16px var(--violet-glow) !important; }
 
-.case-title { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--ink); letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 0.7rem; }
-.case-desc { font-size: 0.87rem; color: var(--ink-soft); line-height: 1.75; margin-bottom: 1.1rem; }
-.case-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
-.case-tag { font-size: 0.68rem; background: var(--off-white); border: 1px solid var(--border); color: var(--ink-soft); padding: 0.2rem 0.55rem; border-radius: 4px; }
-
-/* METRICS column */
-.case-card-right { padding: 2rem 1.5rem; background: var(--off-white); display: flex; flex-direction: column; justify-content: space-between; gap: 1rem; }
-.case-metrics-list { display: flex; flex-direction: column; gap: 1rem; }
-.case-metric .num { font-family: var(--font-display); font-size: 1.9rem; font-weight: 600; color: var(--ink); letter-spacing: -0.04em; line-height: 1; }
-.case-metric .num.v { color: var(--violet); }
-.case-metric .num.g { color: #059669; }
-.case-metric .lbl { font-size: 0.68rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.1rem; }
-.case-outcome { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem; font-size: 0.78rem; color: var(--ink-soft); line-height: 1.6; font-style: italic; }
-.case-outcome-icon { font-size: 1rem; margin-bottom: 0.3rem; display: block; }
-
-/* RESULTS BAR */
-.results-summary { background: var(--ink); padding: 3.5rem 2.5rem; }
-.results-summary-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; text-align: center; }
-.rs-item { padding: 1.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); transition: background 0.2s; }
-.rs-item:hover { background: rgba(109,40,217,0.1); }
-.rs-num { font-family: var(--font-display); font-size: 1.75rem; font-weight: 600; color: var(--white); letter-spacing: -0.04em; line-height: 1; }
-.rs-num span { color: var(--violet-light); }
-.rs-label { font-size: 0.66rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.07em; margin-top: 0.3rem; }
-
-.work-cta { padding: 5rem 2.5rem; background: var(--off-white); text-align: center; }
-.work-cta-inner { max-width: 560px; margin: 0 auto; }
-.no-results { text-align: center; padding: 4rem 2rem; color: var(--muted); font-size: 0.9rem; display: none; }
-
-@media (max-width: 960px) {
-  .page-header { padding: calc(var(--nav-h) + 2rem) 1.25rem 2rem; }
-  .filter-bar { padding: 0.85rem 1.25rem; }
-  .cases-section { padding: 3rem 1.25rem 4rem; }
-  .case-card { grid-template-columns: 1fr; }
-  .case-card-left { border-right: none; border-bottom: 1px solid var(--border); }
-  .case-card-right { flex-direction: row; flex-wrap: wrap; gap: 1rem; }
-  .case-metrics-list { flex-direction: row; flex-wrap: wrap; gap: 1.25rem; }
-  .results-summary-inner { grid-template-columns: repeat(3, 1fr); }
-  .results-summary, .work-cta { padding: 3rem 1.25rem; }
+/* FOOTER */
+.footer { background: #111111; color: rgba(255,255,255,0.75); padding: 3.5rem 2.5rem 2rem; }
+.footer-inner { max-width: var(--max-w); margin: 0 auto; }
+.footer-top {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2.5rem; padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.15); margin-bottom: 1.75rem;
 }
-@media (max-width: 600px) { .results-summary-inner { grid-template-columns: 1fr 1fr; } }
-</style>
-</head>
-<body>
-<div class="page-wrap">
+.footer-logo-text { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--white); letter-spacing: -0.02em; margin-bottom: 0.6rem; }
+.footer-logo-text span { color: var(--violet-light); }
+.footer-tagline { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.7; max-width: 280px; margin-bottom: 1.25rem; }
+.footer-social { display: flex; gap: 0.6rem; }
+.footer-social a { width: 34px; height: 34px; background: rgba(255,255,255,0.12); border-radius: 7px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.8); font-size: 0.85rem; text-decoration: none; font-weight: 700; transition: background 0.2s, color 0.2s; }
+.footer-social a:hover { background: var(--violet); color: var(--white); }
+.footer-col-title { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 1rem; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.footer-col a { font-size: 0.88rem; color: rgba(255,255,255,0.72); text-decoration: none; transition: color 0.2s; }
+.footer-col a:hover { color: var(--white); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: rgba(255,255,255,0.45); }
 
-  <div class="page-header">
-    <div class="page-header-inner">
-      <div class="section-eyebrow">Case Studies</div>
-      <h1 class="section-title">Results that speak<br>for themselves.</h1>
-      <p class="section-desc">Real work. Real numbers. From global enterprise to growth-stage SaaS across B2B, B2C, consulting, and paid media.</p>
-    </div>
-  </div>
+/* UTILITIES */
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 2.5rem; }
+.page-wrap { padding-top: var(--nav-h); }
 
-  <div class="filter-bar">
-    <div class="filter-bar-inner">
-      <button class="filter-btn active" data-filter="all">All work</button>
-      <button class="filter-btn" data-filter="b2b">B2B</button>
-      <button class="filter-btn" data-filter="b2c">B2C</button>
-      <button class="filter-btn" data-filter="consulting">Consulting</button>
-      <button class="filter-btn" data-filter="seo-content">SEO and Content</button>
-      <button class="filter-btn" data-filter="crm">CRM and Personalisation</button>
-      <button class="filter-btn" data-filter="paid-media">Paid Media</button>
-    </div>
-  </div>
+.section-eyebrow {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--font-mono); font-size: 0.68rem; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--violet); margin-bottom: 0.9rem;
+}
+.section-eyebrow::before { content: ''; display: block; width: 18px; height: 1px; background: var(--violet); }
+.section-title { font-family: var(--font-display); font-size: clamp(1.9rem, 3.5vw, 3rem); font-weight: 600; color: var(--ink); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 1rem; }
+.section-desc { font-size: 1rem; color: var(--ink-soft); line-height: 1.75; max-width: 540px; }
 
-  <section class="cases-section">
-    <div class="cases-inner" id="casesGrid">
+.badge { display: inline-flex; align-items: center; font-family: var(--font-mono); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: var(--violet-pale); color: var(--violet); padding: 0.28rem 0.65rem; border-radius: 4px; }
 
-      <!-- McDonald's -->
-      <div class="case-card reveal" id="mcdonald" data-categories="b2c crm consulting">
-        <div class="case-card-left">
-          <div class="case-header">
-            <div class="case-logo">M</div>
-            <div class="case-meta">
-              <div class="case-client-tag">McDonald's APAC · Omnicom Media Group</div>
-              <div class="case-year">2024</div>
-            </div>
-          </div>
-          <h2 class="case-title">Personalised Offer Program Revamp and Nationwide Rollout</h2>
-          <p class="case-desc">Franchisees threatened to cancel the personalised offers program over margin concerns. I went back to the data, identified the root cause in the over-targeting logic, rebuilt the segmentation model, and aligned data science, engineering, and CRM teams on a six-month pilot that became a national rollout.</p>
-          <div class="case-tags">
-            <span class="case-tag">CRM</span><span class="case-tag">Personalisation</span><span class="case-tag">Data Strategy</span><span class="case-tag">Consulting</span><span class="case-tag">B2C</span>
-          </div>
-        </div>
-        <div class="case-card-right">
-          <div class="case-metrics-list">
-            <div class="case-metric"><div class="num v">-22%</div><div class="lbl">Churn reduction</div></div>
-            <div class="case-metric"><div class="num g">+38%</div><div class="lbl">Engagement lift</div></div>
-            <div class="case-metric"><div class="num">10K+</div><div class="lbl">Pilot users</div></div>
-          </div>
-          <div class="case-outcome"><span class="case-outcome-icon">🍔</span>Program saved and approved for full national rollout across the APAC franchise network.</div>
-        </div>
-      </div>
+.btn { display: inline-flex; align-items: center; gap: 0.45rem; font-family: var(--font-body); font-weight: 600; font-size: 0.875rem; text-decoration: none; border: none; cursor: pointer; border-radius: 8px; transition: all 0.2s var(--ease-out); white-space: nowrap; }
+.btn-dark { background: var(--ink); color: var(--white); padding: 0.72rem 1.4rem; }
+.btn-dark:hover { background: var(--violet); transform: translateY(-2px); box-shadow: 0 6px 20px var(--violet-glow); }
+.btn-violet { background: var(--violet); color: var(--white); padding: 0.72rem 1.4rem; }
+.btn-violet:hover { background: var(--violet-mid); transform: translateY(-2px); box-shadow: 0 6px 20px var(--violet-glow); }
+.btn-outline { background: transparent; color: var(--ink); padding: 0.68rem 1.4rem; border: 1.5px solid var(--border); }
+.btn-outline:hover { border-color: var(--violet); color: var(--violet); background: var(--violet-pale); }
+.btn-ghost-white { background: transparent; color: rgba(255,255,255,0.85); padding: 0.68rem 1.4rem; border: 1.5px solid rgba(255,255,255,0.3); }
+.btn-ghost-white:hover { border-color: rgba(255,255,255,0.7); color: var(--white); }
 
-      <!-- Volkswagen -->
-      <div class="case-card reveal" id="volkswagen" data-categories="b2c paid-media">
-        <div class="case-card-left">
-          <div class="case-header">
-            <div class="case-logo">VW</div>
-            <div class="case-meta">
-              <div class="case-client-tag">Volkswagen APAC · Omnicom</div>
-              <div class="case-year">2023</div>
-            </div>
-          </div>
-          <h2 class="case-title">Dynamic Creative at Scale: 1,000+ Variants and 40% CTR Lift</h2>
-          <p class="case-desc">Managed the DCO account for Volkswagen across Australia and New Zealand. Built dynamic creative feeds across display, social, and video generating thousands of personalised variants. Applied rigorous A/B testing to progressively improve performance without sacrificing brand quality.</p>
-          <div class="case-tags">
-            <span class="case-tag">DCO</span><span class="case-tag">Programmatic</span><span class="case-tag">Paid Media</span><span class="case-tag">A/B Testing</span><span class="case-tag">B2C</span>
-          </div>
-        </div>
-        <div class="case-card-right">
-          <div class="case-metrics-list">
-            <div class="case-metric"><div class="num v">+40%</div><div class="lbl">CTR improvement</div></div>
-            <div class="case-metric"><div class="num g">+22%</div><div class="lbl">Conversion rate</div></div>
-            <div class="case-metric"><div class="num">1,000+</div><div class="lbl">Creative variants</div></div>
-          </div>
-          <div class="case-outcome"><span class="case-outcome-icon">🚗</span>DCO became the recommended approach for all Volkswagen APAC campaigns following the results.</div>
-        </div>
-      </div>
+.arrow { display: inline-block; transition: transform 0.2s; }
+.btn:hover .arrow { transform: translateX(3px); }
 
-      <!-- FireDaemon -->
-      <div class="case-card reveal" id="firedaemon" data-categories="b2b seo-content consulting">
-        <div class="case-card-left">
-          <div class="case-header">
-            <div class="case-logo">FD</div>
-            <div class="case-meta">
-              <div class="case-client-tag">FireDaemon Technology · B2B SaaS</div>
-              <div class="case-year">2024 to 2026</div>
-            </div>
-          </div>
-          <h2 class="case-title">Full GTM Build: 30% Organic Growth and Free-to-Paid Conversion Lift</h2>
-          <p class="case-desc">Joined as the first dedicated marketing hire with no existing content strategy, SEO foundation, or email nurture. Built everything simultaneously: SEO architecture, content pipeline, email workflows, and paid acquisition, while proving ROI fast enough to keep investment growing.</p>
-          <div class="case-tags">
-            <span class="case-tag">B2B</span><span class="case-tag">SEO</span><span class="case-tag">Content</span><span class="case-tag">Email</span><span class="case-tag">GTM</span><span class="case-tag">Paid Media</span>
-          </div>
-        </div>
-        <div class="case-card-right">
-          <div class="case-metrics-list">
-            <div class="case-metric"><div class="num v">+30%</div><div class="lbl">Organic traffic</div></div>
-            <div class="case-metric"><div class="num g">+45%</div><div class="lbl">Email open rates</div></div>
-            <div class="case-metric"><div class="num">3.4x</div><div class="lbl">ROAS</div></div>
-          </div>
-          <div class="case-outcome"><span class="case-outcome-icon">💻</span>Email became the highest-converting acquisition channel within six months.</div>
-        </div>
-      </div>
+/* ANIMATIONS */
+@keyframes fadeUp   { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn   { from { opacity:0; } to { opacity:1; } }
+@keyframes scaleIn  { from { opacity:0; transform:scale(0.96); } to { opacity:1; transform:scale(1); } }
+@keyframes slideUp  { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+@keyframes pulse    { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
 
-      <!-- Service.com.au -->
-      <div class="case-card reveal" id="servicecomau" data-categories="b2c seo-content paid-media consulting">
-        <div class="case-card-left">
-          <div class="case-header">
-            <div class="case-logo">SC</div>
-            <div class="case-meta">
-              <div class="case-client-tag">Service.com.au · Home Services Marketplace</div>
-              <div class="case-year">2025</div>
-            </div>
-          </div>
-          <h2 class="case-title">Digital Transformation: SEO, Paid and UX Overhaul</h2>
-          <p class="case-desc">Led end-to-end digital transformation across a home services marketplace with three simultaneous workstreams: full SEO architecture rebuild, paid media restructure across Google and Meta, and UX improvements on web and app. All delivered without breaking what was already working.</p>
-          <div class="case-tags">
-            <span class="case-tag">Digital Transformation</span><span class="case-tag">SEO</span><span class="case-tag">Paid Media</span><span class="case-tag">UX</span><span class="case-tag">CRO</span>
-          </div>
-        </div>
-        <div class="case-card-right">
-          <div class="case-metrics-list">
-            <div class="case-metric"><div class="num v">+30%</div><div class="lbl">Organic traffic</div></div>
-            <div class="case-metric"><div class="num g">-18%</div><div class="lbl">Paid CPA</div></div>
-            <div class="case-metric"><div class="num">+23%</div><div class="lbl">Lead quality</div></div>
-          </div>
-          <div class="case-outcome"><span class="case-outcome-icon">🏠</span>Lead quality became the primary KPI and improved significantly alongside volume.</div>
-        </div>
-      </div>
+.reveal { opacity:0; transform:translateY(18px); transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out); }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal-delay-1 { transition-delay:0.08s; }
+.reveal-delay-2 { transition-delay:0.16s; }
+.reveal-delay-3 { transition-delay:0.24s; }
+.reveal-delay-4 { transition-delay:0.32s; }
+.reveal-delay-5 { transition-delay:0.4s; }
 
-      <!-- Coles -->
-      <div class="case-card reveal" data-categories="b2c seo-content paid-media">
-        <div class="case-card-left">
-          <div class="case-header">
-            <div class="case-logo">CL</div>
-            <div class="case-meta">
-              <div class="case-client-tag">Coles Group · Omnicom</div>
-              <div class="case-year">2023</div>
-            </div>
-          </div>
-          <h2 class="case-title">Integrated Digital Campaign: App Downloads and Loyalty Activation</h2>
-          <p class="case-desc">Developed and executed an integrated digital campaign to drive Coles app downloads and activate dormant loyalty members. Managed paid media strategy across Google and Meta, coordinated with the Coles CRM team on segmented push notification sequences, and built a performance dashboard to track cross-channel attribution.</p>
-          <div class="case-tags">
-            <span class="case-tag">Paid Media</span><span class="case-tag">App Marketing</span><span class="case-tag">Loyalty</span><span class="case-tag">B2C</span><span class="case-tag">CRM</span>
-          </div>
-        </div>
-        <div class="case-card-right">
-          <div class="case-metrics-list">
-            <div class="case-metric"><div class="num v">+34%</div><div class="lbl">App downloads</div></div>
-            <div class="case-metric"><div class="num g">+26%</div><div class="lbl">Loyalty reactivation</div></div>
-            <div class="case-metric"><div class="num">-15%</div><div class="lbl">Cost per install</div></div>
-          </div>
-          <div class="case-outcome"><span class="case-outcome-icon">🛒</span>Campaign exceeded download targets and reactivated a segment of loyalty members previously considered churned.</div>
-        </div>
-      </div>
+/* MODAL */
+.modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); backdrop-filter:blur(6px); z-index:9000; align-items:center; justify-content:center; padding:1.5rem; }
+.modal-overlay.open { display:flex; animation: fadeIn 0.2s ease; }
+.modal-box { background:var(--white); border-radius:16px; padding:2.25rem; max-width:560px; width:100%; max-height:88vh; overflow-y:auto; position:relative; animation:scaleIn 0.25s var(--ease-out); box-shadow:0 24px 80px rgba(0,0,0,0.22); }
+.modal-close { position:absolute; top:1.1rem; right:1.1rem; background:var(--off-white); border:none; width:30px; height:30px; border-radius:50%; font-size:0.95rem; cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--ink-soft); transition:background 0.2s; }
+.modal-close:hover { background:var(--cream); }
+.modal-eyebrow { font-family:var(--font-mono); font-size:0.65rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--violet); margin-bottom:0.4rem; }
+.modal-title { font-family:var(--font-display); font-size:1.4rem; font-weight:600; color:var(--ink); letter-spacing:-0.02em; line-height:1.2; margin-bottom:1.1rem; }
+.modal-desc { font-size:0.9rem; color:var(--ink-soft); line-height:1.75; margin-bottom:1.25rem; }
+.modal-includes { list-style:none; display:flex; flex-direction:column; gap:0.6rem; margin-bottom:1.25rem; }
+.modal-includes li { display:flex; align-items:flex-start; gap:0.6rem; font-size:0.88rem; color:var(--ink-soft); line-height:1.5; }
+.modal-includes li::before { content:'✓'; color:var(--violet); font-weight:700; flex-shrink:0; margin-top:0.05rem; }
+.modal-divider { height:1px; background:var(--border); margin:1.1rem 0; }
+.modal-note { font-size:0.78rem; color:var(--muted); line-height:1.6; }
 
-      <!-- 7-Eleven SEO -->
-      <div class="case-card reveal" data-categories="b2c seo-content">
-        <div class="case-card-left">
-          <div class="case-header">
-            <div class="case-logo">7E</div>
-            <div class="case-meta">
-              <div class="case-client-tag">7-Eleven Australia</div>
-              <div class="case-year">2022</div>
-            </div>
-          </div>
-          <h2 class="case-title">Local SEO Strategy and Content Overhaul for 700+ Locations</h2>
-          <p class="case-desc">Audited and rebuilt the local SEO strategy for 7-Eleven's 700+ Australian locations. Developed a templated local content framework, cleaned up Google Business Profile data at scale, and built location-specific landing pages to capture high-intent searches near each store.</p>
-          <div class="case-tags">
-            <span class="case-tag">Local SEO</span><span class="case-tag">Content</span><span class="case-tag">B2C</span><span class="case-tag">Google Business Profile</span>
-          </div>
-        </div>
-        <div class="case-card-right">
-          <div class="case-metrics-list">
-            <div class="case-metric"><div class="num v">+41%</div><div class="lbl">Local search visibility</div></div>
-            <div class="case-metric"><div class="num g">+29%</div><div class="lbl">Direction requests</div></div>
-            <div class="case-metric"><div class="num">700+</div><div class="lbl">Locations optimised</div></div>
-          </div>
-          <div class="case-outcome"><span class="case-outcome-icon">⛽</span>Local search visibility improved across all major metro markets within four months of rollout.</div>
-        </div>
-      </div>
+/* MOBILE */
+.nav-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
+.nav-hamburger span { display:block; width:22px; height:2px; background:var(--ink); border-radius:2px; transition:all 0.3s; }
+@media (max-width:960px) { .nav-hamburger { display:flex; } }
+.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--white); border-bottom:1px solid var(--border); padding:1.25rem 1.5rem; z-index:850; flex-direction:column; gap:0.35rem; box-shadow:0 8px 32px rgba(0,0,0,0.08); }
+.mobile-menu.open { display:flex; }
+.mobile-menu a { font-size:0.95rem; font-weight:500; color:var(--ink-soft); text-decoration:none; padding:0.6rem 0; border-bottom:1px solid var(--border-soft); transition:color 0.2s; }
+.mobile-menu a:hover { color:var(--violet); }
+.mobile-menu a:last-child { border-bottom:none; }
 
-      <!-- Floodgate B2B consulting -->
-      <div class="case-card reveal" data-categories="b2b consulting seo-content">
-        <div class="case-card-left">
-          <div class="case-header">
-            <div class="case-logo">FG</div>
-            <div class="case-meta">
-              <div class="case-client-tag">Floodgate Digital · Agency Clients</div>
-              <div class="case-year">2021 to 2023</div>
-            </div>
-          </div>
-          <h2 class="case-title">Growth Strategy Delivery Across 30+ Client Accounts</h2>
-          <p class="case-desc">As co-founder and Head of Strategy at Floodgate Digital, I led marketing strategy and execution across 30+ client accounts spanning professional services, SaaS, e-commerce, and retail. Grew the agency from 3 to 8 people while maintaining an average of 20% client revenue growth within the first six months of each engagement.</p>
-          <div class="case-tags">
-            <span class="case-tag">B2B</span><span class="case-tag">Consulting</span><span class="case-tag">Growth Strategy</span><span class="case-tag">SEO</span><span class="case-tag">Paid Media</span>
-          </div>
-        </div>
-        <div class="case-card-right">
-          <div class="case-metrics-list">
-            <div class="case-metric"><div class="num v">20%</div><div class="lbl">Avg. client revenue growth (6 months)</div></div>
-            <div class="case-metric"><div class="num g">30+</div><div class="lbl">Client accounts</div></div>
-            <div class="case-metric"><div class="num">3 to 8</div><div class="lbl">Team growth</div></div>
-          </div>
-          <div class="case-outcome"><span class="case-outcome-icon">📈</span>Every client engagement followed a repeatable strategy framework built around compounding results, not one-off campaigns.</div>
-        </div>
-      </div>
-
-      <!-- Beiersdorf / Dulux -->
-      <div class="case-card reveal" data-categories="b2c paid-media seo-content">
-        <div class="case-card-left">
-          <div class="case-header">
-            <div class="case-logo">BF</div>
-            <div class="case-meta">
-              <div class="case-client-tag">Beiersdorf and Dulux · Agency-side</div>
-              <div class="case-year">2019 to 2021</div>
-            </div>
-          </div>
-          <h2 class="case-title">Performance Marketing and SEO for Consumer FMCG Brands</h2>
-          <p class="case-desc">Managed paid search, display, and SEO campaigns for Beiersdorf (Nivea, Elastoplast, Hansaplast) and Dulux across Australia. Developed seasonal campaign strategies, optimised Google Shopping feeds for Dulux's trade and retail audiences, and built SEO content plans that improved organic share of voice in competitive FMCG categories.</p>
-          <div class="case-tags">
-            <span class="case-tag">Paid Search</span><span class="case-tag">Google Shopping</span><span class="case-tag">SEO</span><span class="case-tag">FMCG</span><span class="case-tag">B2C</span>
-          </div>
-        </div>
-        <div class="case-card-right">
-          <div class="case-metrics-list">
-            <div class="case-metric"><div class="num v">+28%</div><div class="lbl">Organic share of voice</div></div>
-            <div class="case-metric"><div class="num g">-19%</div><div class="lbl">Cost per click (Shopping)</div></div>
-            <div class="case-metric"><div class="num">+33%</div><div class="lbl">Shopping ROAS</div></div>
-          </div>
-          <div class="case-outcome"><span class="case-outcome-icon">🧴</span>Google Shopping restructure delivered the strongest ROAS improvement of the year for the Dulux trade audience segment.</div>
-        </div>
-      </div>
-
-    </div>
-    <p class="no-results" id="noResults">No case studies found for this filter. Try another category.</p>
-  </section>
-
-  <!-- RESULTS SUMMARY -->
-  <div class="results-summary">
-    <div class="results-summary-inner">
-      <div class="rs-item reveal"><div class="rs-num">30<span>%</span></div><div class="rs-label">Avg organic lift</div></div>
-      <div class="rs-item reveal reveal-delay-1"><div class="rs-num">22<span>%</span></div><div class="rs-label">Churn reduction (McDonald's)</div></div>
-      <div class="rs-item reveal reveal-delay-2"><div class="rs-num">45<span>%</span></div><div class="rs-label">Email open rate lift</div></div>
-      <div class="rs-item reveal reveal-delay-3"><div class="rs-num">40<span>%</span></div><div class="rs-label">CTR lift (VW)</div></div>
-      <div class="rs-item reveal reveal-delay-4"><div class="rs-num">3.4<span>x</span></div><div class="rs-label">ROAS improvement</div></div>
-    </div>
-  </div>
-
-  <section class="work-cta">
-    <div class="work-cta-inner reveal">
-      <div class="section-eyebrow" style="justify-content:center;">Work with me</div>
-      <h2 class="section-title">Want results like these?</h2>
-      <p class="section-desc" style="margin: 0 auto 1.75rem;">These results came from building systems, not running one-off campaigns. If you are ready to do the same, let's talk.</p>
-      <a href="contact.html" class="btn btn-dark">Book a discovery call <span class="arrow">→</span></a>
-    </div>
-  </section>
-
-</div>
-<script src="shared.js"></script>
-<script>
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const filter = btn.dataset.filter;
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const cards = document.querySelectorAll('.case-card');
-    let visible = 0;
-    cards.forEach(card => {
-      const cats = card.dataset.categories || '';
-      if (filter === 'all' || cats.includes(filter)) {
-        card.classList.remove('hidden');
-        visible++;
-      } else {
-        card.classList.add('hidden');
-      }
-    });
-    document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
-  });
-});
-</script>
-</body>
-</html>
+@media (max-width:960px) {
+  .nav { padding: 0 1.25rem; }
+  .nav-links { display:none; }
+  .container { padding: 0 1.25rem; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer { padding: 2.5rem 1.25rem 1.5rem; }
+  .footer-bottom { flex-direction:column; gap:0.5rem; text-align:center; }
+}

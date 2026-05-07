@@ -4,478 +4,313 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Services — Shreya Kulkarni</title>
-<meta name="description" content="AI Content Agency, AI SEO Tool, AI Marketing OS courses, and the B2B AI newsletter. Four ways to work with Shreya Kulkarni.">
+<meta name="description" content="Strategy consulting, B2B marketing, B2C marketing, AI content, and paid media. Five ways to work with Shreya Kulkarni.">
 <link rel="stylesheet" href="style.css">
 <style>
-
-.page-header {
-  padding: calc(var(--nav-h) + 5rem) 3rem 4rem;
-  background: var(--ink);
-  position: relative;
-  overflow: hidden;
-}
-.page-header-glow {
-  position: absolute;
-  top: -100px; right: -100px;
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(109,40,217,0.2) 0%, transparent 60%);
-  pointer-events: none;
-}
-.page-header-inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  position: relative; z-index: 1;
-}
+.page-header { padding: calc(var(--nav-h) + 4rem) 2.5rem 3.5rem; background: var(--ink); position: relative; overflow: hidden; }
+.page-header-glow { position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(109,40,217,0.22) 0%, transparent 60%); pointer-events: none; animation: blobFloat 9s ease-in-out infinite; }
+@keyframes blobFloat { 0%,100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+.page-header-inner { max-width: var(--max-w); margin: 0 auto; position: relative; z-index: 1; }
 .page-header .section-eyebrow { color: var(--violet-light); }
-.page-header .section-title { color: var(--white); font-size: clamp(2.5rem,5vw,4.5rem); }
-.page-header .section-desc { color: rgba(255,255,255,0.5); max-width: 600px; }
+.page-header .section-title { color: var(--white); font-size: clamp(2.4rem,5vw,4.2rem); }
+.page-header .section-desc { color: rgba(255,255,255,0.55); max-width: 580px; }
 
-/* SERVICE NAV TABS */
-.service-nav {
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
-  padding: 0 3rem;
-  position: sticky;
-  top: var(--nav-h);
-  z-index: 80;
-}
-.service-nav-inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  display: flex;
-  gap: 0;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
+/* PRICING NOTE */
+.pricing-note { background: var(--violet-pale); border-bottom: 1px solid #DDD6FE; padding: 0.85rem 2.5rem; }
+.pricing-note-inner { max-width: var(--max-w); margin: 0 auto; display: flex; align-items: center; gap: 0.75rem; font-size: 0.84rem; color: var(--violet); }
+.pricing-note-icon { font-size: 1rem; flex-shrink: 0; }
+
+/* SERVICE NAV */
+.service-nav { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 2.5rem; position: sticky; top: var(--nav-h); z-index: 80; }
+.service-nav-inner { max-width: var(--max-w); margin: 0 auto; display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
 .service-nav-inner::-webkit-scrollbar { display: none; }
-.service-tab {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1.1rem 1.5rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--muted);
-  text-decoration: none;
-  border-bottom: 2px solid transparent;
-  white-space: nowrap;
-  transition: color 0.2s, border-color 0.2s;
-}
+.service-tab { display: flex; align-items: center; gap: 0.45rem; padding: 1rem 1.25rem; font-size: 0.82rem; font-weight: 500; color: var(--muted); text-decoration: none; border-bottom: 2px solid transparent; white-space: nowrap; transition: color 0.2s, border-color 0.2s; }
 .service-tab:hover { color: var(--ink); }
 .service-tab.active { color: var(--violet); border-bottom-color: var(--violet); }
 
 /* SERVICE SECTIONS */
-.service-section {
-  padding: 7rem 3rem;
-  scroll-margin-top: calc(var(--nav-h) + 56px);
-}
-.service-section:nth-child(even) { background: var(--off-white); }
+.service-section { padding: 5.5rem 2.5rem; scroll-margin-top: calc(var(--nav-h) + 56px); }
 .service-section:nth-child(odd) { background: var(--white); }
+.service-section:nth-child(even) { background: var(--off-white); }
+.service-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr 400px; gap: 4.5rem; align-items: start; }
+.service-num-label { font-family: var(--font-mono); font-size: 0.65rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
+.service-title { font-family: var(--font-display); font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 600; color: var(--ink); letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 1.1rem; }
+.service-desc { font-size: 0.97rem; color: var(--ink-soft); line-height: 1.8; margin-bottom: 1.5rem; }
+.service-deliverables { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 2rem; }
+.service-deliverables li { display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.88rem; color: var(--ink-soft); line-height: 1.5; }
+.service-deliverables li::before { content: '→'; color: var(--violet); font-weight: 600; flex-shrink: 0; }
 
-.service-inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 440px;
-  gap: 5rem;
-  align-items: start;
-}
-
-.service-left {}
-.service-num-label {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  color: var(--muted);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-}
-.service-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
-  font-weight: 600;
-  color: var(--ink);
-  letter-spacing: -0.03em;
-  line-height: 1.15;
-  margin-bottom: 1.25rem;
-}
-.service-desc {
-  font-size: 1rem;
-  color: var(--ink-soft);
-  line-height: 1.8;
-  margin-bottom: 2rem;
-}
-.service-deliverables {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  margin-bottom: 2.5rem;
-}
-.service-deliverables li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  font-size: 0.9rem;
-  color: var(--ink-soft);
-  line-height: 1.5;
-}
-.service-deliverables li::before {
-  content: '→';
-  color: var(--violet);
-  font-weight: 600;
-  flex-shrink: 0;
-  margin-top: 0.05rem;
-}
-
-.service-right {}
-.service-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 2rem;
-  position: sticky;
-  top: calc(var(--nav-h) + 80px);
-}
-.service-price-label {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-  margin-bottom: 0.35rem;
-}
-.service-price {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--ink);
-  letter-spacing: -0.04em;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--border);
-}
-.service-price small {
-  font-size: 0.85rem;
-  color: var(--muted);
-  font-family: var(--font-body);
-  font-weight: 400;
-  letter-spacing: 0;
-}
-.service-includes {
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-  margin-bottom: 2rem;
-}
-.service-include {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-size: 0.85rem;
-  color: var(--ink-soft);
-}
-.service-include::before {
-  content: '✓';
-  color: var(--violet);
-  font-weight: 700;
-  font-size: 0.8rem;
-}
-.service-card-note {
-  font-size: 0.75rem;
-  color: var(--muted);
-  text-align: center;
-  margin-top: 1rem;
-  line-height: 1.5;
-}
-
-/* IDEAL FOR SECTION */
-.ideal-for {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 1.25rem;
-  background: var(--violet-pale);
-  border-radius: 10px;
-  margin-bottom: 1.5rem;
-}
-.ideal-for-label {
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--violet);
-  margin-bottom: 0.25rem;
-}
-.ideal-for-item {
-  font-size: 0.82rem;
-  color: var(--violet-mid);
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
+/* SERVICE CARD (right column) */
+.service-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; position: sticky; top: calc(var(--nav-h) + 70px); }
+.service-card-title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 0.3rem; }
+.service-card-sub { font-size: 0.82rem; color: var(--muted); margin-bottom: 1.25rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border); }
+.ideal-for { background: var(--violet-pale); border-radius: 8px; padding: 1.1rem; margin-bottom: 1.25rem; }
+.ideal-for-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--violet); margin-bottom: 0.5rem; }
+.ideal-for-item { font-size: 0.8rem; color: var(--violet-mid); display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.25rem; }
+.ideal-for-item:last-child { margin-bottom: 0; }
 .ideal-for-item::before { content: '·'; font-weight: 700; }
+.service-card-actions { display: flex; flex-direction: column; gap: 0.6rem; }
+.service-card-actions .btn { justify-content: center; }
+.pricing-callout { font-size: 0.78rem; color: var(--muted); text-align: center; margin-top: 0.5rem; line-height: 1.5; }
 
 /* HOW IT WORKS */
-.how-section {
-  padding: 6rem 3rem;
-  background: var(--ink);
-}
-.how-inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
-}
+.how-section { padding: 5rem 2.5rem; background: var(--ink); }
+.how-inner { max-width: var(--max-w); margin: 0 auto; }
 .how-section .section-title { color: var(--white); }
 .how-section .section-eyebrow { color: var(--violet-light); }
-.how-steps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  margin-top: 3rem;
-  background: rgba(255,255,255,0.06);
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.06);
-}
-.how-step {
-  padding: 2.5rem 2rem;
-  background: rgba(255,255,255,0.02);
-}
-.how-step-num {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--violet-light);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-.how-step-title {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--white);
-  margin-bottom: 0.6rem;
-  letter-spacing: -0.02em;
-}
-.how-step-desc {
-  font-size: 0.83rem;
-  color: rgba(255,255,255,0.45);
-  line-height: 1.7;
-}
+.how-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 2.5rem; background: rgba(255,255,255,0.06); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); }
+.how-step { padding: 2rem 1.75rem; background: rgba(255,255,255,0.02); transition: background 0.2s; }
+.how-step:hover { background: rgba(109,40,217,0.1); }
+.how-step-num { font-family: var(--font-mono); font-size: 0.67rem; color: var(--violet-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.85rem; }
+.how-step-title { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+.how-step-desc { font-size: 0.81rem; color: rgba(255,255,255,0.45); line-height: 1.7; }
 
-/* RESPONSIVE */
+/* MODALS (service specific) */
+.modal-section-head { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink); margin: 1rem 0 0.5rem; }
+
 @media (max-width: 960px) {
-  .page-header { padding: calc(var(--nav-h) + 2.5rem) 1.5rem 2.5rem; }
-  .service-nav { padding: 0 1.5rem; }
-  .service-section { padding: 4rem 1.5rem; }
-  .service-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .page-header { padding: calc(var(--nav-h) + 2rem) 1.25rem 2rem; }
+  .service-nav { padding: 0 1.25rem; }
+  .service-section { padding: 3.5rem 1.25rem; }
+  .service-inner { grid-template-columns: 1fr; gap: 2rem; }
   .service-card { position: static; }
   .how-steps { grid-template-columns: 1fr 1fr; }
-  .how-section { padding: 4rem 1.5rem; }
+  .how-section { padding: 3.5rem 1.25rem; }
+  .pricing-note { padding: 0.75rem 1.25rem; }
 }
-@media (max-width: 600px) {
-  .how-steps { grid-template-columns: 1fr; }
-}
+@media (max-width: 600px) { .how-steps { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 <div class="page-wrap">
 
-  <!-- HEADER -->
   <div class="page-header">
     <div class="page-header-glow"></div>
     <div class="page-header-inner">
       <div class="section-eyebrow">Services</div>
-      <h1 class="section-title">Four ways to work<br>together.</h1>
-      <p class="section-desc">Done-for-you, self-serve, or educational — there's a tier for every budget and every stage of growth.</p>
+      <h1 class="section-title">Five ways to work together.</h1>
+      <p class="section-desc">Strategy, execution, or education. Every engagement is scoped to your actual situation, not a price list.</p>
     </div>
   </div>
 
-  <!-- STICKY SERVICE NAV -->
+  <div class="pricing-note">
+    <div class="pricing-note-inner">
+      <span class="pricing-note-icon">💬</span>
+      All pricing is quoted based on your specific requirements. Retainer and project-based arrangements available. <a href="contact.html" style="color:var(--violet);font-weight:600;text-decoration:none;">Get a quote →</a>
+    </div>
+  </div>
+
   <div class="service-nav">
     <div class="service-nav-inner">
-      <a href="#agency" class="service-tab active">📝 AI Content Agency</a>
-      <a href="#seo-tool" class="service-tab">🔍 AI SEO Tool</a>
-      <a href="#courses" class="service-tab">🎓 AI Marketing OS</a>
-      <a href="#newsletter" class="service-tab">📬 Newsletter</a>
+      <a href="#consulting" class="service-tab active">🧠 Strategy Consulting</a>
+      <a href="#b2b" class="service-tab">📊 B2B Marketing</a>
+      <a href="#b2c" class="service-tab">🛍 B2C Marketing</a>
+      <a href="#ai-content" class="service-tab">✍ AI Content</a>
+      <a href="#paid-media" class="service-tab">🎯 Paid Media</a>
     </div>
   </div>
 
-  <!-- 01 — AGENCY -->
-  <section class="service-section" id="agency">
+  <!-- 01 CONSULTING -->
+  <section class="service-section" id="consulting">
     <div class="service-inner">
       <div class="service-left reveal">
         <p class="service-num-label">Service 01</p>
-        <h2 class="service-title">AI Content & SEO Agency</h2>
-        <p class="service-desc">Done-for-you content and SEO execution for B2B SaaS and tech companies. I combine AI efficiency with senior marketing strategy — producing blog posts, landing pages, email sequences, and ad copy at a volume and quality traditional agencies can't match at this price point.</p>
-        <p class="service-desc">You get the output of a full content team without hiring one. Every piece of content is strategically rooted — keyword-mapped, ICP-aligned, and conversion-focused.</p>
-
+        <h2 class="service-title">Strategy Consulting</h2>
+        <p class="service-desc">Structured, data-driven strategic advice for businesses that need clarity before they need execution. Think McKinsey-style rigour applied at the right scale for growth businesses. I work through the problem, not around it.</p>
+        <p class="service-desc">This covers go-to-market strategy, channel prioritisation, growth planning, market positioning, and marketing function audits. You get a clear recommendation with the reasoning behind it, not a vague framework with your logo on it.</p>
         <ul class="service-deliverables">
-          <li>SEO blog posts & pillar content (4–12/month)</li>
-          <li>Landing page copy & A/B testing variants</li>
-          <li>Email nurture sequences (lead gen to close)</li>
-          <li>Ad copy — Google, LinkedIn, Meta</li>
-          <li>Monthly content & SEO performance reporting</li>
-          <li>Quarterly content strategy review</li>
+          <li>Go-to-market strategy and launch sequencing</li>
+          <li>Channel mix analysis and prioritisation</li>
+          <li>Growth planning and roadmap development</li>
+          <li>Marketing function audit and restructure</li>
+          <li>Competitive positioning and market analysis</li>
+          <li>Board-ready marketing presentations</li>
         </ul>
-
-        <a href="contact.html" class="btn btn-dark">Book a discovery call <span class="arrow">→</span></a>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-dark">Book a consultation <span class="arrow">→</span></a>
+          <button class="btn btn-outline" onclick="openModal('modal-consulting')">Know more</button>
+        </div>
       </div>
-
       <div class="service-right reveal reveal-delay-2">
         <div class="service-card">
-          <p class="service-price-label">Starting from</p>
-          <div class="service-price">$2,000 <small>/ month</small></div>
+          <div class="service-card-title">Strategy Consulting</div>
+          <div class="service-card-sub">Quoted per project or retainer. Discovery call is free.</div>
           <div class="ideal-for">
             <p class="ideal-for-label">Ideal for</p>
-            <p class="ideal-for-item">B2B SaaS companies (Seed to Series B)</p>
-            <p class="ideal-for-item">Tech companies scaling organic growth</p>
-            <p class="ideal-for-item">Founders who need content but not a team</p>
+            <p class="ideal-for-item">Founders deciding where to invest their marketing budget</p>
+            <p class="ideal-for-item">Scale-ups needing a clear go-to-market plan</p>
+            <p class="ideal-for-item">Teams that need an outside perspective on what is not working</p>
           </div>
-          <div class="service-includes">
-            <p class="service-include">SEO strategy & keyword mapping</p>
-            <p class="service-include">AI-powered content production</p>
-            <p class="service-include">Human editorial review & strategy layer</p>
-            <p class="service-include">Monthly performance reporting</p>
-            <p class="service-include">Dedicated Slack channel</p>
-            <p class="service-include">Flexible month-to-month</p>
+          <div class="service-card-actions">
+            <a href="contact.html" class="btn btn-violet">Get a quote <span class="arrow">→</span></a>
+            <button class="btn btn-outline" onclick="openModal('modal-consulting')">Know more</button>
           </div>
-          <a href="contact.html" class="btn btn-violet" style="width:100%; justify-content:center;">Book discovery call <span class="arrow">→</span></a>
-          <p class="service-card-note">3-month minimum for SEO results. First call is free, no pitch, just clarity.</p>
+          <p class="pricing-callout">Project-based and monthly retainer arrangements available.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 02 — SEO TOOL -->
-  <section class="service-section" id="seo-tool">
+  <!-- 02 B2B -->
+  <section class="service-section" id="b2b">
     <div class="service-inner">
       <div class="service-left reveal">
         <p class="service-num-label">Service 02</p>
-        <h2 class="service-title">AI SEO Tool — SaaS <span class="badge" style="font-size:0.65rem;vertical-align:middle;margin-left:0.5rem;">Coming Soon</span></h2>
-        <p class="service-desc">A B2B-focused SaaS platform that turns your product description, ideal customer profile, and keyword targets into SEO-ready content briefs and full blog post drafts — in minutes, not days.</p>
-        <p class="service-desc">Built from 7 years of actually doing B2B content, not just generating it. The output is strategically structured, not ChatGPT soup. Think: a junior content strategist who never sleeps and knows your ICP cold.</p>
-
+        <h2 class="service-title">B2B Marketing</h2>
+        <p class="service-desc">Full-service B2B marketing for SaaS, tech, and professional services companies. I handle the full stack: SEO, content, paid media, CRM, email, and demand generation. You get a single senior strategist who understands how all these channels interact, not a siloed specialist for each one.</p>
+        <p class="service-desc">This works particularly well for companies that have a strong product but have not yet built a repeatable marketing engine to match it.</p>
         <ul class="service-deliverables">
-          <li>ICP-aligned content brief generation</li>
-          <li>SEO-optimised blog draft output</li>
-          <li>Keyword clustering & search intent mapping</li>
-          <li>Content gap analysis vs. competitors</li>
-          <li>Auto-generated meta titles & descriptions</li>
-          <li>Content calendar planning</li>
+          <li>SEO strategy and content pipeline</li>
+          <li>Paid media across Google, LinkedIn, and Meta</li>
+          <li>Email nurture and CRM workflows</li>
+          <li>Demand generation and lead scoring</li>
+          <li>Account-based marketing (ABM)</li>
+          <li>Monthly performance reporting and strategy review</li>
         </ul>
-
-        <a href="contact.html?ref=seo-tool" class="btn btn-dark">Join the waitlist <span class="arrow">→</span></a>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-dark">Book a discovery call <span class="arrow">→</span></a>
+          <button class="btn btn-outline" onclick="openModal('modal-b2b')">Know more</button>
+        </div>
       </div>
-
       <div class="service-right reveal reveal-delay-2">
         <div class="service-card">
-          <p class="service-price-label">Planned pricing</p>
-          <div class="service-price">$49–$99 <small>/ month</small></div>
+          <div class="service-card-title">B2B Marketing</div>
+          <div class="service-card-sub">Monthly retainer or project-based. Scoped to your needs.</div>
           <div class="ideal-for">
             <p class="ideal-for-label">Ideal for</p>
-            <p class="ideal-for-item">Solo B2B marketers & content managers</p>
-            <p class="ideal-for-item">Founders doing their own SEO</p>
-            <p class="ideal-for-item">Agencies managing multiple client sites</p>
+            <p class="ideal-for-item">B2B SaaS companies from Seed to Series B</p>
+            <p class="ideal-for-item">Tech companies scaling their organic and paid acquisition</p>
+            <p class="ideal-for-item">Teams replacing or supplementing an in-house marketer</p>
           </div>
-          <div class="service-includes">
-            <p class="service-include">Content brief generation</p>
-            <p class="service-include">ICP & product-aware output</p>
-            <p class="service-include">Keyword intent mapping</p>
-            <p class="service-include">SEO scoring on every draft</p>
-            <p class="service-include">Meta copy generation</p>
-            <p class="service-include">Early access pricing for waitlist</p>
+          <div class="service-card-actions">
+            <a href="contact.html" class="btn btn-violet">Get a quote <span class="arrow">→</span></a>
+            <button class="btn btn-outline" onclick="openModal('modal-b2b')">Know more</button>
           </div>
-          <a href="contact.html?ref=seo-tool" class="btn btn-violet" style="width:100%; justify-content:center;">Join the waitlist <span class="arrow">→</span></a>
-          <p class="service-card-note">Currently in development. Waitlist gets 50% off launch pricing.</p>
+          <p class="pricing-callout">Retainer preferred. Minimum 3-month engagement for SEO and content work.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 03 — COURSES -->
-  <section class="service-section" id="courses">
+  <!-- 03 B2C -->
+  <section class="service-section" id="b2c">
     <div class="service-inner">
       <div class="service-left reveal">
         <p class="service-num-label">Service 03</p>
-        <h2 class="service-title">AI Marketing OS — Courses & Templates</h2>
-        <p class="service-desc">A Notion-based system and mini-course teaching B2B marketers to run their entire marketing function with AI. This is the exact playbook I use with enterprise clients — systematised and packaged so you can implement it yourself.</p>
-        <p class="service-desc">Not theoretical. Not recycled ChatGPT tips. Every framework, template, and prompt has been tested on real campaigns for real companies.</p>
-
+        <h2 class="service-title">B2C Marketing</h2>
+        <p class="service-desc">Performance and brand marketing for consumer businesses. I have worked across retail, QSR, automotive, and home services, running campaigns that balance brand equity with measurable acquisition outcomes.</p>
+        <p class="service-desc">I know Google, Meta, and LinkedIn platforms deeply and have managed DCO campaigns, personalisation programs, and programmatic campaigns at enterprise scale. The same quality of thinking, applied to your consumer audience.</p>
         <ul class="service-deliverables">
-          <li>Full Notion marketing OS template</li>
-          <li>100+ AI prompts for B2B marketing (tested)</li>
-          <li>SEO & content workflow templates</li>
-          <li>Email campaign frameworks & templates</li>
-          <li>Paid media audit checklists</li>
-          <li>Video walkthroughs for every module</li>
+          <li>Google Ads, Meta Ads, and LinkedIn campaign management</li>
+          <li>Dynamic creative optimisation (DCO)</li>
+          <li>Audience strategy and segmentation</li>
+          <li>Programmatic and display advertising</li>
+          <li>CRM personalisation and loyalty programs</li>
+          <li>Campaign reporting and attribution</li>
         </ul>
-
-        <a href="courses.html" class="btn btn-dark">Browse courses <span class="arrow">→</span></a>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-dark">Book a discovery call <span class="arrow">→</span></a>
+          <button class="btn btn-outline" onclick="openModal('modal-b2c')">Know more</button>
+        </div>
       </div>
-
       <div class="service-right reveal reveal-delay-2">
         <div class="service-card">
-          <p class="service-price-label">Products from</p>
-          <div class="service-price">$27 <small>one-time</small></div>
+          <div class="service-card-title">B2C Marketing</div>
+          <div class="service-card-sub">Quoted based on channels, scope and volume.</div>
           <div class="ideal-for">
             <p class="ideal-for-label">Ideal for</p>
-            <p class="ideal-for-item">B2B marketers wanting to work smarter</p>
-            <p class="ideal-for-item">Solo founders doing their own marketing</p>
-            <p class="ideal-for-item">Agency owners systemising their work</p>
+            <p class="ideal-for-item">Consumer brands needing senior campaign management</p>
+            <p class="ideal-for-item">Retail and ecommerce businesses scaling paid acquisition</p>
+            <p class="ideal-for-item">QSR, hospitality, and lifestyle brands</p>
           </div>
-          <div class="service-includes">
-            <p class="service-include">AI Content Starter Kit — $47</p>
-            <p class="service-include">100+ B2B Prompt Library — $27</p>
-            <p class="service-include">AI Marketing OS Full Course — $197</p>
-            <p class="service-include">Instant digital delivery</p>
-            <p class="service-include">Lifetime updates included</p>
-            <p class="service-include">Private community access</p>
+          <div class="service-card-actions">
+            <a href="contact.html" class="btn btn-violet">Get a quote <span class="arrow">→</span></a>
+            <button class="btn btn-outline" onclick="openModal('modal-b2c')">Know more</button>
           </div>
-          <a href="courses.html" class="btn btn-violet" style="width:100%; justify-content:center;">View all products <span class="arrow">→</span></a>
-          <p class="service-card-note">Notify me of launch — email shreyak800@gmail.com</p>
+          <p class="pricing-callout">Project and retainer arrangements available.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 04 — NEWSLETTER -->
-  <section class="service-section" id="newsletter">
+  <!-- 04 AI CONTENT -->
+  <section class="service-section" id="ai-content">
     <div class="service-inner">
       <div class="service-left reveal">
         <p class="service-num-label">Service 04</p>
-        <h2 class="service-title">AI for B2B Marketers — Newsletter</h2>
-        <p class="service-desc">Weekly insights on using AI for SEO, content, paid media, and marketing automation. Written by a practitioner with 7+ years and enterprise case studies to back it up — not a content farm.</p>
-        <p class="service-desc">Every issue contains real tactics, real results, and honest takes. No fluff. No affiliate content. Just the stuff I'm actually testing and using.</p>
-
+        <h2 class="service-title">AI Content</h2>
+        <p class="service-desc">Done-for-you content production using AI, guided by a senior strategy layer. This is not prompt-and-publish. Every piece is keyword-mapped, ICP-aligned, and reviewed before it goes out. The AI handles speed. I handle quality and strategy.</p>
+        <p class="service-desc">The output is blog posts, landing pages, email sequences, user guides, product copy, and ad creative at a volume and quality a traditional content team would take three times as long to produce.</p>
         <ul class="service-deliverables">
-          <li>Weekly AI marketing tactics (every Thursday)</li>
-          <li>Tool reviews & prompt breakdowns</li>
-          <li>Case studies from real campaigns I've run</li>
-          <li>Subscriber-only templates & frameworks</li>
-          <li>Early access to new products & waitlists</li>
+          <li>SEO blog posts and pillar content</li>
+          <li>Landing page and product copy</li>
+          <li>Email nurture sequences</li>
+          <li>User guides and help documentation</li>
+          <li>Ad copy for Google, Meta, and LinkedIn</li>
+          <li>Newsletter content and social copy</li>
         </ul>
-
-        <a href="newsletter.html" class="btn btn-dark">Subscribe free <span class="arrow">→</span></a>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-dark">Book a discovery call <span class="arrow">→</span></a>
+          <button class="btn btn-outline" onclick="openModal('modal-ai-content')">Know more</button>
+        </div>
       </div>
-
       <div class="service-right reveal reveal-delay-2">
         <div class="service-card">
-          <p class="service-price-label">Price</p>
-          <div class="service-price">Free</div>
+          <div class="service-card-title">AI Content</div>
+          <div class="service-card-sub">Monthly retainer or per-project. Volume-based pricing.</div>
           <div class="ideal-for">
-            <p class="ideal-for-label">You'll get</p>
-            <p class="ideal-for-item">Weekly AI tactics that actually work</p>
-            <p class="ideal-for-item">Real case studies, no theory</p>
-            <p class="ideal-for-item">Templates & prompts every issue</p>
+            <p class="ideal-for-label">Ideal for</p>
+            <p class="ideal-for-item">Companies that need content output but not a full team</p>
+            <p class="ideal-for-item">SaaS and tech businesses scaling SEO and inbound</p>
+            <p class="ideal-for-item">Teams supplementing an existing content function</p>
           </div>
-          <div class="service-includes">
-            <p class="service-include">Weekly newsletter (Thursday)</p>
-            <p class="service-include">Subscriber-only templates</p>
-            <p class="service-include">No ads. No affiliate spam.</p>
-            <p class="service-include">Unsubscribe anytime</p>
+          <div class="service-card-actions">
+            <a href="contact.html" class="btn btn-violet">Get a quote <span class="arrow">→</span></a>
+            <button class="btn btn-outline" onclick="openModal('modal-ai-content')">Know more</button>
           </div>
-          <a href="newsletter.html" class="btn btn-violet" style="width:100%; justify-content:center;">Subscribe now — it's free <span class="arrow">→</span></a>
+          <p class="pricing-callout">Retainer preferred for SEO content. Project rates available for one-off campaigns.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 PAID MEDIA -->
+  <section class="service-section" id="paid-media">
+    <div class="service-inner">
+      <div class="service-left reveal">
+        <p class="service-num-label">Service 05</p>
+        <h2 class="service-title">Paid Media</h2>
+        <p class="service-desc">Google Ads, Meta Ads, and LinkedIn Ads, managed by someone who has run campaigns at enterprise scale and knows where budgets go to die. I do not just set up campaigns. I build the strategy behind them: audience structure, bidding logic, creative testing frameworks, and attribution.</p>
+        <p class="service-desc">From a startup's first paid acquisition experiment to a seven-figure enterprise account, the principles are the same. Spend where it works. Cut what it does not. Test fast.</p>
+        <ul class="service-deliverables">
+          <li>Google Search, Display, Shopping, and YouTube</li>
+          <li>Meta Ads (Facebook and Instagram)</li>
+          <li>LinkedIn Ads for B2B lead generation</li>
+          <li>Campaign strategy and audience architecture</li>
+          <li>Creative testing and optimisation</li>
+          <li>Conversion tracking and attribution setup</li>
+          <li>Monthly performance reporting</li>
+        </ul>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-dark">Book a discovery call <span class="arrow">→</span></a>
+          <button class="btn btn-outline" onclick="openModal('modal-paid-media')">Know more</button>
+        </div>
+      </div>
+      <div class="service-right reveal reveal-delay-2">
+        <div class="service-card">
+          <div class="service-card-title">Paid Media</div>
+          <div class="service-card-sub">Quoted based on platforms, ad spend, and scope.</div>
+          <div class="ideal-for">
+            <p class="ideal-for-label">Ideal for</p>
+            <p class="ideal-for-item">Businesses ready to invest seriously in paid acquisition</p>
+            <p class="ideal-for-item">Teams with existing accounts that are underperforming</p>
+            <p class="ideal-for-item">B2B and B2C businesses across any industry</p>
+          </div>
+          <div class="service-card-actions">
+            <a href="contact.html" class="btn btn-violet">Get a quote <span class="arrow">→</span></a>
+            <button class="btn btn-outline" onclick="openModal('modal-paid-media')">Know more</button>
+          </div>
+          <p class="pricing-callout">Management fee quoted separately from ad spend. Minimum ad spend applies.</p>
         </div>
       </div>
     </div>
@@ -485,51 +320,169 @@
   <section class="how-section">
     <div class="how-inner">
       <div class="reveal">
-        <div class="section-eyebrow">How the agency works</div>
-        <h2 class="section-title" style="color:var(--white);">From discovery to delivery.</h2>
+        <div class="section-eyebrow">How it works</div>
+        <h2 class="section-title" style="color:var(--white);">From first call to results.</h2>
       </div>
       <div class="how-steps">
         <div class="how-step reveal">
           <p class="how-step-num">Step 01</p>
           <h3 class="how-step-title">Discovery call</h3>
-          <p class="how-step-desc">30-minute call to understand your product, ICP, goals, and current content gaps. No pitch — just clarity.</p>
+          <p class="how-step-desc">30 minutes. I ask about your product, goals, and current situation. No pitch. You leave with at least one useful idea regardless of whether we work together.</p>
         </div>
         <div class="how-step reveal reveal-delay-1">
           <p class="how-step-num">Step 02</p>
-          <h3 class="how-step-title">Strategy & onboarding</h3>
-          <p class="how-step-desc">I build your content strategy, keyword map, and brand voice guide. Takes one week.</p>
+          <h3 class="how-step-title">Scope and proposal</h3>
+          <p class="how-step-desc">I come back with a clear scope, timeline, and quote based on your specific situation. Not a template.</p>
         </div>
         <div class="how-step reveal reveal-delay-2">
           <p class="how-step-num">Step 03</p>
-          <h3 class="how-step-title">Production begins</h3>
-          <p class="how-step-desc">AI-assisted content production with my editorial layer on everything. Delivered on a clear schedule.</p>
+          <h3 class="how-step-title">Strategy and onboarding</h3>
+          <p class="how-step-desc">We align on strategy, brand voice, and priorities before execution starts. This week saves months later.</p>
         </div>
         <div class="how-step reveal reveal-delay-3">
           <p class="how-step-num">Step 04</p>
-          <h3 class="how-step-title">Measure & improve</h3>
-          <p class="how-step-desc">Monthly reporting with real data. What's working gets amplified. What isn't gets cut.</p>
+          <h3 class="how-step-title">Deliver and improve</h3>
+          <p class="how-step-desc">Regular delivery, regular reporting, and an ongoing feedback loop. What works gets amplified. What does not gets cut.</p>
         </div>
       </div>
     </div>
   </section>
 
 </div>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="modal-consulting">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-consulting')">✕</button>
+    <p class="modal-eyebrow">Service 01</p>
+    <h2 class="modal-title">Strategy Consulting</h2>
+    <p class="modal-desc">Structured strategic advice built around your specific business situation. I work through the problem properly, present clear recommendations with reasoning, and leave you with something actionable, not a vague slide deck.</p>
+    <p class="modal-section-head">What you get</p>
+    <ul class="modal-includes">
+      <li>A structured discovery process to understand your market, product, and goals</li>
+      <li>A written strategic recommendation with clear reasoning</li>
+      <li>Channel prioritisation with logic behind each recommendation</li>
+      <li>Go-to-market plan or growth roadmap depending on the brief</li>
+      <li>A follow-up session to answer questions and refine the output</li>
+      <li>Optionally: ongoing advisory retainer for continued strategic support</li>
+    </ul>
+    <div class="modal-divider"></div>
+    <p class="modal-note">Typical engagements run 2 to 8 weeks. Pricing quoted after discovery call. Retainer arrangements available for ongoing advisory work.</p>
+    <br>
+    <a href="contact.html" class="btn btn-violet" style="width:100%;justify-content:center;">Book a discovery call <span class="arrow">→</span></a>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-b2b">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-b2b')">✕</button>
+    <p class="modal-eyebrow">Service 02</p>
+    <h2 class="modal-title">B2B Marketing</h2>
+    <p class="modal-desc">Full-service B2B marketing for companies that want a senior marketing partner, not a junior generalist. I manage the full stack so your channels actually work together.</p>
+    <p class="modal-section-head">What you get</p>
+    <ul class="modal-includes">
+      <li>SEO strategy: keyword research, content architecture, and technical audit</li>
+      <li>Content production: blog posts, landing pages, case studies, and email sequences</li>
+      <li>Paid media: Google, LinkedIn, and Meta campaigns set up and managed</li>
+      <li>CRM and email: nurture workflows, segmentation, and lifecycle campaigns</li>
+      <li>Demand generation: lead scoring, intent signals, and ABM where relevant</li>
+      <li>Monthly reporting: what is working, what is not, and what changes next</li>
+      <li>Quarterly strategy review: channel mix and budget reallocation</li>
+    </ul>
+    <div class="modal-divider"></div>
+    <p class="modal-note">Monthly retainer preferred. Minimum 3-month engagement recommended for SEO and content work to show results. Pricing quoted after scoping call.</p>
+    <br>
+    <a href="contact.html" class="btn btn-violet" style="width:100%;justify-content:center;">Book a discovery call <span class="arrow">→</span></a>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-b2c">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-b2c')">✕</button>
+    <p class="modal-eyebrow">Service 03</p>
+    <h2 class="modal-title">B2C Marketing</h2>
+    <p class="modal-desc">Performance and brand marketing for consumer businesses. I have run enterprise-scale campaigns across QSR, automotive, retail, and home services. I know what actually drives consumer behaviour, and I know these platforms in depth.</p>
+    <p class="modal-section-head">What you get</p>
+    <ul class="modal-includes">
+      <li>Google Ads: Search, Display, Shopping, YouTube, and Performance Max</li>
+      <li>Meta Ads: Facebook and Instagram campaign strategy and management</li>
+      <li>LinkedIn Ads: where relevant for considered consumer purchases</li>
+      <li>Audience architecture: segmentation, retargeting, and lookalike strategy</li>
+      <li>Creative strategy: briefing, testing frameworks, and iteration</li>
+      <li>CRM and personalisation: loyalty, offers, and lifecycle marketing</li>
+      <li>Attribution and reporting: clear view of what is driving revenue</li>
+    </ul>
+    <div class="modal-divider"></div>
+    <p class="modal-note">Quoted based on channels, ad spend volume, and scope. Project and retainer arrangements both available.</p>
+    <br>
+    <a href="contact.html" class="btn btn-violet" style="width:100%;justify-content:center;">Book a discovery call <span class="arrow">→</span></a>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-ai-content">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-ai-content')">✕</button>
+    <p class="modal-eyebrow">Service 04</p>
+    <h2 class="modal-title">AI Content</h2>
+    <p class="modal-desc">Content produced at speed without losing quality or strategy. I use AI to handle volume and you get the editorial and strategic layer on top of every piece. This is not content farming. Every piece is intentional.</p>
+    <p class="modal-section-head">What you get</p>
+    <ul class="modal-includes">
+      <li>SEO-optimised blog posts and pillar pages, keyword-mapped and ICP-aligned</li>
+      <li>Landing page copy with conversion-focused structure</li>
+      <li>Email nurture sequences with segmentation logic</li>
+      <li>User guides and help centre documentation</li>
+      <li>Ad copy for Google, Meta, and LinkedIn (multiple variants per campaign)</li>
+      <li>Newsletter content and LinkedIn posts</li>
+      <li>Brand voice guide to ensure consistency across all output</li>
+      <li>Monthly content calendar and publishing schedule</li>
+    </ul>
+    <div class="modal-divider"></div>
+    <p class="modal-note">Monthly retainer preferred for ongoing SEO content. One-off project rates available for campaign content. Volume-based pricing, quoted after scoping.</p>
+    <br>
+    <a href="contact.html" class="btn btn-violet" style="width:100%;justify-content:center;">Book a discovery call <span class="arrow">→</span></a>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-paid-media">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-paid-media')">✕</button>
+    <p class="modal-eyebrow">Service 05</p>
+    <h2 class="modal-title">Paid Media</h2>
+    <p class="modal-desc">Campaign management across Google, Meta, and LinkedIn by someone who has run these at enterprise scale. Strategy, setup, management, and ongoing optimisation. No handoffs to a junior team.</p>
+    <p class="modal-section-head">What you get</p>
+    <ul class="modal-includes">
+      <li>Campaign strategy: audience architecture, bidding approach, and channel mix</li>
+      <li>Account setup or audit and restructure of existing accounts</li>
+      <li>Google Search, Display, Shopping, YouTube, and Performance Max</li>
+      <li>Meta Ads (Facebook and Instagram) including Advantage+ and manual campaigns</li>
+      <li>LinkedIn Ads: sponsored content, lead gen forms, and conversation ads</li>
+      <li>Creative testing framework: structured A/B tests with clear read points</li>
+      <li>Conversion tracking and attribution setup (GA4, GTM, pixels)</li>
+      <li>Monthly performance report with clear recommendations</li>
+    </ul>
+    <div class="modal-divider"></div>
+    <p class="modal-note">Management fee quoted separately from your ad spend. Minimum ad spend applies depending on platform and scope. Retainer arrangements preferred.</p>
+    <br>
+    <a href="contact.html" class="btn btn-violet" style="width:100%;justify-content:center;">Book a discovery call <span class="arrow">→</span></a>
+  </div>
+</div>
+
 <script src="shared.js"></script>
 <script>
-// Highlight active service tab on scroll
-const tabs = document.querySelectorAll('.service-tab');
-const sections = ['agency','seo-tool','courses','newsletter'].map(id => document.getElementById(id));
+function openModal(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
 
-function updateActiveTab() {
-  const scrollY = window.scrollY + window.innerHeight * 0.4;
+// Service tab scroll tracking
+const tabs = document.querySelectorAll('.service-tab');
+const sections = ['consulting','b2b','b2c','ai-content','paid-media'].map(id => document.getElementById(id));
+function updateTab() {
+  const scrollY = window.scrollY + window.innerHeight * 0.35;
   let active = 0;
-  sections.forEach((s, i) => {
-    if (s && s.offsetTop <= scrollY) active = i;
-  });
-  tabs.forEach((t,i) => t.classList.toggle('active', i === active));
+  sections.forEach((s, i) => { if (s && s.offsetTop <= scrollY) active = i; });
+  tabs.forEach((t, i) => t.classList.toggle('active', i === active));
 }
-window.addEventListener('scroll', updateActiveTab, { passive: true });
-updateActiveTab();
+window.addEventListener('scroll', updateTab, { passive: true });
+updateTab();
 </script>
 </body>
 </html>

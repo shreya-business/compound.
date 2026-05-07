@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Shreya Kulkarni</title>
+<meta name="description" content="7+ years in performance marketing, SEO, CRM, and analytics. From Omnicom to co-founding an agency to building AI marketing systems.">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-header {
+  padding: calc(var(--nav-h) + 4rem) 2.5rem 3.5rem;
+  background: var(--off-white); border-bottom: 1px solid var(--border);
+}
+.page-header-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; }
+.page-header .section-title { font-size: clamp(2.4rem,5vw,4rem); }
+.page-tagline { font-family: var(--font-display); font-size: clamp(1rem,1.8vw,1.3rem); font-weight: 400; font-style: italic; color: var(--ink-soft); line-height: 1.55; border-left: 2px solid var(--violet); padding-left: 1.1rem; }
+.page-quick-facts { display: flex; flex-direction: column; gap: 0.55rem; margin-top: 1.5rem; }
+.pqf-item { display: flex; align-items: center; gap: 0.7rem; font-size: 0.88rem; color: var(--ink-soft); }
+.pqf-icon { width: 26px; height: 26px; background: var(--violet-pale); border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; flex-shrink: 0; }
+
+/* STORY */
+.story-section { padding: 5rem 2.5rem; background: var(--white); }
+.story-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 240px 1fr; gap: 5rem; }
+.story-nav { position: sticky; top: 88px; align-self: start; display: flex; flex-direction: column; gap: 0; }
+.story-nav-item { display: flex; align-items: center; gap: 0.7rem; padding: 0.6rem 0 0.6rem 1rem; font-size: 0.83rem; color: var(--muted); text-decoration: none; border-left: 2px solid var(--border); transition: all 0.2s; }
+.story-nav-item:hover, .story-nav-item.active { color: var(--violet); border-left-color: var(--violet); }
+.story-content { display: flex; flex-direction: column; gap: 4rem; }
+.story-block-label { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--violet); margin-bottom: 0.6rem; }
+.story-block-title { font-family: var(--font-display); font-size: 1.65rem; font-weight: 600; color: var(--ink); letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 1.1rem; }
+.story-text { font-size: 0.97rem; color: var(--ink-soft); line-height: 1.85; margin-bottom: 0.9rem; }
+.story-text:last-child { margin-bottom: 0; }
+.story-text strong { color: var(--ink); font-weight: 600; }
+
+.proof-card {
+  background: var(--off-white); border: 1px solid var(--border); border-radius: 10px;
+  padding: 1.25rem 1.5rem; margin-top: 1.1rem; display: flex; gap: 1.1rem;
+  transition: border-color 0.2s;
+}
+.proof-card:hover { border-color: var(--violet-light); }
+.proof-card-icon { font-size: 1.35rem; flex-shrink: 0; }
+.proof-card-title { font-size: 0.85rem; font-weight: 600; color: var(--ink); margin-bottom: 0.25rem; }
+.proof-card-desc { font-size: 0.8rem; color: var(--ink-soft); line-height: 1.65; }
+.proof-card-result { font-family: var(--font-mono); font-size: 0.68rem; color: var(--violet); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.45rem; font-weight: 500; }
+
+/* SKILLS */
+.skills-section { padding: 4.5rem 2.5rem 5rem; background: var(--off-white); border-top: 1px solid var(--border); }
+.skills-inner { max-width: var(--max-w); margin: 0 auto; }
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem; }
+.skill-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 1.35rem; transition: border-color 0.2s, transform 0.2s; }
+.skill-card:hover { border-color: var(--violet-light); transform: translateY(-2px); }
+.skill-card-title { font-size: 0.73rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.45rem; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.skill-tag { font-size: 0.7rem; background: var(--off-white); border: 1px solid var(--border); color: var(--ink-soft); padding: 0.22rem 0.55rem; border-radius: 4px; }
+
+/* TIMELINE */
+.timeline-section { padding: 5rem 2.5rem; background: var(--white); }
+.timeline-inner { max-width: var(--max-w); margin: 0 auto; }
+.timeline { margin-top: 2.5rem; position: relative; }
+.timeline::before { content: ''; position: absolute; left: 140px; top: 0; bottom: 0; width: 1px; background: var(--border); }
+.tl-item { display: grid; grid-template-columns: 140px 1fr; gap: 2rem; margin-bottom: 2.5rem; position: relative; }
+.tl-item:last-child { margin-bottom: 0; }
+.tl-year { text-align: right; font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); letter-spacing: 0.06em; padding-top: 0.15rem; font-weight: 500; }
+.tl-dot { position: absolute; left: 134px; top: 0.3rem; width: 14px; height: 14px; background: var(--white); border: 2px solid var(--violet); border-radius: 50%; transition: background 0.2s; }
+.tl-item.current .tl-dot { background: var(--violet); }
+.tl-item:hover .tl-dot { background: var(--violet); }
+.tl-role { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 0.2rem; }
+.tl-company { font-size: 0.8rem; color: var(--violet); font-weight: 500; margin-bottom: 0.5rem; }
+.tl-desc { font-size: 0.86rem; color: var(--ink-soft); line-height: 1.7; }
+
+@media (max-width: 960px) {
+  .page-header { padding: calc(var(--nav-h) + 2rem) 1.25rem 2rem; }
+  .page-header-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .story-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .story-nav { position: static; flex-direction: row; flex-wrap: wrap; gap: 0.4rem; }
+  .story-nav-item { border-left: none; border-bottom: 2px solid var(--border); padding: 0.35rem 0.7rem 0.5rem; }
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+  .timeline::before { left: 88px; }
+  .tl-item { grid-template-columns: 88px 1fr; gap: 1.25rem; }
+  .tl-dot { left: 82px; }
+  .skills-section, .timeline-section, .story-section { padding: 3.5rem 1.25rem; }
+}
+@media (max-width: 600px) { .skills-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="reveal">
+        <div class="section-eyebrow">About me</div>
+        <h1 class="section-title">Strategy first.<br>AI-accelerated.</h1>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <blockquote class="page-tagline">"I don't just use AI tools. I build systems that make marketing compound over time."</blockquote>
+        <div class="page-quick-facts">
+          <div class="pqf-item"><div class="pqf-icon">📍</div> Sydney, Gold Coast and Pune. Available globally.</div>
+          <div class="pqf-item"><div class="pqf-icon">🎓</div> Marketing and AI specialist, 7+ years</div>
+          <div class="pqf-item"><div class="pqf-icon">🏢</div> Agency co-founder, Omnicom alumni</div>
+          <div class="pqf-item"><div class="pqf-icon">✉</div> shreyak800@gmail.com</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="story-section">
+    <div class="story-inner">
+      <div class="story-nav">
+        <a class="story-nav-item active" href="#origin">Origin</a>
+        <a class="story-nav-item" href="#enterprise">Enterprise</a>
+        <a class="story-nav-item" href="#agency">Agency</a>
+        <a class="story-nav-item" href="#ai">The AI turn</a>
+      </div>
+      <div class="story-content">
+
+        <div class="story-block reveal" id="origin">
+          <p class="story-block-label">01 — Origin</p>
+          <h2 class="story-block-title">I started in marketing because I was obsessed with why people buy things.</h2>
+          <p class="story-text">Not the theory of it. The data behind it. I wanted to know what actually moves people from awareness to action, from browsing to buying, from curious to loyal. That obsession pulled me through seven years of marketing roles that most people take twenty years to collect.</p>
+          <p class="story-text">I have worked agency-side, brand-side, and built my own agency. I have run campaigns for global QSRs and scrappy B2B SaaS startups. I have owned paid media, SEO, CRM, content, analytics, and go-to-market strategy, sometimes all at once. What I have learned: <strong>the marketers who compound results are the ones who build systems, not just campaigns.</strong></p>
+        </div>
+
+        <div class="story-block reveal" id="enterprise">
+          <p class="story-block-label">02 — Enterprise career</p>
+          <h2 class="story-block-title">Real results at real scale.</h2>
+          <p class="story-text">My enterprise chapter includes leading digital strategy for McDonald's, Volkswagen, Coles, and Beiersdorf at Omnicom Media Group. This is where I learned what accountability actually means. When a franchise network demands you cancel a program, you do not capitulate. You go back to the data and fix the problem.</p>
+
+          <div class="proof-card">
+            <div class="proof-card-icon">🍔</div>
+            <div class="proof-card-body">
+              <div class="proof-card-title">McDonald's: Personalised Offer Program</div>
+              <div class="proof-card-desc">Franchisees were threatening to pull the plug over margin concerns. I identified the root cause, rebuilt the segmentation logic, and aligned data science, engineering, and CRM teams on a six-month pilot that became a national rollout.</div>
+              <div class="proof-card-result">Result: 22% churn reduction, 38% engagement lift, national rollout approved</div>
+            </div>
+          </div>
+
+          <div class="proof-card" style="margin-top:0.65rem;">
+            <div class="proof-card-icon">🚗</div>
+            <div class="proof-card-body">
+              <div class="proof-card-title">Volkswagen APAC: Dynamic Creative at Scale</div>
+              <div class="proof-card-desc">Managed dynamic creative optimisation across AU and NZ. 1,000+ creative variants, rigorous A/B testing across display, social, and video.</div>
+              <div class="proof-card-result">Result: 40% CTR improvement, 22% conversion rate lift</div>
+            </div>
+          </div>
+
+          <div class="proof-card" style="margin-top:0.65rem;">
+            <div class="proof-card-icon">⚡</div>
+            <div class="proof-card-body">
+              <div class="proof-card-title">Self-taught SQL and Python: where the AI story starts</div>
+              <div class="proof-card-desc">A role I wanted required data stack skills I did not have. Rather than rule myself out, I taught myself SQL and Python using AI tools as my learning partner. I asked AI to explain concepts, generate practice problems, and check my logic in real time. It worked. I landed the role, built dashboards that saved the team 20 hours per quarter, and walked away with something more important: a direct experience of what AI can do as a teacher and accelerator. That experience is what turned my interest in AI from curiosity into conviction. If I could use it to compress months of learning into weeks, I could help other people and businesses do the same with their marketing.</div>
+              <div class="proof-card-result">Result: Role secured, production dashboards built, 20 hrs/quarter saved, and a new direction</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="story-block reveal" id="agency">
+          <p class="story-block-label">03 — Agency chapter</p>
+          <h2 class="story-block-title">I built something from scratch.</h2>
+          <p class="story-text">Co-founding Floodgate Digital taught me more about marketing than any client brief ever had. We grew from 3 to 8 people and 30+ client accounts, with clients averaging 20% revenue growth in the first six months. Building the business meant I had to be the strategist, account lead, ops lead, and hiring manager, often in the same week.</p>
+          <p class="story-text"><strong>This is where I learned that systems beat talent every time.</strong> A well-built process, a repeatable framework, a smart workflow. These compound. Individual heroics do not scale.</p>
+        </div>
+
+        <div class="story-block reveal" id="ai">
+          <p class="story-block-label">04 — The AI turn</p>
+          <h2 class="story-block-title">AI changes what marketing can do. Most people are still using it wrong.</h2>
+          <p class="story-text">The marketers who win with AI are not the ones who use ChatGPT to write faster. They are the ones who use AI to build marketing systems that run at a scale no human team could sustain, and then apply their strategic thinking to what those systems produce.</p>
+          <p class="story-text">That is what I do now. I combine 7+ years of hard-won marketing judgment with AI systems that execute at 10x the speed of a traditional agency. The result: enterprise-quality marketing at a fraction of the cost and headcount.</p>
+          <p class="story-text">And because of that SQL experience, I know there are businesses and individual marketers who would benefit from learning this approach themselves. That is why I am building courses and a newsletter alongside the consulting work. Not to replace working with me, but to help more people get there on their own terms.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills-section">
+    <div class="skills-inner">
+      <div class="reveal">
+        <div class="section-eyebrow">Skills and stack</div>
+        <h2 class="section-title">What I work with.</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card reveal reveal-delay-1">
+          <p class="skill-card-title"><span>🎯</span> Paid Media</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Google Ads</span><span class="skill-tag">Meta Ads</span><span class="skill-tag">LinkedIn Ads</span><span class="skill-tag">YouTube</span><span class="skill-tag">Programmatic</span><span class="skill-tag">DCO</span>
+          </div>
+        </div>
+        <div class="skill-card reveal reveal-delay-2">
+          <p class="skill-card-title"><span>📈</span> SEO and Content</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Technical SEO</span><span class="skill-tag">Content Strategy</span><span class="skill-tag">Keyword Research</span><span class="skill-tag">Link Building</span><span class="skill-tag">CRO</span>
+          </div>
+        </div>
+        <div class="skill-card reveal reveal-delay-3">
+          <p class="skill-card-title"><span>📊</span> Analytics</p>
+          <div class="skill-tags">
+            <span class="skill-tag">GA4</span><span class="skill-tag">Tableau</span><span class="skill-tag">Looker Studio</span><span class="skill-tag">Power BI</span><span class="skill-tag">SQL</span><span class="skill-tag">Python</span>
+          </div>
+        </div>
+        <div class="skill-card reveal reveal-delay-1">
+          <p class="skill-card-title"><span>✉</span> CRM and Automation</p>
+          <div class="skill-tags">
+            <span class="skill-tag">HubSpot</span><span class="skill-tag">Salesforce</span><span class="skill-tag">Braze</span><span class="skill-tag">Zapier</span><span class="skill-tag">Mailchimp</span>
+          </div>
+        </div>
+        <div class="skill-card reveal reveal-delay-2">
+          <p class="skill-card-title"><span>🤖</span> AI Tools</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Claude</span><span class="skill-tag">ChatGPT</span><span class="skill-tag">Perplexity</span><span class="skill-tag">Jasper</span><span class="skill-tag">Surfer SEO</span><span class="skill-tag">Notion AI</span>
+          </div>
+        </div>
+        <div class="skill-card reveal reveal-delay-3">
+          <p class="skill-card-title"><span>🗺</span> Strategy</p>
+          <div class="skill-tags">
+            <span class="skill-tag">ABM</span><span class="skill-tag">Go-to-Market</span><span class="skill-tag">Demand Gen</span><span class="skill-tag">Personalisation</span><span class="skill-tag">Growth</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="timeline-section">
+    <div class="timeline-inner">
+      <div class="reveal">
+        <div class="section-eyebrow">Career timeline</div>
+        <h2 class="section-title">The path here.</h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-item current reveal">
+          <div class="tl-year">2025 to Now</div>
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <div class="tl-role">Marketing Strategist and Consultant</div>
+            <div class="tl-company">Independent</div>
+            <div class="tl-desc">Strategy consulting and AI-powered marketing services for B2B and B2C businesses. Building a SaaS SEO tool, courses, and a newsletter alongside client work.</div>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-year">2024 to 2025</div>
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <div class="tl-role">Digital Marketing Manager</div>
+            <div class="tl-company">FireDaemon Technology</div>
+            <div class="tl-desc">Built the entire marketing function from the ground up. SEO architecture, content pipeline, email nurture, and paid acquisition. 30% organic growth and 45% email open rate improvement.</div>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-year">2023 to 2024</div>
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <div class="tl-role">Digital Strategist</div>
+            <div class="tl-company">Omnicom Media Group (McDonald's, Volkswagen, Coles)</div>
+            <div class="tl-desc">Led digital strategy for tier-1 clients across APAC. CRM personalisation programs, DCO campaigns, and cross-functional teams spanning data science and engineering.</div>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-year">2021 to 2023</div>
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <div class="tl-role">Co-Founder and Head of Strategy</div>
+            <div class="tl-company">Floodgate Digital</div>
+            <div class="tl-desc">Co-founded a performance marketing agency. Grew to 8 staff and 30+ accounts. Clients averaged 20% revenue growth in the first six months of engagement.</div>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-year">2018 to 2021</div>
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <div class="tl-role">Digital Marketing Specialist</div>
+            <div class="tl-company">Various agency and client-side roles</div>
+            <div class="tl-desc">Built foundations across SEO, paid search, content strategy, and email marketing for brands including Dulux, 7-Eleven, and Beiersdorf.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script src="shared.js"></script>
+</body>
+</html>

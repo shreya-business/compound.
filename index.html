@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shreya Kulkarni — AI Marketing Strategist</title>
+<meta name="description" content="AI-powered marketing strategy for B2B companies. Content, SEO, systems, and courses from a 7-year marketing leader.">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── HOME-SPECIFIC STYLES ── */
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(var(--nav-h) + 4rem) 3rem 5rem;
+  position: relative;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.hero-noise {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 0;
+}
+
+.hero-accent-blob {
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle at 60% 40%, rgba(109,40,217,0.07) 0%, transparent 65%);
+  pointer-events: none; z-index: 0;
+}
+
+.hero-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  width: 100%;
+  position: relative; z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-left {}
+
+.hero-available {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  color: #15803D;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.85rem;
+  border-radius: 100px;
+  margin-bottom: 2rem;
+}
+.hero-available-dot {
+  width: 6px; height: 6px;
+  background: #22C55E;
+  border-radius: 50%;
+  animation: blink 2.2s infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.hero-headline {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 6vw, 5.5rem);
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.04em;
+  line-height: 1.0;
+  margin-bottom: 1.5rem;
+}
+.hero-headline .italic {
+  font-style: italic;
+  color: var(--violet);
+}
+.hero-headline .line-break { display: block; }
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+  line-height: 1.75;
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+
+.hero-stats-row {
+  display: flex;
+  gap: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border);
+}
+
+/* HERO RIGHT CARD */
+.hero-card-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.hero-service-pill {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: all 0.25s var(--ease-out);
+}
+.hero-service-pill:hover {
+  background: var(--white);
+  border-color: var(--violet-light);
+  transform: translateX(4px);
+  box-shadow: 0 4px 20px rgba(109,40,217,0.08);
+}
+.pill-icon {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+.pill-icon.v { background: var(--violet-pale); }
+.pill-icon.g { background: #F0FDF4; }
+.pill-icon.b { background: #EFF6FF; }
+.pill-icon.a { background: #FFF7ED; }
+.pill-text {}
+.pill-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.1rem;
+}
+.pill-sub {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.pill-arrow {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 0.9rem;
+  transition: transform 0.2s, color 0.2s;
+}
+.hero-service-pill:hover .pill-arrow {
+  transform: translateX(3px);
+  color: var(--violet);
+}
+
+/* LOGO STRIP */
+.logo-strip {
+  background: var(--cream);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 1.75rem 3rem;
+  overflow: hidden;
+}
+.logo-strip-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+.logo-strip-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.5rem;
+  flex-wrap: wrap;
+}
+.logo-strip-item {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+.logo-strip-item:hover { color: var(--ink); }
+
+/* WHAT I DO SECTION */
+.what-section {
+  padding: 7rem 3rem;
+  background: var(--white);
+}
+.what-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 6rem;
+  align-items: start;
+}
+.what-left { position: sticky; top: 120px; }
+.what-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.what-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 2rem 2rem;
+  background: var(--white);
+  text-decoration: none;
+  color: var(--ink);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.what-item:last-child { border-bottom: none; }
+.what-item:hover { background: var(--off-white); }
+.what-num {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  padding-top: 0.3rem;
+  flex-shrink: 0;
+  letter-spacing: 0.05em;
+}
+.what-text {}
+.what-name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+}
+.what-desc {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.65;
+}
+.what-link {
+  margin-left: auto;
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--violet);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.2s, transform 0.2s;
+  white-space: nowrap;
+}
+.what-item:hover .what-link { opacity: 1; transform: translateX(0); }
+
+/* RESULTS BAND */
+.results-band {
+  background: var(--ink);
+  padding: 5rem 3rem;
+}
+.results-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.result-item {
+  background: rgba(255,255,255,0.02);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: background 0.2s;
+}
+.result-item:hover { background: rgba(109,40,217,0.08); }
+.result-num {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.result-num .accent { color: var(--violet-light); }
+.result-label {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+/* FEATURED WORK STRIP */
+.work-strip {
+  padding: 7rem 3rem;
+  background: var(--off-white);
+}
+.work-strip-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+.work-strip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+}
+.work-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.work-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 2rem;
+  text-decoration: none;
+  color: var(--ink);
+  display: block;
+  transition: all 0.25s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+.work-card::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--violet);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s var(--ease-out);
+}
+.work-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-3px); }
+.work-card:hover::after { transform: scaleY(1); }
+.work-card-client {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--violet);
+  margin-bottom: 0.6rem;
+}
+.work-card-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+}
+.work-card-desc {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+.work-card-metrics {
+  display: flex;
+  gap: 1.5rem;
+}
+.wc-metric {}
+.wc-metric .mn {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+}
+.wc-metric .ml {
+  font-size: 0.68rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* CTA BAND */
+.cta-band {
+  padding: 7rem 3rem;
+  background: var(--white);
+  text-align: center;
+}
+.cta-band-inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.cta-band .section-title { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+.cta-band .section-desc { margin: 0 auto 2.5rem; }
+.cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* RESPONSIVE HOME */
+@media (max-width: 960px) {
+  .hero { padding: calc(var(--nav-h) + 2rem) 1.5rem 3rem; }
+  .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .hero-headline { font-size: clamp(2.5rem, 8vw, 4rem); }
+  .hero-stats-row { gap: 2rem; }
+  .what-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .what-left { position: static; }
+  .results-inner { grid-template-columns: repeat(2, 1fr); }
+  .work-cards { grid-template-columns: 1fr; }
+  .work-strip-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .what-section, .work-strip, .cta-band { padding: 5rem 1.5rem; }
+  .results-band { padding: 3rem 1.5rem; }
+  .logo-strip { padding: 1.5rem; }
+}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-noise"></div>
+    <div class="hero-accent-blob"></div>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-available">
+          <span class="hero-available-dot"></span>
+          Available for new projects
+        </div>
+        <h1 class="hero-headline">
+          <span class="line-break">Marketing that</span>
+          <span class="line-break italic">compounds.</span>
+          <span class="line-break">Powered by AI.</span>
+        </h1>
+        <p class="hero-sub">
+          I help B2B companies grow faster using AI-powered content, SEO, and marketing systems. Enterprise-grade strategy — without the enterprise price tag.
+        </p>
+        <div class="hero-actions">
+          <a href="services.html" class="btn btn-dark">Explore services <span class="arrow">→</span></a>
+          <a href="work.html" class="btn btn-outline">View case studies</a>
+        </div>
+        <div class="hero-stats-row">
+          <div class="stat-chip">
+            <span class="num">7<em>+</em></span>
+            <span class="label">Years experience</span>
+          </div>
+          <div class="stat-chip">
+            <span class="num">3.4<em>×</em></span>
+            <span class="label">ROAS improvement</span>
+          </div>
+          <div class="stat-chip">
+            <span class="num">30<em>%</em></span>
+            <span class="label">Avg. organic lift</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card-stack">
+        <a href="services.html#agency" class="hero-service-pill">
+          <div class="pill-icon v">📝</div>
+          <div class="pill-text">
+            <div class="pill-name">AI Content & SEO Agency</div>
+            <div class="pill-sub">Blog posts, landing pages, email — at scale</div>
+          </div>
+          <span class="pill-arrow">→</span>
+        </a>
+        <a href="services.html#seo-tool" class="hero-service-pill">
+          <div class="pill-icon b">🔍</div>
+          <div class="pill-text">
+            <div class="pill-name">AI SEO Tool</div>
+            <div class="pill-sub">SaaS for B2B marketers — coming soon</div>
+          </div>
+          <span class="pill-arrow">→</span>
+        </a>
+        <a href="courses.html" class="hero-service-pill">
+          <div class="pill-icon g">🎓</div>
+          <div class="pill-text">
+            <div class="pill-name">AI Marketing OS</div>
+            <div class="pill-sub">Templates & course — build your AI stack</div>
+          </div>
+          <span class="pill-arrow">→</span>
+        </a>
+        <a href="newsletter.html" class="hero-service-pill">
+          <div class="pill-icon a">📬</div>
+          <div class="pill-text">
+            <div class="pill-name">AI for B2B Marketers</div>
+            <div class="pill-sub">Free weekly newsletter</div>
+          </div>
+          <span class="pill-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO STRIP -->
+  <div class="logo-strip">
+    <p class="logo-strip-label">Enterprise experience across</p>
+    <div class="logo-strip-track">
+      <span class="logo-strip-item">McDonald's</span>
+      <span class="logo-strip-item">Volkswagen</span>
+      <span class="logo-strip-item">Coles</span>
+      <span class="logo-strip-item">7-Eleven</span>
+      <span class="logo-strip-item">Dulux</span>
+      <span class="logo-strip-item">Beiersdorf</span>
+      <span class="logo-strip-item">Omnicom</span>
+      <span class="logo-strip-item">FireDaemon</span>
+    </div>
+  </div>
+
+  <!-- WHAT I DO -->
+  <section class="what-section">
+    <div class="what-inner">
+      <div class="what-left reveal">
+        <div class="section-eyebrow">What I do</div>
+        <h2 class="section-title">Four ways to work together</h2>
+        <p class="section-desc">Whether you need done-for-you content, a self-serve product, education, or a strategic partner — there's a way in.</p>
+        <br><br>
+        <a href="services.html" class="btn btn-outline">See all services <span class="arrow">→</span></a>
+      </div>
+      <div class="what-right reveal reveal-delay-2">
+        <a href="services.html#agency" class="what-item">
+          <span class="what-num">01</span>
+          <div class="what-text">
+            <div class="what-name">AI Content & SEO Agency</div>
+            <div class="what-desc">Done-for-you content machine for B2B SaaS companies. AI efficiency, senior strategy.</div>
+          </div>
+          <span class="what-link">Explore <span class="arrow">→</span></span>
+        </a>
+        <a href="services.html#seo-tool" class="what-item">
+          <span class="what-num">02</span>
+          <div class="what-text">
+            <div class="what-name">AI SEO Tool — SaaS</div>
+            <div class="what-desc">Turns your product, ICP, and keywords into SEO-ready content briefs and blog drafts.</div>
+          </div>
+          <span class="what-link">Explore <span class="arrow">→</span></span>
+        </a>
+        <a href="courses.html" class="what-item">
+          <span class="what-num">03</span>
+          <div class="what-text">
+            <div class="what-name">AI Marketing OS</div>
+            <div class="what-desc">Notion-based system and mini-course to run your entire marketing function with AI.</div>
+          </div>
+          <span class="what-link">Explore <span class="arrow">→</span></span>
+        </a>
+        <a href="newsletter.html" class="what-item">
+          <span class="what-num">04</span>
+          <div class="what-text">
+            <div class="what-name">Newsletter</div>
+            <div class="what-desc">Weekly AI marketing tactics from a practitioner with 7+ years and real enterprise results.</div>
+          </div>
+          <span class="what-link">Explore <span class="arrow">→</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS BAND -->
+  <div class="results-band">
+    <div class="results-inner">
+      <div class="result-item reveal">
+        <div class="result-num">30<span class="accent">%</span></div>
+        <div class="result-label">Organic traffic growth</div>
+      </div>
+      <div class="result-item reveal reveal-delay-1">
+        <div class="result-num">22<span class="accent">%</span></div>
+        <div class="result-label">Churn reduction (McDonald's)</div>
+      </div>
+      <div class="result-item reveal reveal-delay-2">
+        <div class="result-num">45<span class="accent">%</span></div>
+        <div class="result-label">Email open rate lift</div>
+      </div>
+      <div class="result-item reveal reveal-delay-3">
+        <div class="result-num">3.4<span class="accent">×</span></div>
+        <div class="result-label">ROAS improvement</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURED WORK -->
+  <section class="work-strip">
+    <div class="work-strip-inner">
+      <div class="work-strip-header reveal">
+        <div>
+          <div class="section-eyebrow">Selected work</div>
+          <h2 class="section-title" style="margin-bottom:0;">Results that speak</h2>
+        </div>
+        <a href="work.html" class="btn btn-outline">All case studies <span class="arrow">→</span></a>
+      </div>
+      <div class="work-cards">
+        <a href="work.html#mcdonald" class="work-card reveal reveal-delay-1">
+          <p class="work-card-client">McDonald's APAC · Omnicom</p>
+          <h3 class="work-card-title">Personalised Offer Program Revamp — Nationwide Rollout</h3>
+          <p class="work-card-desc">Redesigned a failing program under franchise pressure. Pilot moved to full national rollout.</p>
+          <div class="work-card-metrics">
+            <div class="wc-metric"><div class="mn">−22%</div><div class="ml">Churn</div></div>
+            <div class="wc-metric"><div class="mn">+38%</div><div class="ml">Engagement</div></div>
+            <div class="wc-metric"><div class="mn">10K+</div><div class="ml">Users</div></div>
+          </div>
+        </a>
+        <a href="work.html#firedaemon" class="work-card reveal reveal-delay-2">
+          <p class="work-card-client">FireDaemon Technology · B2B SaaS</p>
+          <h3 class="work-card-title">30% Organic Growth & Free-to-Paid Conversion Lift</h3>
+          <p class="work-card-desc">Full GTM strategy, SEO pipeline, email workflows, and paid acquisition that moved real numbers.</p>
+          <div class="work-card-metrics">
+            <div class="wc-metric"><div class="mn">+30%</div><div class="ml">Organic traffic</div></div>
+            <div class="wc-metric"><div class="mn">+45%</div><div class="ml">Email opens</div></div>
+            <div class="wc-metric"><div class="mn">+30%</div><div class="ml">Conversion</div></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="cta-band-inner reveal">
+      <div class="section-eyebrow" style="justify-content:center;">Ready to start?</div>
+      <h2 class="section-title">Let's build something that compounds.</h2>
+      <p class="section-desc">Whether you need a content partner, a strategic consultant, or just want to talk AI marketing — I'd love to connect.</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn-dark">Work with me <span class="arrow">→</span></a>
+        <a href="newsletter.html" class="btn btn-outline">Join the newsletter</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- end page-wrap -->
+<script src="shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Shreya Kulkarni</title>
+<meta name="description" content="Get in touch with Shreya Kulkarni — AI marketing strategy, content agency, courses, and newsletter.">
+<link rel="stylesheet" href="style.css">
+<style>
+
+.contact-hero {
+  padding: calc(var(--nav-h) + 5rem) 3rem 5rem;
+  background: var(--off-white);
+  border-bottom: 1px solid var(--border);
+}
+.contact-hero-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+.contact-left {}
+.contact-left .section-title { font-size: clamp(2.5rem,5vw,4rem); }
+.contact-left .section-desc { margin-bottom: 2.5rem; }
+
+.contact-details { display: flex; flex-direction: column; gap: 0.75rem; }
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.contact-link:hover {
+  border-color: var(--violet-light);
+  box-shadow: 0 4px 16px rgba(109,40,217,0.08);
+}
+.cl-icon {
+  width: 38px; height: 38px;
+  background: var(--violet-pale);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  color: var(--violet);
+  flex-shrink: 0;
+  font-weight: 700;
+}
+.cl-text {}
+.cl-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+.cl-val {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* FORM */
+.contact-form {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2.5rem;
+}
+.form-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.75rem;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+.form-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--ink-soft);
+}
+.form-input, .form-textarea, .form-select {
+  padding: 0.8rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--ink);
+  background: var(--white);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none;
+}
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  border-color: var(--violet);
+  box-shadow: 0 0 0 3px rgba(109,40,217,0.08);
+}
+.form-input::placeholder, .form-textarea::placeholder { color: var(--muted); }
+.form-textarea { resize: vertical; min-height: 120px; }
+.form-select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
+
+.form-submit { width: 100%; justify-content: center; padding: 1rem; margin-top: 0.5rem; }
+
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 2rem;
+}
+.form-success-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.form-success-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.form-success-desc {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+/* FAQ STRIP */
+.contact-faq {
+  padding: 5rem 3rem 7rem;
+  background: var(--white);
+}
+.contact-faq-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 5rem;
+}
+.contact-faq-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.cfaq-item {}
+.cfaq-q {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+.cfaq-a {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  .contact-hero { padding: calc(var(--nav-h) + 2.5rem) 1.5rem 3rem; }
+  .contact-hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .contact-faq { padding: 4rem 1.5rem 5rem; }
+  .contact-faq-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .contact-form { padding: 1.75rem; }
+}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- HERO + FORM -->
+  <section class="contact-hero">
+    <div class="contact-hero-inner">
+      <div class="contact-left reveal">
+        <div class="section-eyebrow">Get in touch</div>
+        <h1 class="section-title">Let's build something that compounds.</h1>
+        <p class="section-desc">Whether you need a content partner, a strategic consultant, want early access to the AI SEO tool, or just want to talk AI marketing — I'd love to hear from you.</p>
+
+        <div class="contact-details">
+          <a href="mailto:shreyak800@gmail.com" class="contact-link">
+            <div class="cl-icon">✉</div>
+            <div class="cl-text">
+              <div class="cl-label">Email</div>
+              <div class="cl-val">shreyak800@gmail.com</div>
+            </div>
+          </a>
+          <a href="tel:+918956996977" class="contact-link">
+            <div class="cl-icon">📞</div>
+            <div class="cl-text">
+              <div class="cl-label">Phone</div>
+              <div class="cl-val">+91 89569 96977</div>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/shreya-kulkarni" target="_blank" rel="noopener" class="contact-link">
+            <div class="cl-icon">in</div>
+            <div class="cl-text">
+              <div class="cl-label">LinkedIn</div>
+              <div class="cl-val">linkedin.com/in/shreya-kulkarni</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <div class="contact-form" id="contactForm">
+          <h2 class="form-title">Send a message</h2>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Name</label>
+              <input type="text" class="form-input" placeholder="Your name">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Company</label>
+              <input type="text" class="form-input" placeholder="Company name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" placeholder="you@company.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">What do you need?</label>
+            <select class="form-select">
+              <option value="">Select a service...</option>
+              <option>AI Content & SEO Agency</option>
+              <option>AI SEO Tool — Early Access</option>
+              <option>AI Marketing OS / Courses</option>
+              <option>Newsletter subscription</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea class="form-textarea" placeholder="Tell me a bit about your project, goals, or just say hi..."></textarea>
+          </div>
+          <button class="btn btn-dark form-submit" type="button" id="submitBtn">
+            Send message <span class="arrow">→</span>
+          </button>
+        </div>
+
+        <div class="form-success" id="formSuccess">
+          <div class="form-success-icon">✅</div>
+          <div class="form-success-title">Message sent!</div>
+          <div class="form-success-desc">Thanks for reaching out. I'll get back to you within 48 hours — usually much faster.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FAQ -->
+  <section class="contact-faq">
+    <div class="contact-faq-inner">
+      <div class="reveal">
+        <div class="section-eyebrow">Before you reach out</div>
+        <h2 class="section-title" style="font-size:clamp(1.75rem,3vw,2.5rem);">Quick answers.</h2>
+      </div>
+      <div class="contact-faq-items">
+        <div class="cfaq-item reveal">
+          <p class="cfaq-q">How quickly do you respond?</p>
+          <p class="cfaq-a">Usually within 24 hours on weekdays. If I'm heads-down on a project, within 48 hours. If you're urgent, send a WhatsApp to +91 89569 96977.</p>
+        </div>
+        <div class="cfaq-item reveal reveal-delay-1">
+          <p class="cfaq-q">What does a discovery call look like?</p>
+          <p class="cfaq-a">30 minutes on Zoom. I'll ask about your product, your ICP, your current content situation, and your goals. No pitch. You'll leave with at least one actionable idea regardless of whether we work together.</p>
+        </div>
+        <div class="cfaq-item reveal reveal-delay-2">
+          <p class="cfaq-q">Do you work with companies outside India?</p>
+          <p class="cfaq-a">Yes — most of my enterprise experience has been in Australia and across APAC. I work remotely across time zones. US and European clients, feel free to reach out.</p>
+        </div>
+        <div class="cfaq-item reveal reveal-delay-3">
+          <p class="cfaq-q">What size companies do you work with?</p>
+          <p class="cfaq-a">Primarily B2B SaaS from Seed to Series B, and enterprise teams at companies where the marketing function is small relative to the company size. If you're a solo founder doing your own marketing, the courses are the right entry point.</p>
+        </div>
+        <div class="cfaq-item reveal reveal-delay-4">
+          <p class="cfaq-q">Can I see more work samples before reaching out?</p>
+          <p class="cfaq-a">The case studies page has the best overview. If you need writing samples or more detail on a specific project, just ask in the message and I'll send them directly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script src="shared.js"></script>
+<script>
+document.getElementById('submitBtn').addEventListener('click', () => {
+  document.getElementById('contactForm').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+});
+</script>
+</body>
+</html>

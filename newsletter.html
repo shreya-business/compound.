@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Newsletter — Shreya Kulkarni</title>
+<meta name="description" content="AI for B2B Marketers — weekly tactics on using AI for SEO, content, paid media, and marketing automation.">
+<link rel="stylesheet" href="style.css">
+<style>
+
+.nl-hero {
+  padding: calc(var(--nav-h) + 6rem) 3rem 6rem;
+  background: var(--ink);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.nl-hero-glow {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; height: 400px;
+  background: radial-gradient(ellipse, rgba(109,40,217,0.2) 0%, transparent 65%);
+  pointer-events: none;
+}
+.nl-hero-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.nl-hero .section-eyebrow { color: var(--violet-light); justify-content: center; }
+.nl-hero .section-title { color: var(--white); font-size: clamp(2.5rem,5vw,4rem); }
+.nl-hero .section-desc { color: rgba(255,255,255,0.55); margin: 0 auto 2.5rem; }
+
+/* SUBSCRIBE FORM */
+.nl-form {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 480px;
+  margin: 0 auto 1.5rem;
+}
+.nl-input {
+  flex: 1;
+  padding: 0.9rem 1.25rem;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.nl-input::placeholder { color: rgba(255,255,255,0.35); }
+.nl-input:focus { border-color: var(--violet-light); }
+.nl-fine {
+  font-size: 0.73rem;
+  color: rgba(255,255,255,0.3);
+  text-align: center;
+}
+
+/* PERKS ROW */
+.nl-perks {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+.nl-perk {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.45);
+}
+.nl-perk-check { color: var(--violet-light); font-weight: 700; }
+
+/* WHAT YOU GET */
+.nl-what {
+  padding: 6rem 3rem;
+  background: var(--white);
+}
+.nl-what-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+.nl-issue-preview {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.nl-issue-top {
+  background: var(--ink);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nl-issue-from {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.5);
+}
+.nl-issue-badge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  background: var(--violet-pale);
+  color: var(--violet);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+.nl-issue-body { padding: 1.75rem; }
+.nl-issue-subject {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+.nl-issue-preview-text {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+.nl-issue-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 1rem 0;
+}
+.nl-issue-section-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--violet);
+  margin-bottom: 0.5rem;
+}
+.nl-issue-tactic {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.nl-issue-tactic-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+}
+.nl-issue-tactic-desc {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+/* PAST ISSUES */
+.nl-archive {
+  padding: 5rem 3rem 6rem;
+  background: var(--off-white);
+  border-top: 1px solid var(--border);
+}
+.nl-archive-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+.past-issues-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 3rem;
+}
+.past-issue-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+.past-issue-card:hover {
+  border-color: var(--violet-light);
+  box-shadow: 0 4px 16px rgba(109,40,217,0.08);
+}
+.pi-date {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+.pi-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.4;
+  margin-bottom: 0.4rem;
+}
+.pi-desc {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  .nl-hero { padding: calc(var(--nav-h) + 3rem) 1.5rem 3.5rem; }
+  .nl-what { padding: 4rem 1.5rem; }
+  .nl-what-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .nl-archive { padding: 4rem 1.5rem 5rem; }
+  .past-issues-grid { grid-template-columns: 1fr; }
+  .nl-form { flex-direction: column; }
+  .nl-perks { gap: 1.25rem; }
+}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- HERO -->
+  <section class="nl-hero">
+    <div class="nl-hero-glow"></div>
+    <div class="nl-hero-inner">
+      <div class="section-eyebrow" style="justify-content:center;">Free weekly newsletter</div>
+      <h1 class="section-title">AI for B2B Marketers</h1>
+      <p class="section-desc">Practical tactics on using AI for SEO, content, paid media, and marketing automation — written by a practitioner with 7+ years and real enterprise results. Every Thursday.</p>
+      <div class="nl-form">
+        <input type="email" class="nl-input" placeholder="your@email.com">
+        <button class="btn btn-violet" type="button">Subscribe</button>
+      </div>
+      <p class="nl-fine">No spam. No affiliate content. Unsubscribe anytime.</p>
+      <div class="nl-perks">
+        <span class="nl-perk"><span class="nl-perk-check">✓</span> Weekly AI tactics</span>
+        <span class="nl-perk"><span class="nl-perk-check">✓</span> Real case studies</span>
+        <span class="nl-perk"><span class="nl-perk-check">✓</span> Subscriber-only templates</span>
+        <span class="nl-perk"><span class="nl-perk-check">✓</span> Tool reviews & prompts</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU GET -->
+  <section class="nl-what">
+    <div class="nl-what-inner">
+      <div class="reveal">
+        <div class="section-eyebrow">What you'll get</div>
+        <h2 class="section-title">Tactics, not theory.</h2>
+        <p class="section-desc">Every issue is written from a practitioner's perspective — someone who runs these systems on real accounts with real budgets. Not recycled LinkedIn posts dressed up as newsletters.</p>
+        <br>
+        <p class="section-desc">Each issue includes one main tactic, one prompt breakdown, one tool or resource, and one thing I'm watching in the AI marketing space. Short enough to read in 5 minutes. Dense enough to be worth it.</p>
+        <br><br>
+        <a href="#subscribe" class="btn btn-dark">Subscribe free <span class="arrow">→</span></a>
+      </div>
+      <div class="nl-issue-preview reveal reveal-delay-2">
+        <div class="nl-issue-top">
+          <div class="nl-issue-from">From: Shreya Kulkarni · shreyak800@gmail.com</div>
+          <span class="nl-issue-badge">Sample issue</span>
+        </div>
+        <div class="nl-issue-body">
+          <div class="nl-issue-subject">The 3-prompt SEO brief that outranks agencies</div>
+          <p class="nl-issue-preview-text">Most marketers use AI to write content. The smart ones use AI to build the brief before a word of content is written. Here's the exact 3-prompt sequence I use to generate SEO briefs that have consistently outperformed agency-produced content...</p>
+          <div class="nl-issue-divider"></div>
+          <div class="nl-issue-section-label">This week's tactics</div>
+          <div class="nl-issue-tactic">
+            <div class="nl-issue-tactic-title">🎯 Main tactic: The 3-prompt SEO brief</div>
+            <div class="nl-issue-tactic-desc">Prompt 1: ICP intent mapping. Prompt 2: SERP gap analysis. Prompt 3: Content structure.</div>
+          </div>
+          <div class="nl-issue-tactic">
+            <div class="nl-issue-tactic-title">⚡ Prompt of the week</div>
+            <div class="nl-issue-tactic-desc">The exact prompt I use to generate a 1,500-word blog draft that passes an editorial review first time.</div>
+          </div>
+          <div class="nl-issue-tactic">
+            <div class="nl-issue-tactic-title">🔧 Tool: Perplexity for competitor content research</div>
+            <div class="nl-issue-tactic-desc">How I use it to find content gaps in under 10 minutes — with a repeatable workflow.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAST ISSUES -->
+  <section class="nl-archive">
+    <div class="nl-archive-inner">
+      <div class="reveal">
+        <div class="section-eyebrow">Archive</div>
+        <h2 class="section-title">Coming soon.</h2>
+        <p class="section-desc">The newsletter launches shortly. These are a preview of the topics coming in the first 8 issues.</p>
+      </div>
+      <div class="past-issues-grid">
+        <div class="past-issue-card reveal">
+          <div class="pi-date">Issue 001 · Coming soon</div>
+          <div class="pi-title">The 3-prompt SEO brief that outranks agencies</div>
+          <div class="pi-desc">How to use AI to build content briefs so strong that execution almost doesn't matter.</div>
+        </div>
+        <div class="past-issue-card reveal reveal-delay-1">
+          <div class="pi-date">Issue 002 · Coming soon</div>
+          <div class="pi-title">Why your AI content sounds like AI (and how to fix it)</div>
+          <div class="pi-desc">The 5 prompting mistakes that produce generic output — and the fixes for each one.</div>
+        </div>
+        <div class="past-issue-card reveal reveal-delay-2">
+          <div class="pi-date">Issue 003 · Coming soon</div>
+          <div class="pi-title">The email nurture sequence that hit 45% open rates</div>
+          <div class="pi-desc">A full breakdown of the 6-email sequence I built for a B2B SaaS product — including the subject lines.</div>
+        </div>
+        <div class="past-issue-card reveal">
+          <div class="pi-date">Issue 004 · Coming soon</div>
+          <div class="pi-title">How I use AI for paid media without losing creative quality</div>
+          <div class="pi-desc">The ad copy workflow that runs A/B tests 10× faster than a human copywriter can.</div>
+        </div>
+        <div class="past-issue-card reveal reveal-delay-1">
+          <div class="pi-date">Issue 005 · Coming soon</div>
+          <div class="pi-title">Building a Notion marketing OS in a weekend</div>
+          <div class="pi-desc">The exact template structure I use to run content, campaigns, and reporting for B2B clients.</div>
+        </div>
+        <div class="past-issue-card reveal reveal-delay-2">
+          <div class="pi-date">Issue 006 · Coming soon</div>
+          <div class="pi-title">The McDonald's lesson: data beats opinion, always</div>
+          <div class="pi-desc">A case study on using data to save a program every stakeholder wanted to kill.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script src="shared.js"></script>
+</body>
+</html>

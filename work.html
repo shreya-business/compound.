@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Studies — Shreya Kulkarni</title>
+<meta name="description" content="Real results from real campaigns. McDonald's, Volkswagen, FireDaemon, Service.com.au — see the numbers behind the work.">
+<link rel="stylesheet" href="style.css">
+<style>
+
+.page-header {
+  padding: calc(var(--nav-h) + 5rem) 3rem 4rem;
+  background: var(--off-white);
+  border-bottom: 1px solid var(--border);
+}
+.page-header-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+.page-header .section-title { font-size: clamp(2.5rem,5vw,4.5rem); }
+
+/* FILTER BAR */
+.filter-bar {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 1.25rem 3rem;
+}
+.filter-bar-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--muted);
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 0.35rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn:hover, .filter-btn.active {
+  background: var(--ink);
+  color: var(--white);
+  border-color: var(--ink);
+}
+
+/* CASE STUDIES LIST */
+.cases-section {
+  padding: 5rem 3rem 7rem;
+  background: var(--white);
+}
+.cases-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.case-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+.case-card:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.07); transform: translateY(-2px); }
+
+.case-card-left {
+  padding: 2.5rem;
+  border-right: 1px solid var(--border);
+}
+.case-client-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.case-client-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--violet);
+  font-weight: 500;
+}
+.case-year {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+.case-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  margin-bottom: 0.9rem;
+}
+.case-desc {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+.case-challenge-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+.case-challenge {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--border);
+  font-style: italic;
+}
+.case-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.case-tag {
+  font-size: 0.7rem;
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  color: var(--ink-soft);
+  padding: 0.22rem 0.6rem;
+  border-radius: 4px;
+}
+
+.case-card-right {
+  padding: 2.5rem 2rem;
+  background: var(--off-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.case-metrics-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+.case-metric {}
+.case-metric .num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.case-metric .num.v { color: var(--violet); }
+.case-metric .num.g { color: #059669; }
+.case-metric .lbl {
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.15rem;
+}
+
+/* TESTIMONIAL / OUTCOMES */
+.case-outcome {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  font-style: italic;
+}
+.case-outcome-icon { font-size: 1.1rem; margin-bottom: 0.4rem; display: block; }
+
+/* RESULTS SUMMARY */
+.results-summary {
+  background: var(--ink);
+  padding: 4rem 3rem;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.results-summary-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  text-align: center;
+}
+.rs-item {
+  padding: 1.5rem 1rem;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.rs-num {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.rs-num span { color: var(--violet-light); }
+.rs-label {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-top: 0.35rem;
+}
+
+/* CTA */
+.work-cta {
+  padding: 6rem 3rem;
+  background: var(--off-white);
+  text-align: center;
+}
+.work-cta-inner { max-width: 580px; margin: 0 auto; }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  .page-header { padding: calc(var(--nav-h) + 2.5rem) 1.5rem 2.5rem; }
+  .filter-bar { padding: 1rem 1.5rem; }
+  .cases-section { padding: 3rem 1.5rem 5rem; }
+  .case-card { grid-template-columns: 1fr; }
+  .case-card-left { border-right: none; border-bottom: 1px solid var(--border); }
+  .case-card-right { background: var(--off-white); }
+  .case-metrics-list { flex-direction: row; flex-wrap: wrap; gap: 1.5rem; }
+  .results-summary-inner { grid-template-columns: repeat(3, 1fr); }
+  .work-cta { padding: 4rem 1.5rem; }
+  .results-summary { padding: 3rem 1.5rem; }
+}
+@media (max-width: 600px) {
+  .results-summary-inner { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="section-eyebrow">Case Studies</div>
+      <h1 class="section-title">Results that<br>speak for themselves.</h1>
+      <p class="section-desc">Real work. Real numbers. From global QSR enterprise to scrappy B2B SaaS — here's what the strategy actually delivered.</p>
+    </div>
+  </div>
+
+  <!-- FILTER -->
+  <div class="filter-bar">
+    <div class="filter-bar-inner">
+      <button class="filter-btn active">All work</button>
+      <button class="filter-btn">B2B SaaS</button>
+      <button class="filter-btn">Enterprise</button>
+      <button class="filter-btn">SEO & Content</button>
+      <button class="filter-btn">CRM & Personalisation</button>
+      <button class="filter-btn">Paid Media</button>
+    </div>
+  </div>
+
+  <!-- CASES -->
+  <section class="cases-section">
+    <div class="cases-inner">
+
+      <!-- 01 -->
+      <div class="case-card reveal" id="mcdonald">
+        <div class="case-card-left">
+          <div class="case-client-row">
+            <span class="case-client-tag">McDonald's APAC · Omnicom Media Group</span>
+            <span class="case-year">2024</span>
+          </div>
+          <h2 class="case-title">Personalised Offer Program Revamp — Nationwide Rollout</h2>
+          <p class="case-desc">Franchisees threatened to cancel the personalised offers program over margin concerns. I identified the root cause: over-targeting of low-margin customers without churn-risk logic. Redesigned the segmentation model, rebuilt the offer cadence, and aligned data science, engineering, CRM, and franchise relations across a six-month pilot.</p>
+          <p class="case-challenge-label">The challenge</p>
+          <p class="case-challenge">Multiple franchise owners demanded program cancellation. Business case for continuation had to be rebuilt from scratch using data — under time pressure, with internal political resistance from multiple directions.</p>
+          <div class="case-tags">
+            <span class="case-tag">CRM</span>
+            <span class="case-tag">Personalisation</span>
+            <span class="case-tag">Data Strategy</span>
+            <span class="case-tag">Churn Prevention</span>
+            <span class="case-tag">Cross-functional</span>
+            <span class="case-tag">QSR</span>
+          </div>
+        </div>
+        <div class="case-card-right">
+          <div class="case-metrics-list">
+            <div class="case-metric">
+              <div class="num v">−22%</div>
+              <div class="lbl">Churn reduction</div>
+            </div>
+            <div class="case-metric">
+              <div class="num g">+38%</div>
+              <div class="lbl">Engagement lift</div>
+            </div>
+            <div class="case-metric">
+              <div class="num">10K+</div>
+              <div class="lbl">Pilot users</div>
+            </div>
+            <div class="case-metric">
+              <div class="num g">National</div>
+              <div class="lbl">Rollout approved</div>
+            </div>
+          </div>
+          <div class="case-outcome">
+            <span class="case-outcome-icon">🍔</span>
+            Program not only saved — pilot results were strong enough to justify national rollout across the full McDonald's APAC franchise network.
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 -->
+      <div class="case-card reveal" id="firedaemon">
+        <div class="case-card-left">
+          <div class="case-client-row">
+            <span class="case-client-tag">FireDaemon Technology · B2B SaaS</span>
+            <span class="case-year">2025–2026</span>
+          </div>
+          <h2 class="case-title">Full GTM Build — 30% Organic Growth & Free-to-Paid Conversion Lift</h2>
+          <p class="case-desc">Joined as the first dedicated marketing hire. Built the entire go-to-market infrastructure from the ground up: SEO architecture, content pipeline, email nurture workflows, and paid acquisition across Google and LinkedIn. The challenge was doing this with lean resources and proving ROI fast enough to justify continued investment.</p>
+          <p class="case-challenge-label">The challenge</p>
+          <p class="case-challenge">No content strategy, no SEO foundation, no email nurture. A solid product with zero organic presence and a free trial model with poor free-to-paid conversion. Had to build everything simultaneously while showing early results.</p>
+          <div class="case-tags">
+            <span class="case-tag">SEO</span>
+            <span class="case-tag">Content Strategy</span>
+            <span class="case-tag">Email Nurture</span>
+            <span class="case-tag">Paid Media</span>
+            <span class="case-tag">GTM</span>
+            <span class="case-tag">B2B SaaS</span>
+          </div>
+        </div>
+        <div class="case-card-right">
+          <div class="case-metrics-list">
+            <div class="case-metric">
+              <div class="num v">+30%</div>
+              <div class="lbl">Organic traffic</div>
+            </div>
+            <div class="case-metric">
+              <div class="num g">+45%</div>
+              <div class="lbl">Email open rates</div>
+            </div>
+            <div class="case-metric">
+              <div class="num">+30%</div>
+              <div class="lbl">Free-to-paid conv.</div>
+            </div>
+            <div class="case-metric">
+              <div class="num g">3.4×</div>
+              <div class="lbl">ROAS improvement</div>
+            </div>
+          </div>
+          <div class="case-outcome">
+            <span class="case-outcome-icon">💻</span>
+            Organic channel went from zero to a meaningful acquisition driver within 6 months. Email became the highest-converting channel.
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="case-card reveal" id="servicecomau">
+        <div class="case-card-left">
+          <div class="case-client-row">
+            <span class="case-client-tag">Service.com.au · Home Services Marketplace</span>
+            <span class="case-year">2025</span>
+          </div>
+          <h2 class="case-title">Full Digital Transformation — SEO, Paid & UX Overhaul</h2>
+          <p class="case-desc">Led end-to-end digital transformation for an Australian home services marketplace: complete SEO architecture audit and rebuild, paid media restructure across Google and Meta, and UX/CRO improvements on both desktop and app. Multiple workstreams running simultaneously, with a small internal team and tight timelines.</p>
+          <p class="case-challenge-label">The challenge</p>
+          <p class="case-challenge">A fragmented digital presence with poor organic visibility, overspend on paid without conversion depth, and an app UX that was losing leads at the final step. Three separate problems that needed to be fixed without breaking what was working.</p>
+          <div class="case-tags">
+            <span class="case-tag">Digital Transformation</span>
+            <span class="case-tag">SEO Architecture</span>
+            <span class="case-tag">Paid Media</span>
+            <span class="case-tag">UX</span>
+            <span class="case-tag">CRO</span>
+            <span class="case-tag">Marketplace</span>
+          </div>
+        </div>
+        <div class="case-card-right">
+          <div class="case-metrics-list">
+            <div class="case-metric">
+              <div class="num v">+30%</div>
+              <div class="lbl">Organic traffic</div>
+            </div>
+            <div class="case-metric">
+              <div class="num g">−18%</div>
+              <div class="lbl">Paid CPA</div>
+            </div>
+            <div class="case-metric">
+              <div class="num">+23%</div>
+              <div class="lbl">Lead quality score</div>
+            </div>
+          </div>
+          <div class="case-outcome">
+            <span class="case-outcome-icon">🏠</span>
+            Paid efficiency improved significantly while organic traffic scaled. Lead quality (not just volume) became the KPI — and improved.
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 -->
+      <div class="case-card reveal" id="volkswagen">
+        <div class="case-card-left">
+          <div class="case-client-row">
+            <span class="case-client-tag">Volkswagen APAC · DCO Campaign</span>
+            <span class="case-year">2023</span>
+          </div>
+          <h2 class="case-title">Dynamic Creative at Scale — 1,000+ Variants, 40% CTR Lift</h2>
+          <p class="case-desc">Managed the DCO (Dynamic Creative Optimisation) account for Volkswagen across Australia and New Zealand. Deployed dynamic creative feeds across display, social, and video — generating thousands of personalised creative variants matched to audience signals and context. Applied rigorous A/B testing and audience intelligence to progressively improve performance.</p>
+          <p class="case-challenge-label">The challenge</p>
+          <p class="case-challenge">Static creative at scale for a premium automotive brand was producing diminishing returns. The brief was to make creative as responsive and data-driven as the media buying — without losing brand quality control.</p>
+          <div class="case-tags">
+            <span class="case-tag">DCO</span>
+            <span class="case-tag">Programmatic</span>
+            <span class="case-tag">A/B Testing</span>
+            <span class="case-tag">Display Advertising</span>
+            <span class="case-tag">Video</span>
+            <span class="case-tag">Automotive</span>
+          </div>
+        </div>
+        <div class="case-card-right">
+          <div class="case-metrics-list">
+            <div class="case-metric">
+              <div class="num v">+40%</div>
+              <div class="lbl">CTR improvement</div>
+            </div>
+            <div class="case-metric">
+              <div class="num g">+22%</div>
+              <div class="lbl">Conversion rate</div>
+            </div>
+            <div class="case-metric">
+              <div class="num">1,000+</div>
+              <div class="lbl">Creative variants</div>
+            </div>
+          </div>
+          <div class="case-outcome">
+            <span class="case-outcome-icon">🚗</span>
+            CTR and conversion improvements were achieved without compromising brand standards. Dynamic creative became the recommended approach for all VW campaigns across APAC.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RESULTS SUMMARY -->
+  <div class="results-summary">
+    <div class="results-summary-inner">
+      <div class="rs-item reveal">
+        <div class="rs-num">30<span>%</span></div>
+        <div class="rs-label">Avg organic traffic lift</div>
+      </div>
+      <div class="rs-item reveal reveal-delay-1">
+        <div class="rs-num">22<span>%</span></div>
+        <div class="rs-label">Churn reduction</div>
+      </div>
+      <div class="rs-item reveal reveal-delay-2">
+        <div class="rs-num">45<span>%</span></div>
+        <div class="rs-label">Email open rate lift</div>
+      </div>
+      <div class="rs-item reveal reveal-delay-3">
+        <div class="rs-num">40<span>%</span></div>
+        <div class="rs-label">CTR improvement (VW)</div>
+      </div>
+      <div class="rs-item reveal reveal-delay-4">
+        <div class="rs-num">3.4<span>×</span></div>
+        <div class="rs-label">ROAS improvement</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="work-cta">
+    <div class="work-cta-inner reveal">
+      <div class="section-eyebrow" style="justify-content:center;">Work with me</div>
+      <h2 class="section-title">Want results like these?</h2>
+      <p class="section-desc" style="margin: 0 auto 2rem;">These results came from building systems, not running campaigns. If you're ready to do the same, let's talk.</p>
+      <a href="contact.html" class="btn btn-dark">Book a discovery call <span class="arrow">→</span></a>
+    </div>
+  </section>
+
+</div>
+<script src="shared.js"></script>
+<script>
+// Simple filter (visual only, add real filter logic if needed)
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

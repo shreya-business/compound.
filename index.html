@@ -3,523 +3,539 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shreya Kulkarni — AI Marketing Strategist and Consultant</title>
-<meta name="description" content="AI-powered marketing strategy and consulting for B2B and B2C businesses. Content, SEO, paid media, and strategy from a 7-year marketing leader.">
-<link rel="stylesheet" href="style.css">
+<title>Compound. — AI Marketing Strategy and Execution</title>
+<meta name="description" content="Most agencies sell you activity. We sell you growth. Compound. is a boutique AI marketing agency.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+:root{
+  --v:#6D28D9;--vm:#7C3AED;--vl:#8B5CF6;--vp:#EDE9FE;
+  --ink:#0D0D0D;--ink2:#3D3D3D;--muted:#888;
+  --border:#E4E2DC;--ow:#F7F6F3;--cream:#F0EDE6;--white:#fff;
+  --ff:'Fraunces',Georgia,serif;--fb:'DM Sans',sans-serif;--fm:'DM Mono',monospace;
+  --max:1200px;--nav:68px;--ease:cubic-bezier(0.16,1,0.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--fb);background:var(--white);color:var(--ink);overflow-x:hidden;line-height:1.6}
 
-/* ── HERO ── */
-.hero {
-  min-height: 100vh;
-  display: flex; flex-direction: column; justify-content: center;
-  padding: calc(var(--nav-h) + 1.5rem) 2.5rem 3rem;
-  position: relative; overflow: hidden; background: var(--white);
-}
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;height:var(--nav);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;background:rgba(255,255,255,.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:box-shadow .3s}
+.nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.07)}
+.nav-logo{display:flex;align-items:center;gap:.55rem;text-decoration:none;color:var(--ink)}
+.nav-c{width:24px;height:24px;overflow:visible;flex-shrink:0}
+.na1{transform-origin:12px 12px;animation:r1 16s linear infinite}
+.na2{transform-origin:12px 12px;animation:r2 10s linear infinite}
+.na3{transform-origin:12px 12px;animation:r1 6s linear infinite}
+@keyframes r1{to{transform:rotate(360deg)}}
+@keyframes r2{to{transform:rotate(-360deg)}}
+.nav-wm{font-family:var(--ff);font-size:1.12rem;font-weight:700;letter-spacing:-.03em;color:var(--ink)}
+.nav-wm span{color:var(--v)}
+.nav-links{display:flex;align-items:center;gap:.05rem;list-style:none}
+.nav-links a{font-size:.82rem;font-weight:500;color:var(--ink2);text-decoration:none;padding:.38rem .78rem;border-radius:6px;transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--ink);background:var(--ow)}
+.nav-links a.active{color:var(--v);background:var(--vp)}
+.nav-cta{display:inline-flex;align-items:center;gap:.35rem;background:var(--v);color:var(--white);padding:.52rem 1.2rem;border-radius:8px;font-weight:600;font-size:.82rem;text-decoration:none;transition:all .2s;white-space:nowrap}
+.nav-cta:hover{background:var(--vm);transform:translateY(-1px);box-shadow:0 4px 16px rgba(109,40,217,.35)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--white);border-bottom:1px solid var(--border);padding:1.25rem 1.5rem;z-index:850;flex-direction:column;gap:.35rem;box-shadow:0 8px 32px rgba(0,0,0,.08)}
+.mob.open{display:flex}
+.mob a{font-size:.95rem;font-weight:500;color:var(--ink2);text-decoration:none;padding:.6rem 0;border-bottom:1px solid var(--border);transition:color .2s}
+.mob a:hover{color:var(--v)}
+.mob a:last-child{border:none;color:var(--v);font-weight:600}
 
-/* Morphing violet blobs */
-.hero-blob {
-  position: absolute; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  filter: blur(60px); pointer-events: none; z-index: 0; opacity: 0.12;
-  background: var(--violet);
-  animation: morphBlob 12s ease-in-out infinite;
+/* HERO — white bg, centre-aligned */
+.hero{
+  padding:calc(var(--nav) + 5rem) 2.5rem 5rem;
+  background:var(--white);
+  text-align:center;
+  position:relative;overflow:hidden;
 }
-.hero-blob-1 { width: 560px; height: 480px; top: -80px; right: -60px; animation-delay: 0s; }
-.hero-blob-2 { width: 380px; height: 360px; bottom: -40px; left: 100px; opacity: 0.07; animation-delay: -4s; animation-duration: 16s; }
-.hero-blob-3 { width: 260px; height: 260px; top: 40%; left: -60px; opacity: 0.06; animation-delay: -8s; animation-duration: 10s; }
+/* Subtle grid background */
+.hero-grid{
+  position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    linear-gradient(rgba(109,40,217,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(109,40,217,.04) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 100%);
+}
+.hero-inner{max-width:760px;margin:0 auto;position:relative;z-index:1}
+.hero-avail{display:inline-flex;align-items:center;gap:.55rem;background:var(--ow);border:1px solid var(--border);font-family:var(--fm);font-size:.64rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);padding:.32rem .85rem;border-radius:100px;margin-bottom:2rem;animation:fu .5s var(--ease) .1s both}
+.avail-dot{width:6px;height:6px;background:#22C55E;border-radius:50%;flex-shrink:0;animation:blink 2.2s infinite}
+@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(34,197,94,.45)}50%{opacity:.7;box-shadow:0 0 0 6px rgba(34,197,94,0)}}
+@keyframes fu{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 
-@keyframes morphBlob {
-  0%   { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: translate(0,0) rotate(0deg); }
-  25%  { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: translate(10px,-12px) rotate(2deg); }
-  50%  { border-radius: 50% 50% 40% 60% / 40% 50% 60% 50%; transform: translate(-8px,8px) rotate(-1deg); }
-  75%  { border-radius: 40% 60% 60% 40% / 60% 40% 50% 50%; transform: translate(6px,4px) rotate(1.5deg); }
-  100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: translate(0,0) rotate(0deg); }
-}
+.hero-hl{font-family:var(--ff);font-weight:600;font-size:clamp(2.8rem,5.5vw,5.2rem);color:var(--ink);letter-spacing:-.048em;line-height:.97;margin-bottom:1.2rem}
+.hero-hl .line{display:block;overflow:hidden}
+.hero-hl .li{display:block;animation:lu .72s var(--ease) both}
+.line:nth-child(1) .li{animation-delay:.16s}
+.line:nth-child(2) .li{animation-delay:.28s}
+.hero-hl em{font-style:italic;color:var(--v)}
+@keyframes lu{from{transform:translateY(108%);opacity:0}to{transform:translateY(0);opacity:1}}
 
-/* Noise texture */
-.hero-noise {
-  position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: 0.025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
+.hero-stmt{font-family:var(--ff);font-style:italic;font-weight:300;font-size:clamp(1rem,1.8vw,1.25rem);color:var(--vl);letter-spacing:-.01em;margin-bottom:1.5rem;animation:fu .6s var(--ease) .52s both}
 
-.hero-inner {
-  max-width: var(--max-w); margin: 0 auto; width: 100%;
-  position: relative; z-index: 1;
-  display: grid; grid-template-columns: 1fr 360px; gap: 3rem; align-items: center;
-}
+.hero-sub{font-size:1.02rem;color:var(--ink2);line-height:1.82;max-width:560px;margin:0 auto 2.25rem;animation:fu .6s var(--ease) .64s both}
 
-/* Available badge */
-.hero-available {
-  display: inline-flex; align-items: center; gap: 0.55rem;
-  background: #F0FDF4; border: 1px solid #BBF7D0; color: #15803D;
-  font-family: var(--font-mono); font-size: 0.67rem; font-weight: 500;
-  letter-spacing: 0.06em; text-transform: uppercase;
-  padding: 0.32rem 0.85rem; border-radius: 100px; margin-bottom: 1.5rem;
-  animation: fadeUp 0.5s var(--ease-out) 0.1s both;
-}
-.hero-available-dot { width: 6px; height: 6px; background: #22C55E; border-radius: 50%; animation: pulse 2.2s infinite; }
+.hero-actions{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap;margin-bottom:4rem;animation:fu .6s var(--ease) .76s both}
+.btn-p{display:inline-flex;align-items:center;gap:.45rem;background:var(--v);color:var(--white);padding:.85rem 1.75rem;border-radius:8px;font-weight:600;font-size:.92rem;text-decoration:none;transition:all .2s var(--ease)}
+.btn-p:hover{background:var(--vm);transform:translateY(-2px);box-shadow:0 8px 28px rgba(109,40,217,.35)}
+.btn-p:hover .arr{transform:translateX(3px)}
+.btn-o{display:inline-flex;align-items:center;gap:.45rem;background:transparent;color:var(--ink);padding:.83rem 1.75rem;border-radius:8px;font-weight:500;font-size:.92rem;text-decoration:none;border:1.5px solid var(--border);transition:all .2s}
+.btn-o:hover{border-color:var(--v);color:var(--v);background:var(--vp)}
+.btn-o:hover .arr{transform:translateX(3px)}
+.arr{display:inline-block;transition:transform .2s}
 
-/* Animated headline — words fly in */
-.hero-headline {
-  font-family: var(--font-display);
-  font-size: clamp(2.8rem, 5.2vw, 5rem);
-  font-weight: 600; color: var(--ink);
-  letter-spacing: -0.04em; line-height: 1.0;
-  margin-bottom: 1.2rem;
+/* Animated C mark — centred, on white bg */
+.hero-mark{display:flex;justify-content:center;align-items:center;animation:fu .9s var(--ease) .3s both}
+.c-wrap{position:relative;width:360px;height:360px}
+/* Glow at convergence point — right-centre, adjusted for white bg */
+.c-glow{
+  position:absolute;top:50%;right:15%;transform:translateY(-50%);
+  width:80px;height:80px;border-radius:50%;
+  background:radial-gradient(circle,rgba(109,40,217,.35) 0%,rgba(109,40,217,.15) 40%,transparent 72%);
+  filter:blur(16px);
+  animation:gp 3.5s ease-in-out infinite;z-index:2;
 }
-.hero-headline .word {
-  display: inline-block;
-  animation: wordIn 0.6s var(--ease-out) both;
-  margin-right: 0.22em;
-}
-.hero-headline .word.italic { font-style: italic; color: var(--violet); margin-right: 0; }
-.hero-headline .break { display: block; height: 0; }
+@keyframes gp{0%,100%{opacity:.7;transform:translateY(-50%) scale(1)}50%{opacity:1;transform:translateY(-50%) scale(1.25)}}
+.c-svg{width:100%;height:100%;overflow:visible;position:relative;z-index:1}
 
-@keyframes wordIn {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+/* LOGO STRIP */
+.logo-strip{background:var(--cream);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 0}
+.ls-label{font-family:var(--fm);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:1.5rem}
+.mq-wrap{overflow:hidden;position:relative}
+.mq-wrap::before,.mq-wrap::after{content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none}
+.mq-wrap::before{left:0;background:linear-gradient(to right,var(--cream),transparent)}
+.mq-wrap::after{right:0;background:linear-gradient(to left,var(--cream),transparent)}
+.mq-track{display:flex;align-items:center;width:max-content;animation:mq 32s linear infinite}
+.mq-track:hover{animation-play-state:paused}
+@keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.li-wrap{display:flex;align-items:center;justify-content:center;padding:0 2.8rem;border-right:1px solid var(--border);height:52px;flex-shrink:0}
+.li-wrap:last-child{border-right:none}
+.li-wrap img{height:28px;width:auto;max-width:100px;object-fit:contain;filter:grayscale(100%) opacity(.42);transition:filter .3s,transform .25s}
+.li-wrap img:hover{filter:grayscale(0%) opacity(1);transform:scale(1.08)}
 
-.hero-sub {
-  font-size: 1.05rem; color: var(--ink-soft);
-  line-height: 1.75; max-width: 460px; margin-bottom: 1.75rem;
-  animation: fadeUp 0.6s var(--ease-out) 0.7s both;
-}
-.hero-actions {
-  display: flex; gap: 0.85rem; flex-wrap: wrap;
-  animation: fadeUp 0.6s var(--ease-out) 0.85s both;
-}
+/* POV */
+.pov{padding:8rem 2.5rem;background:var(--white);position:relative;overflow:hidden}
+.pov-bg{position:absolute;right:-90px;top:50%;transform:translateY(-50%);width:420px;height:420px;opacity:.035;pointer-events:none}
+.pov-in{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.ey{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fm);font-size:.65rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--v);margin-bottom:1.1rem}
+.ey::before{content:'';display:block;width:18px;height:1px;background:var(--v)}
+.st{font-family:var(--ff);font-size:clamp(1.85rem,3vw,2.8rem);font-weight:600;color:var(--ink);letter-spacing:-.035em;line-height:1.08;margin-bottom:1.2rem}
+.st em{font-style:italic;color:var(--v)}
+.sd{font-size:.97rem;color:var(--ink2);line-height:1.85;margin-bottom:1rem}
+.sd strong{color:var(--ink);font-weight:600}
+.pov-cards{display:flex;flex-direction:column;gap:.7rem}
+.pc{background:var(--ow);border:1px solid var(--border);border-radius:12px;padding:1.35rem 1.5rem;display:flex;gap:1rem;align-items:flex-start;position:relative;overflow:hidden;cursor:default;transition:border-color .25s,background .25s,transform .25s}
+.pc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--v);transform:scaleY(0);transform-origin:bottom;transition:transform .35s var(--ease)}
+.pc:hover{background:var(--white);border-color:#c4b5fd;transform:translateX(5px)}
+.pc:hover::before{transform:scaleY(1)}
+.pc-ico{font-size:1.2rem;flex-shrink:0;margin-top:.05rem}
+.pc-t{font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:.2rem}
+.pc-d{font-size:.79rem;color:var(--ink2);line-height:1.65}
 
-/* HERO RIGHT — service pills */
-.hero-card-stack {
-  display: flex; flex-direction: column; gap: 0.55rem;
-  animation: fadeUp 0.7s var(--ease-out) 0.5s both;
-}
-.hero-service-pill {
-  display: flex; align-items: center; gap: 0.8rem;
-  padding: 0.85rem 1rem;
-  background: var(--off-white); border: 1px solid var(--border);
-  border-radius: 10px; text-decoration: none; color: var(--ink);
-  transition: all 0.25s var(--ease-out);
-}
-.hero-service-pill:hover {
-  background: var(--white); border-color: var(--violet-light);
-  transform: translateX(5px) scale(1.01);
-  box-shadow: 0 4px 20px rgba(109,40,217,0.12);
-}
-.pill-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
-.pill-icon.v { background: var(--violet-pale); }
-.pill-icon.g { background: #F0FDF4; }
-.pill-icon.b { background: #EFF6FF; }
-.pill-icon.o { background: #FFF7ED; }
-.pill-icon.p { background: #FDF4FF; }
-.pill-name { font-size: 0.86rem; font-weight: 600; color: var(--ink); margin-bottom: 0.05rem; line-height: 1.2; }
-.pill-sub { font-size: 0.7rem; color: var(--muted); }
-.pill-arrow { margin-left: auto; color: var(--muted); font-size: 0.85rem; transition: transform 0.2s, color 0.2s; }
-.hero-service-pill:hover .pill-arrow { transform: translateX(4px); color: var(--violet); }
+/* SERVICES */
+.svc{padding:8rem 2.5rem;background:var(--ow)}
+.svc-in{max-width:var(--max);margin:0 auto}
+.svc-hd{margin-bottom:3rem}
+.svc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.stile{background:var(--white);padding:1.8rem 1.3rem;display:flex;flex-direction:column;gap:.7rem;text-decoration:none;color:var(--ink);position:relative;border-bottom:3px solid transparent;transition:background .25s,border-color .25s}
+.stile:hover{background:var(--v);border-bottom-color:var(--vm)}
+.stile:hover .st-n,.stile:hover .st-d,.stile:hover .st-a,.stile:hover .st-num{color:rgba(255,255,255,.85)}
+.stile:hover .st-d{color:rgba(255,255,255,.58)}
+.st-num{font-family:var(--fm);font-size:.62rem;color:var(--muted);letter-spacing:.1em;transition:color .2s}
+.st-ic{font-size:1.4rem;display:block}
+.st-n{font-family:var(--ff);font-size:.98rem;font-weight:600;color:var(--ink);letter-spacing:-.02em;line-height:1.2;transition:color .2s}
+.st-d{font-size:.76rem;color:var(--ink2);line-height:1.65;flex:1;transition:color .2s}
+.st-a{font-size:.78rem;color:var(--muted);margin-top:auto;transition:color .2s,transform .25s}
+.stile:hover .st-a{transform:translateX(5px);color:rgba(255,255,255,.75)}
 
-/* ── LOGO STRIP ── */
-.logo-strip { background: var(--cream); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.4rem 2.5rem; }
-.logo-strip-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); text-align: center; margin-bottom: 1.1rem; }
-.logo-strip-track { display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: wrap; }
-.logo-item {
-  display: flex; align-items: center; justify-content: center;
-  height: 28px; padding: 0 1.1rem;
-  font-family: var(--font-display); font-size: 0.75rem; font-weight: 700;
-  color: rgba(13,13,13,0.3); letter-spacing: 0.04em; text-transform: uppercase;
-  white-space: nowrap; transition: color 0.2s;
-  border-right: 1px solid var(--border);
-}
-.logo-item:last-child { border-right: none; }
-.logo-item:hover { color: var(--ink); }
-/* Styled initials logo marks */
-.logo-mark {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 22px; height: 22px; border-radius: 4px;
-  font-size: 0.6rem; font-weight: 800; color: white;
-  margin-right: 0.4rem; flex-shrink: 0; font-family: var(--font-display);
-  letter-spacing: 0;
-}
-.lm-mcd { background: #DA291C; }
-.lm-vw  { background: #001E62; }
-.lm-omn { background: #0066CC; }
-.lm-col { background: #E31837; }
-.lm-7el { background: #007A33; }
-.lm-dlx { background: #CC0000; }
-.lm-bei { background: #003087; }
-.lm-svc { background: #FF6B35; }
-.lm-fd  { background: #1a1a2e; }
-.lm-fld { background: var(--violet); }
-.lm-rg  { background: #4A5568; }
-.lm-hp  { background: #2D3748; }
+/* PROOF / RESULTS */
+.proof{padding:7rem 2.5rem;background:var(--ink);position:relative;overflow:hidden}
+.proof::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:700px;height:300px;background:radial-gradient(ellipse,rgba(109,40,217,.22) 0%,transparent 70%);pointer-events:none}
+.proof-in{max-width:var(--max);margin:0 auto;position:relative;z-index:1}
+.proof-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem}
+.rlink{font-size:.82rem;font-weight:600;color:var(--vl);text-decoration:none;display:flex;align-items:center;gap:.3rem;transition:gap .2s}
+.rlink:hover{gap:.55rem}
+.rlink .arr{color:var(--vl)}
+.proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06);border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.06)}
+.rc{background:rgba(255,255,255,.02);padding:2.25rem 1.75rem;display:flex;flex-direction:column;gap:.3rem;transition:background .25s,transform .2s;cursor:default}
+.rc:hover{background:rgba(109,40,217,.2);transform:translateY(-2px)}
+.rc-cl{font-family:var(--fm);font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.28);margin-bottom:.3rem}
+.rc-n{font-family:var(--ff);font-size:3rem;font-weight:600;color:var(--white);letter-spacing:-.045em;line-height:1}
+.rc-n .ac{color:var(--vl)}
+.rc-l{font-size:.7rem;color:rgba(255,255,255,.38);text-transform:uppercase;letter-spacing:.07em}
 
-/* ── WHAT I DO ── */
-.what-section { padding: 5rem 2.5rem; background: var(--white); }
-.what-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 280px 1fr; gap: 5rem; align-items: start; }
-.what-left { position: sticky; top: 88px; }
-.what-right { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
-.what-item {
-  display: flex; align-items: flex-start; gap: 1.1rem;
-  padding: 1.35rem 1.6rem; background: var(--white);
-  text-decoration: none; color: var(--ink);
-  border-bottom: 1px solid var(--border); transition: background 0.2s;
-  position: relative;
-}
-.what-item::before {
-  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
-  background: var(--violet); transform: scaleY(0); transform-origin: bottom;
-  transition: transform 0.3s var(--ease-out);
-}
-.what-item:last-child { border-bottom: none; }
-.what-item:hover { background: var(--off-white); }
-.what-item:hover::before { transform: scaleY(1); }
-.what-num { font-family: var(--font-mono); font-size: 0.67rem; color: var(--muted); padding-top: 0.2rem; flex-shrink: 0; }
-.what-name { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 0.2rem; }
-.what-desc { font-size: 0.83rem; color: var(--ink-soft); line-height: 1.6; }
-.what-link { margin-left: auto; flex-shrink: 0; font-size: 0.75rem; font-weight: 500; color: var(--violet); display: flex; align-items: center; gap: 0.2rem; opacity: 0; transform: translateX(-4px); transition: opacity 0.2s, transform 0.2s; white-space: nowrap; padding-top: 0.15rem; }
-.what-item:hover .what-link { opacity: 1; transform: translateX(0); }
+/* WORK */
+.work{padding:8rem 2.5rem;background:var(--white)}
+.work-in{max-width:var(--max);margin:0 auto}
+.hr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem}
+.btn-all{font-size:.82rem;font-weight:600;color:var(--v);text-decoration:none;display:flex;align-items:center;gap:.3rem;background:var(--vp);padding:.48rem 1.05rem;border-radius:7px;transition:all .2s;white-space:nowrap}
+.btn-all:hover{background:var(--v);color:var(--white)}
+.btn-all:hover .arr{transform:translateX(3px)}
+.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem}
+.wc{background:var(--ow);border:1px solid var(--border);border-radius:14px;padding:2rem;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:1rem;position:relative;overflow:hidden;transition:all .28s var(--ease)}
+.wc::after{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--v),var(--vl));transform:scaleY(0);transform-origin:bottom;transition:transform .35s var(--ease)}
+.wc:hover{background:var(--white);box-shadow:0 12px 44px rgba(109,40,217,.1);transform:translateY(-4px)}
+.wc:hover::after{transform:scaleY(1)}
+.wc-tag{font-family:var(--fm);font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--v)}
+.wc-t{font-family:var(--ff);font-size:1.08rem;font-weight:600;color:var(--ink);letter-spacing:-.02em;line-height:1.25}
+.wc-d{font-size:.83rem;color:var(--ink2);line-height:1.75;flex:1}
+.wc-ms{display:flex;gap:1.4rem;padding-top:.85rem;border-top:1px solid var(--border)}
+.wm-n{font-family:var(--ff);font-size:1.35rem;font-weight:600;color:var(--ink);letter-spacing:-.03em;line-height:1}
+.wm-n.v{color:var(--v)}
+.wm-l{font-size:.61rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:.1rem}
 
-/* ── RESULTS BAND ── */
-.results-band { background: var(--ink); padding: 4rem 2.5rem; position: relative; overflow: hidden; }
-.results-band::before {
-  content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
-  width: 600px; height: 300px;
-  background: radial-gradient(ellipse, rgba(109,40,217,0.25) 0%, transparent 70%);
-  pointer-events: none;
-}
-.results-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.06); border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); position: relative; z-index: 1; }
-.result-item { background: rgba(255,255,255,0.02); padding: 2rem 1.5rem; text-align: center; transition: background 0.25s; }
-.result-item:hover { background: rgba(109,40,217,0.12); }
-.result-num { font-family: var(--font-display); font-size: 2.8rem; font-weight: 600; color: var(--white); letter-spacing: -0.04em; line-height: 1; margin-bottom: 0.35rem; }
-.result-num .accent { color: var(--violet-light); }
-.result-label { font-size: 0.73rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.07em; }
+/* COURSES */
+.courses{padding:8rem 2.5rem;background:var(--ow)}
+.courses-in{max-width:var(--max);margin:0 auto}
+.c-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.cc{background:var(--white);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:var(--ink);transition:all .28s var(--ease)}
+.cc:hover{box-shadow:0 10px 36px rgba(109,40,217,.1);transform:translateY(-4px);border-color:#c4b5fd}
+.cc.ft{border-color:var(--vl);box-shadow:0 0 0 3px var(--vp)}
+.cc-ban{height:90px;display:flex;align-items:center;justify-content:center;font-size:2rem}
+.cb1{background:linear-gradient(135deg,#3b0764,var(--v))}
+.cb2{background:linear-gradient(135deg,#064e3b,#059669)}
+.cb3{background:linear-gradient(135deg,#1e3a5f,#1D4ED8)}
+.cc-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
+.cc-type{font-family:var(--fm);font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--v);margin-bottom:.4rem}
+.cc-name{font-family:var(--ff);font-size:1.05rem;font-weight:600;color:var(--ink);letter-spacing:-.02em;line-height:1.3;margin-bottom:.5rem}
+.cc-desc{font-size:.8rem;color:var(--ink2);line-height:1.7;flex:1;margin-bottom:1rem}
+.cc-foot{display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid var(--border)}
+.cc-price{font-family:var(--ff);font-size:1.2rem;font-weight:600;color:var(--ink);letter-spacing:-.03em}
+.cc-cta{font-size:.73rem;font-weight:600;color:var(--v);background:var(--vp);padding:.38rem .85rem;border-radius:6px;transition:all .2s}
+.cc:hover .cc-cta{background:var(--v);color:var(--white)}
 
-/* ── FEATURED WORK ── */
-.work-strip { padding: 5rem 2.5rem; background: var(--off-white); }
-.work-strip-inner { max-width: var(--max-w); margin: 0 auto; }
-.work-strip-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; }
-.work-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem; }
-.work-card {
-  background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.6rem;
-  text-decoration: none; color: var(--ink);
-  transition: all 0.25s var(--ease-out); position: relative; overflow: hidden;
-}
-.work-card::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--violet), var(--violet-light)); transform: scaleY(0); transform-origin: bottom; transition: transform 0.3s var(--ease-out); }
-.work-card:hover { box-shadow: 0 8px 32px rgba(109,40,217,0.1); transform: translateY(-3px) scale(1.01); }
-.work-card:hover::after { transform: scaleY(1); }
-.work-card-client { font-family: var(--font-mono); font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--violet); margin-bottom: 0.45rem; }
-.work-card-title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--ink); letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 0.55rem; }
-.work-card-desc { font-size: 0.82rem; color: var(--ink-soft); line-height: 1.65; margin-bottom: 1.1rem; }
-.work-card-metrics { display: flex; gap: 1.1rem; }
-.wc-metric .mn { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--ink); letter-spacing: -0.03em; }
-.wc-metric .mn.v { color: var(--violet); }
-.wc-metric .ml { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+/* CTA */
+.cta-band{padding:9rem 2.5rem;text-align:center;background:linear-gradient(155deg,var(--v) 0%,#3b0764 100%);position:relative;overflow:hidden}
+.cta-grain{position:absolute;inset:0;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.cta-in{max-width:640px;margin:0 auto;position:relative;z-index:1}
+.cta-ey{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fm);font-size:.65rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.48);margin-bottom:1.25rem}
+.cta-ey::before{content:'';display:block;width:18px;height:1px;background:rgba(255,255,255,.32)}
+.cta-hl{font-family:var(--ff);font-size:clamp(2.2rem,4vw,3.6rem);font-weight:600;color:var(--white);letter-spacing:-.04em;line-height:1.06;margin-bottom:1.1rem}
+.cta-sub{font-size:1rem;color:rgba(255,255,255,.52);line-height:1.82;margin-bottom:2.5rem}
+.cta-acts{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap}
+.btn-cw{display:inline-flex;align-items:center;gap:.45rem;background:var(--white);color:var(--v);padding:.88rem 1.8rem;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none;transition:all .2s}
+.btn-cw:hover{background:var(--cream);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.25)}
+.btn-cw:hover .arr{transform:translateX(3px)}
+.btn-gh{display:inline-flex;align-items:center;gap:.45rem;background:rgba(255,255,255,.1);color:var(--white);padding:.86rem 1.8rem;border-radius:8px;font-weight:500;font-size:.9rem;text-decoration:none;border:1.5px solid rgba(255,255,255,.25);transition:all .2s}
+.btn-gh:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.55)}
 
-/* ── CTA BAND ── */
-.cta-band {
-  padding: 5rem 2.5rem; text-align: center;
-  background: linear-gradient(160deg, var(--violet) 0%, #4C1D95 100%);
-  position: relative; overflow: hidden;
-}
-.cta-band::before {
-  content: ''; position: absolute; inset: 0;
-  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none;
-}
-.cta-band-inner { max-width: 620px; margin: 0 auto; position: relative; z-index: 1; }
-.cta-band .section-eyebrow { color: rgba(255,255,255,0.7); justify-content: center; }
-.cta-band .section-eyebrow::before { background: rgba(255,255,255,0.5); }
-.cta-band .section-title { color: var(--white); }
-.cta-band .section-desc { color: rgba(255,255,255,0.7); margin: 0 auto 2rem; }
-.cta-actions { display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap; }
+/* FOOTER */
+.footer{background:#111;color:rgba(255,255,255,.68);padding:4.5rem 2.5rem 2rem}
+.footer-in{max-width:var(--max);margin:0 auto}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:1.75rem}
+.flogo{display:flex;align-items:center;gap:.55rem;margin-bottom:.85rem}
+.fc-svg{width:22px;height:22px;overflow:visible}
+.fwm{font-family:var(--ff);font-size:1.08rem;font-weight:700;color:var(--white);letter-spacing:-.03em}
+.fwm span{color:var(--vl)}
+.ftag{font-size:.84rem;color:rgba(255,255,255,.34);line-height:1.75;max-width:250px;margin-bottom:1.5rem}
+.fsoc{display:flex;gap:.5rem}
+.fsoc a{width:34px;height:34px;background:rgba(255,255,255,.08);border-radius:7px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.52);font-size:.82rem;text-decoration:none;font-weight:700;transition:background .2s,color .2s}
+.fsoc a:hover{background:var(--v);color:var(--white)}
+.fcol-t{font-size:.64rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:1.1rem}
+.fcol ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.fcol a{font-size:.83rem;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.fcol a:hover{color:var(--white)}
+.fb{display:flex;justify-content:space-between;font-size:.76rem;color:rgba(255,255,255,.26)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.08s}.rd2{transition-delay:.16s}.rd3{transition-delay:.24s}.rd4{transition-delay:.32s}
 
 /* RESPONSIVE */
-@media (max-width: 960px) {
-  .hero { padding: calc(var(--nav-h) + 1.25rem) 1.25rem 2.5rem; }
-  .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
-  .hero-headline { font-size: clamp(2.2rem,8vw,3.5rem); }
-  .what-inner { grid-template-columns: 1fr; gap: 2rem; }
-  .what-left { position: static; }
-  .results-inner { grid-template-columns: repeat(2, 1fr); }
-  .work-cards { grid-template-columns: 1fr; }
-  .work-strip-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
-  .what-section, .work-strip, .cta-band { padding: 3.5rem 1.25rem; }
-  .results-band { padding: 3rem 1.25rem; }
-  .logo-strip { padding: 1.25rem; }
-  .logo-item { padding: 0 0.65rem; font-size: 0.68rem; }
-  .hero-blob-1 { width: 300px; height: 280px; }
-  .hero-blob-2 { display: none; }
+@media(max-width:960px){
+  .nav{padding:0 1.25rem}.nav-links{display:none}.hamburger{display:flex}
+  .hero{padding:calc(var(--nav)+2.5rem) 1.25rem 3.5rem}
+  .hero-hl{font-size:clamp(2.4rem,8vw,3.5rem)}
+  .c-wrap{width:260px;height:260px}
+  .pov,.svc,.work,.courses{padding:5rem 1.25rem}
+  .pov-in{grid-template-columns:1fr;gap:3rem}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .proof{padding:4rem 1.25rem}
+  .proof-grid{grid-template-columns:1fr 1fr}
+  .proof-hd{flex-direction:column;align-items:flex-start;gap:1rem}
+  .hr{flex-direction:column;align-items:flex-start;gap:1rem}
+  .work-grid,.c-grid{grid-template-columns:1fr}
+  .cta-band{padding:5.5rem 1.25rem}
+  .footer{padding:3rem 1.25rem 1.5rem}
+  .ft{grid-template-columns:1fr 1fr;gap:2rem}
+  .fb{flex-direction:column;gap:.5rem;text-align:center}
+}
+@media(max-width:600px){
+  .svc-grid{grid-template-columns:1fr}
+  .proof-grid{grid-template-columns:1fr 1fr}
+  .c-wrap{width:220px;height:220px}
 }
 </style>
 </head>
 <body>
-<div class="page-wrap">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-noise"></div>
-    <div class="hero-blob hero-blob-1"></div>
-    <div class="hero-blob hero-blob-2"></div>
-    <div class="hero-blob hero-blob-3"></div>
-    <div class="hero-inner">
-      <div class="hero-left">
-        <div class="hero-available">
-          <span class="hero-available-dot"></span>
-          Available for new projects
-        </div>
-        <h1 class="hero-headline" id="heroHeadline">
-          <span class="word" style="animation-delay:0.2s">Marketing</span>
-          <span class="word" style="animation-delay:0.32s">that</span>
-          <span class="break"></span>
-          <span class="word italic" style="animation-delay:0.44s">compounds.</span>
-          <span class="break"></span>
-          <span class="word" style="animation-delay:0.56s">Powered</span>
-          <span class="word" style="animation-delay:0.65s">by</span>
-          <span class="word" style="animation-delay:0.74s">AI.</span>
-        </h1>
-        <p class="hero-sub">Strategy consulting and AI-powered marketing execution for B2B and B2C businesses. Senior-level thinking, without the agency overhead.</p>
-        <div class="hero-actions">
-          <a href="services.html" class="btn btn-dark">Explore services <span class="arrow">→</span></a>
-          <a href="work.html" class="btn btn-outline">View case studies</a>
-        </div>
-      </div>
-
-      <div class="hero-card-stack">
-        <a href="services.html#consulting" class="hero-service-pill">
-          <div class="pill-icon v">🧠</div>
-          <div class="pill-text">
-            <div class="pill-name">Strategy Consulting</div>
-            <div class="pill-sub">Data-driven, commercially sharp</div>
-          </div>
-          <span class="pill-arrow">→</span>
-        </a>
-        <a href="services.html#b2b" class="hero-service-pill">
-          <div class="pill-icon b">📊</div>
-          <div class="pill-text">
-            <div class="pill-name">B2B Marketing</div>
-            <div class="pill-sub">SEO, content, paid, CRM, end-to-end</div>
-          </div>
-          <span class="pill-arrow">→</span>
-        </a>
-        <a href="services.html#b2c" class="hero-service-pill">
-          <div class="pill-icon g">🛍</div>
-          <div class="pill-text">
-            <div class="pill-name">B2C Marketing</div>
-            <div class="pill-sub">Google, Meta, LinkedIn campaigns</div>
-          </div>
-          <span class="pill-arrow">→</span>
-        </a>
-        <a href="services.html#ai-content" class="hero-service-pill">
-          <div class="pill-icon p">✍</div>
-          <div class="pill-text">
-            <div class="pill-name">AI Content</div>
-            <div class="pill-sub">Blog posts, landing pages, emails at scale</div>
-          </div>
-          <span class="pill-arrow">→</span>
-        </a>
-        <a href="services.html#paid-media" class="hero-service-pill">
-          <div class="pill-icon o">🎯</div>
-          <div class="pill-text">
-            <div class="pill-name">Paid Media</div>
-            <div class="pill-sub">Google, Meta, LinkedIn managed campaigns</div>
-          </div>
-          <span class="pill-arrow">→</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- LOGO STRIP -->
-  <div class="logo-strip">
-    <p class="logo-strip-label">Enterprise experience across</p>
-    <div class="logo-strip-track">
-      <span class="logo-item">McDonald's</span>
-      <span class="logo-item">Volkswagen</span>
-      <span class="logo-item">Coles</span>
-      <span class="logo-item">7-Eleven</span>
-      <span class="logo-item">Dulux</span>
-      <span class="logo-item">Beiersdorf</span>
-      <span class="logo-item">Service.com.au</span>
-      <span class="logo-item">FireDaemon</span>
-      <span class="logo-item">Floodgate Digital</span>
-    </div>
-  </div>
-
-  <!-- WHAT I DO -->
-  <section class="what-section">
-    <div class="what-inner">
-      <div class="what-left reveal">
-        <div class="section-eyebrow">What I do</div>
-        <h2 class="section-title">Five ways to work together</h2>
-        <p class="section-desc">Strategy, execution, or education. Pick the level that fits where you are right now.</p>
-        <br>
-        <a href="services.html" class="btn btn-outline">All services <span class="arrow">→</span></a>
-      </div>
-      <div class="what-right reveal reveal-delay-2">
-        <a href="services.html#consulting" class="what-item">
-          <span class="what-num">01</span>
-          <div class="what-text">
-            <div class="what-name">Strategy Consulting</div>
-            <div class="what-desc">Go-to-market strategy, growth planning, and channel prioritisation. Structured, data-driven, and commercially sharp.</div>
-          </div>
-          <span class="what-link">Explore <span class="arrow">→</span></span>
-        </a>
-        <a href="services.html#b2b" class="what-item">
-          <span class="what-num">02</span>
-          <div class="what-text">
-            <div class="what-name">B2B Marketing</div>
-            <div class="what-desc">Full-service B2B covering SEO, content, paid media, CRM, email and demand generation.</div>
-          </div>
-          <span class="what-link">Explore <span class="arrow">→</span></span>
-        </a>
-        <a href="services.html#b2c" class="what-item">
-          <span class="what-num">03</span>
-          <div class="what-text">
-            <div class="what-name">B2C Marketing</div>
-            <div class="what-desc">Performance and brand marketing across Google, Meta, LinkedIn, and programmatic channels.</div>
-          </div>
-          <span class="what-link">Explore <span class="arrow">→</span></span>
-        </a>
-        <a href="services.html#ai-content" class="what-item">
-          <span class="what-num">04</span>
-          <div class="what-text">
-            <div class="what-name">AI Content</div>
-            <div class="what-desc">Blog posts, landing pages, email sequences, and ad copy at scale. AI speed, human strategy layer.</div>
-          </div>
-          <span class="what-link">Explore <span class="arrow">→</span></span>
-        </a>
-        <a href="services.html#paid-media" class="what-item">
-          <span class="what-num">05</span>
-          <div class="what-text">
-            <div class="what-name">Paid Media</div>
-            <div class="what-desc">Google Ads, Meta Ads, and LinkedIn campaigns. Setup, management, and ongoing optimisation.</div>
-          </div>
-          <span class="what-link">Explore <span class="arrow">→</span></span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- RESULTS BAND -->
-  <div class="results-band">
-    <div class="results-inner">
-      <div class="result-item reveal" data-count="30" data-suffix="%">
-        <div class="result-num"><span class="count-num">30</span><span class="accent">%</span></div>
-        <div class="result-label">Organic traffic growth</div>
-      </div>
-      <div class="result-item reveal reveal-delay-1" data-count="22" data-suffix="%">
-        <div class="result-num"><span class="count-num">22</span><span class="accent">%</span></div>
-        <div class="result-label">Churn reduction (McDonald's)</div>
-      </div>
-      <div class="result-item reveal reveal-delay-2" data-count="45" data-suffix="%">
-        <div class="result-num"><span class="count-num">45</span><span class="accent">%</span></div>
-        <div class="result-label">Email open rate lift</div>
-      </div>
-      <div class="result-item reveal reveal-delay-3" data-count="3.4" data-suffix="x">
-        <div class="result-num"><span class="count-num">3.4</span><span class="accent">x</span></div>
-        <div class="result-label">ROAS improvement</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FEATURED WORK -->
-  <section class="work-strip">
-    <div class="work-strip-inner">
-      <div class="work-strip-header reveal">
-        <div>
-          <div class="section-eyebrow">Selected work</div>
-          <h2 class="section-title" style="margin-bottom:0;">Results that speak</h2>
-        </div>
-        <a href="work.html" class="btn btn-outline">All case studies <span class="arrow">→</span></a>
-      </div>
-      <div class="work-cards">
-        <a href="work.html#mcdonald" class="work-card reveal reveal-delay-1">
-          <p class="work-card-client">McDonald's APAC · Omnicom · Personalisation</p>
-          <h3 class="work-card-title">Personalised Offer Program </h3>
-          <p class="work-card-desc">Redesigned a failing personalisation program under franchise pressure by adding churn offers. Pilot led to national rollout.</p>
-          <div class="work-card-metrics">
-            <div class="wc-metric"><div class="mn v">-22%</div><div class="ml">Churn</div></div>
-            <div class="wc-metric"><div class="mn">+38%</div><div class="ml">Engagement</div></div>
-            <div class="wc-metric"><div class="mn">10K+</div><div class="ml">Pilot users</div></div>
-          </div>
-        </a>
-        <a href="work.html#firedaemon" class="work-card reveal reveal-delay-2">
-          <p class="work-card-client">FireDaemon Technology · B2B SaaS · Full GTM</p>
-          <h3 class="work-card-title">Full GTM Build: 30% Organic Growth and Conversion Lift</h3>
-          <p class="work-card-desc">Built the entire marketing function from scratch. SEO, email, and paid media working together from day one.</p>
-          <div class="work-card-metrics">
-            <div class="wc-metric"><div class="mn v">+30%</div><div class="ml">Organic Growth</div></div>
-            <div class="wc-metric"><div class="mn">+45%</div><div class="ml">Email opens</div></div>
-            <div class="wc-metric"><div class="mn">3.4x</div><div class="ml">ROAS</div></div>
-          </div>
-        </a>
-        <a href="work.html#volkswagen" class="work-card reveal reveal-delay-3">
-          <p class="work-card-client">Volkswagen APAC · Omnicom · Paid Media</p>
-          <h3 class="work-card-title">Dynamic Creative at Scale: 1,000+ Variants, 40% CTR Lift</h3>
-          <p class="work-card-desc">DCO campaign across AU and NZ with thousands of personalised creative variants.</p>
-          <div class="work-card-metrics">
-            <div class="wc-metric"><div class="mn v">+20%</div><div class="ml">CTR</div></div>
-            <div class="wc-metric"><div class="mn">+22%</div><div class="ml">Conversion</div></div>
-            <div class="wc-metric"><div class="mn">1K+</div><div class="ml">Variants</div></div>
-          </div>
-        </a>
-        <a href="work.html#servicecomau" class="work-card reveal reveal-delay-4">
-          <p class="work-card-client">Service.com.au · Marketplace · Consulting</p>
-          <h3 class="work-card-title">Digital Transformation: SEO, Paid and UX Overhaul</h3>
-          <p class="work-card-desc">End-to-end digital transformation with simultaneous SEO, paid and UX workstreams.</p>
-          <div class="work-card-metrics">
-            <div class="wc-metric"><div class="mn v">+30%</div><div class="ml">Organic</div></div>
-            <div class="wc-metric"><div class="mn">-18%</div><div class="ml">CPA</div></div>
-            <div class="wc-metric"><div class="mn">+23%</div><div class="ml">Lead quality</div></div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA BAND -->
-  <section class="cta-band">
-    <div class="cta-band-inner reveal">
-      <div class="section-eyebrow">Ready to start?</div>
-      <h2 class="section-title">Let's build something that compounds.</h2>
-      <p class="section-desc">Whether you need a strategy partner, execution support, or just want to talk through where to start, get in touch.</p>
-      <div class="cta-actions">
-        <a href="contact.html" class="btn btn-ghost-white" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.4);">Work with me <span class="arrow">→</span></a>
-        <a href="newsletter.html" class="btn btn-ghost-white">Join the newsletter</a>
-      </div>
-    </div>
-  </section>
-
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <svg class="nav-c" viewBox="0 0 24 24" fill="none">
+      <g class="na1" opacity=".22"><path d="M21 12A9 9 0 1 1 7.5 3.6" stroke="#6D28D9" stroke-width=".9" stroke-linecap="round" fill="none"/></g>
+      <g class="na2" opacity=".4"><path d="M18.5 12A6.5 6.5 0 1 1 8.8 5.6" stroke="#7C3AED" stroke-width="1.1" stroke-linecap="round" fill="none"/></g>
+      <g class="na3" opacity=".65"><path d="M16 12A4 4 0 1 1 10.3 8.2" stroke="#8B5CF6" stroke-width="1.4" stroke-linecap="round" fill="none"/></g>
+      <path d="M15.5 8.5A5.5 5.5 0 1 0 15.5 15.5" stroke="#6D28D9" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+    </svg>
+    <span class="nav-wm">Compound<span>.</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="newsletter.html">Newsletter</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Work with us <span class="arr">→</span></a>
+  <div class="hamburger" id="hbg"><span></span><span></span><span></span></div>
+</nav>
+<div class="mob" id="mob">
+  <a href="about.html">About</a><a href="services.html">Services</a>
+  <a href="work.html">Work</a><a href="courses.html">Courses</a>
+  <a href="newsletter.html">Newsletter</a><a href="contact.html">Work with us →</a>
 </div>
-<script src="shared.js"></script>
+
+<!-- HERO — white, centre-aligned -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-avail"><span class="avail-dot"></span>Taking on new clients</div>
+    <h1 class="hero-hl">
+      <span class="line"><span class="li">Most agencies sell you <em>activity.</em></span></span>
+      <span class="line"><span class="li">We sell growth.</span></span>
+    </h1>
+    <p class="hero-stmt">Marketing that compounds.</p>
+    <p class="hero-sub">Compound. is a boutique AI marketing agency. Strategy drives every decision. AI gives us the speed to execute it — without the overhead, the junior handoffs, or the vanity metrics.</p>
+    <div class="hero-actions">
+      <a href="services.html" class="btn-p">See how we work <span class="arr">→</span></a>
+      <a href="work.html" class="btn-o">See the results <span class="arr">→</span></a>
+    </div>
+    <!-- Animated C mark as centrepiece below CTAs -->
+    <div class="hero-mark">
+      <div class="c-wrap">
+        <div class="c-glow"></div>
+        <svg class="c-svg" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg">
+          <style>
+            @keyframes ad1{to{transform:rotate(360deg)}}
+            @keyframes ad2{to{transform:rotate(-360deg)}}
+          </style>
+          <g style="transform-origin:180px 180px;animation:ad1 55s linear infinite;opacity:.1"><path d="M180,20 A160,160 0 1 1 180,340" stroke="#6D28D9" stroke-width="1.2" fill="none" stroke-linecap="round"/></g>
+          <g style="transform-origin:180px 180px;animation:ad2 46s linear infinite;opacity:.14"><path d="M180,34 A146,146 0 1 1 180,326" stroke="#7C3AED" stroke-width="1.3" fill="none" stroke-linecap="round"/></g>
+          <g style="transform-origin:180px 180px;animation:ad1 38s linear infinite;opacity:.19"><path d="M180,50 A130,130 0 1 1 180,310" stroke="#6D28D9" stroke-width="1.5" fill="none" stroke-linecap="round"/></g>
+          <g style="transform-origin:180px 180px;animation:ad2 30s linear infinite;opacity:.26"><path d="M180,68 A112,112 0 1 1 180,292" stroke="#8B5CF6" stroke-width="1.7" fill="none" stroke-linecap="round"/></g>
+          <g style="transform-origin:180px 180px;animation:ad1 23s linear infinite;opacity:.35"><path d="M180,86 A94,94 0 1 1 180,274" stroke="#7C3AED" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+          <g style="transform-origin:180px 180px;animation:ad2 17s linear infinite;opacity:.46"><path d="M180,106 A74,74 0 1 1 180,254" stroke="#6D28D9" stroke-width="2.3" fill="none" stroke-linecap="round"/></g>
+          <g style="transform-origin:180px 180px;animation:ad1 12s linear infinite;opacity:.6"><path d="M180,126 A54,54 0 1 1 180,234" stroke="#8B5CF6" stroke-width="2.7" fill="none" stroke-linecap="round"/></g>
+          <g style="transform-origin:180px 180px;animation:ad2 8s linear infinite;opacity:.75"><path d="M180,148 A32,32 0 1 1 180,212" stroke="#7C3AED" stroke-width="3.2" fill="none" stroke-linecap="round"/></g>
+          <!-- Core C — visible on white bg -->
+          <path d="M180,162 A18,18 0 1 1 180,198" stroke="#6D28D9" stroke-width="5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGO STRIP -->
+<div class="logo-strip">
+  <p class="ls-label">Enterprise experience across</p>
+  <div class="mq-wrap">
+    <div class="mq-track">
+      <div class="li-wrap"><img src="logo-mcdonalds.png" alt="McDonald's"></div>
+      <div class="li-wrap"><img src="logo-vw.png" alt="Volkswagen"></div>
+      <div class="li-wrap"><img src="logo-coles.png" alt="Coles"></div>
+      <div class="li-wrap"><img src="logo-7eleven.png" alt="7-Eleven"></div>
+      <div class="li-wrap"><img src="logo-dulux.png" alt="Dulux"></div>
+      <div class="li-wrap"><img src="logo-elastoplast.png" alt="Elastoplast"></div>
+      <div class="li-wrap"><img src="logo-servicecomau.png" alt="Service.com.au"></div>
+      <div class="li-wrap"><img src="logo-firedaemon.png" alt="FireDaemon"></div>
+      <div class="li-wrap"><img src="logo-naty.png" alt="Naty"></div>
+      <div class="li-wrap"><img src="logo-nsw.png" alt="NSW Government"></div>
+      <div class="li-wrap"><img src="logo-victoria.png" alt="Victoria State Government"></div>
+      <div class="li-wrap"><img src="logo-floodgate.png" alt="Floodgate Digital"></div>
+      <!-- duplicate for seamless loop -->
+      <div class="li-wrap"><img src="logo-mcdonalds.png" alt="McDonald's"></div>
+      <div class="li-wrap"><img src="logo-vw.png" alt="Volkswagen"></div>
+      <div class="li-wrap"><img src="logo-coles.png" alt="Coles"></div>
+      <div class="li-wrap"><img src="logo-7eleven.png" alt="7-Eleven"></div>
+      <div class="li-wrap"><img src="logo-dulux.png" alt="Dulux"></div>
+      <div class="li-wrap"><img src="logo-elastoplast.png" alt="Elastoplast"></div>
+      <div class="li-wrap"><img src="logo-servicecomau.png" alt="Service.com.au"></div>
+      <div class="li-wrap"><img src="logo-firedaemon.png" alt="FireDaemon"></div>
+      <div class="li-wrap"><img src="logo-naty.png" alt="Naty"></div>
+      <div class="li-wrap"><img src="logo-nsw.png" alt="NSW Government"></div>
+      <div class="li-wrap"><img src="logo-victoria.png" alt="Victoria State Government"></div>
+      <div class="li-wrap"><img src="logo-floodgate.png" alt="Floodgate Digital"></div>
+    </div>
+  </div>
+</div>
+
+<!-- POV -->
+<section class="pov">
+  <svg class="pov-bg" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg">
+    <path d="M180,50 A130,130 0 1 1 180,310" stroke="#6D28D9" stroke-width="1.5" fill="none"/>
+    <path d="M180,86 A94,94 0 1 1 180,274" stroke="#6D28D9" stroke-width="2" fill="none"/>
+    <path d="M180,126 A54,54 0 1 1 180,234" stroke="#6D28D9" stroke-width="2.5" fill="none"/>
+    <path d="M180,162 A18,18 0 1 1 180,198" stroke="#6D28D9" stroke-width="4" fill="none"/>
+  </svg>
+  <div class="pov-in">
+    <div class="reveal">
+      <div class="ey">Our point of view</div>
+      <h2 class="st">The agency model is <em>broken.</em> We built something better.</h2>
+      <p class="sd">Most agencies charge enterprise rates, hand the work to a 23-year-old, and fill your monthly report with follower counts and impression graphs. <strong>That is not marketing. That is theatre.</strong></p>
+      <p class="sd">Every channel we run and every campaign we launch has to connect to a number that matters to your business. If it doesn't, we cut it.</p>
+    </div>
+    <div class="pov-cards reveal rd2">
+      <div class="pc"><span class="pc-ico">🚫</span><div><div class="pc-t">No vanity metrics</div><div class="pc-d">Followers and impressions are not in our reports unless they connect to revenue. We measure what your CFO cares about.</div></div></div>
+      <div class="pc"><span class="pc-ico">👤</span><div><div class="pc-t">No junior handoffs</div><div class="pc-d">The person who builds the strategy executes it. You always deal with a senior practitioner — not someone reading from a playbook.</div></div></div>
+      <div class="pc"><span class="pc-ico">⚡</span><div><div class="pc-t">AI speed, human strategy</div><div class="pc-d">AI gives us execution speed traditional agencies cannot match. Strategy gives it direction. You get both at a fraction of the cost.</div></div></div>
+      <div class="pc"><span class="pc-ico">📊</span><div><div class="pc-t">Only what moves the needle</div><div class="pc-d">We will tell you to stop spending on channels that don't work — even if that means less billing. That is how client relationships last.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="svc">
+  <div class="svc-in">
+    <div class="svc-hd reveal">
+      <div class="ey">What we do</div>
+      <h2 class="st">Five ways to work together.</h2>
+      <p class="sd">All of them accountable to revenue. None of them handed to a junior team.</p>
+    </div>
+    <div class="svc-grid">
+      <a href="services.html#consulting" class="stile reveal"><span class="st-num">01</span><span class="st-ic">🧠</span><div class="st-n">Strategy Consulting</div><div class="st-d">You have a product. You don't have a plan. We fix that — GTM, positioning, channel prioritisation.</div><div class="st-a">→</div></a>
+      <a href="services.html#b2b" class="stile reveal rd1"><span class="st-num">02</span><span class="st-ic">📊</span><div class="st-n">B2B Marketing</div><div class="st-d">The full stack. One senior person connecting SEO, content, paid, CRM, and email.</div><div class="st-a">→</div></a>
+      <a href="services.html#b2c" class="stile reveal rd2"><span class="st-num">03</span><span class="st-ic">🛍</span><div class="st-n">B2C Marketing</div><div class="st-d">Enterprise-scale consumer campaign thinking. Google, Meta, LinkedIn, programmatic.</div><div class="st-a">→</div></a>
+      <a href="services.html#ai-content" class="stile reveal rd3"><span class="st-num">04</span><span class="st-ic">✍</span><div class="st-n">AI Content</div><div class="st-d">Content at AI speed. Quality at the standard of a senior editor. Not prompt-and-publish.</div><div class="st-a">→</div></a>
+      <a href="services.html#paid-media" class="stile reveal rd4"><span class="st-num">05</span><span class="st-ic">🎯</span><div class="st-n">Paid Media</div><div class="st-d">Campaigns run by someone who has managed these platforms at enterprise scale.</div><div class="st-a">→</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF — metrics appear ONCE, here only -->
+<section class="proof">
+  <div class="proof-in">
+    <div class="proof-hd reveal">
+      <div>
+        <div class="ey" style="color:var(--vl)"><span style="width:18px;height:1px;background:var(--vl);display:block"></span>Proof</div>
+        <h2 style="font-family:var(--ff);font-size:clamp(1.9rem,3vw,2.8rem);font-weight:600;color:var(--white);letter-spacing:-.035em;line-height:1.08;margin-bottom:0">The numbers that matter.</h2>
+      </div>
+      <a href="work.html" class="rlink">All case studies <span class="arr">→</span></a>
+    </div>
+    <div class="proof-grid">
+      <div class="rc reveal"><div class="rc-cl">Volkswagen APAC</div><div class="rc-n"><span class="cnt" data-to="40">40</span><span class="ac">%</span></div><div class="rc-l">CTR improvement — DCO campaign</div></div>
+      <div class="rc reveal rd1"><div class="rc-cl">FireDaemon Technology</div><div class="rc-n"><span class="cnt" data-to="45">45</span><span class="ac">%</span></div><div class="rc-l">Email open rate lift</div></div>
+      <div class="rc reveal rd2"><div class="rc-cl">Service.com.au</div><div class="rc-n"><span class="cnt" data-to="30">30</span><span class="ac">%</span></div><div class="rc-l">Organic growth — digital transformation</div></div>
+      <div class="rc reveal rd3"><div class="rc-cl">Naty</div><div class="rc-n"><span class="cnt" data-to="3.4" data-dec="1">3.4</span><span class="ac">x</span></div><div class="rc-l">ROAS — up from 2.5x at engagement start</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="work">
+  <div class="work-in">
+    <div class="hr reveal">
+      <div><div class="ey">Selected work</div><h2 class="st" style="margin-bottom:0">Results that speak.</h2></div>
+      <a href="work.html" class="btn-all">All case studies <span class="arr">→</span></a>
+    </div>
+    <div class="work-grid">
+      <a href="work.html#volkswagen" class="wc reveal rd1">
+        <div class="wc-tag">Volkswagen APAC · Omnicom · Paid Media</div>
+        <div class="wc-t">Dynamic Creative at Scale: 1,000+ Variants and 40% CTR Lift</div>
+        <div class="wc-d">DCO campaign across AU and NZ. Brand quality maintained throughout. DCO became the recommended approach for all VW APAC campaigns going forward.</div>
+        <div class="wc-ms"><div><div class="wm-n v">+40%</div><div class="wm-l">CTR</div></div><div><div class="wm-n">+22%</div><div class="wm-l">Conversion</div></div><div><div class="wm-n">1K+</div><div class="wm-l">Variants</div></div></div>
+      </a>
+      <a href="work.html#firedaemon" class="wc reveal rd2">
+        <div class="wc-tag">FireDaemon Technology · B2B SaaS · Full GTM</div>
+        <div class="wc-t">Full GTM Build: 30% Organic Growth and Free-to-Paid Lift</div>
+        <div class="wc-d">First dedicated marketing hire. Built SEO, email, and paid from scratch simultaneously. 50+ content assets per month with a pipeline that runs itself.</div>
+        <div class="wc-ms"><div><div class="wm-n v">+30%</div><div class="wm-l">Organic</div></div><div><div class="wm-n">+45%</div><div class="wm-l">Email opens</div></div><div><div class="wm-n">+30%</div><div class="wm-l">CTR</div></div></div>
+      </a>
+      <a href="work.html#mcdonald" class="wc reveal rd3">
+        <div class="wc-tag">McDonald's APAC · Omnicom · Personalisation</div>
+        <div class="wc-t">Personalised Offer Program: From Cancellation Risk to National Rollout</div>
+        <div class="wc-d">Franchisees threatened to cancel the entire program. Rebuilt the segmentation model and aligned three teams. Approved for full national rollout across APAC.</div>
+        <div class="wc-ms"><div><div class="wm-n v">Saved</div><div class="wm-l">Program</div></div><div><div class="wm-n">National</div><div class="wm-l">Rollout</div></div></div>
+      </a>
+      <a href="work.html#servicecomau" class="wc reveal rd4">
+        <div class="wc-tag">Service.com.au · Marketplace · Digital Transformation</div>
+        <div class="wc-t">Digital Transformation: SEO, Paid and UX Overhaul</div>
+        <div class="wc-d">Simultaneous SEO, paid, and UX workstreams across a national marketplace. All three channels improved in parallel over an 8-month engagement.</div>
+        <div class="wc-ms"><div><div class="wm-n v">+30%</div><div class="wm-l">Organic</div></div><div><div class="wm-n">-18%</div><div class="wm-l">CPA</div></div><div><div class="wm-n">+23%</div><div class="wm-l">Lead quality</div></div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section class="courses">
+  <div class="courses-in">
+    <div class="hr reveal">
+      <div><div class="ey">Built from the inside</div><h2 class="st" style="margin-bottom:.5rem">Do it yourself with our courses.</h2><p class="sd">Not frameworks we read about. Systems we run on real accounts, packaged so you can use them yourself.</p></div>
+      <a href="courses.html" class="btn-all" style="flex-shrink:0">All courses <span class="arr">→</span></a>
+    </div>
+    <div class="c-grid">
+      <a href="courses.html" class="cc reveal rd1"><div class="cc-ban cb2">🗂️</div><div class="cc-body"><div class="cc-type">Template Pack</div><div class="cc-name">AI Content and SEO Starter Kit</div><div class="cc-desc">Notion templates for content planning, SEO brief creation, and email workflows. Running in an afternoon.</div><div class="cc-foot"><span class="cc-price">$47</span><span class="cc-cta">Get notified →</span></div></div></a>
+      <a href="courses.html" class="cc ft reveal rd2"><div class="cc-ban cb1">🎯</div><div class="cc-body"><div class="cc-type" style="display:flex;justify-content:space-between;align-items:center"><span>Mini Course</span><span style="background:var(--vp);color:var(--v);font-size:.58rem;font-weight:700;padding:.15rem .45rem;border-radius:3px;text-transform:uppercase;letter-spacing:.05em">Most popular</span></div><div class="cc-name">AI Marketing OS: Full System</div><div class="cc-desc">8 modules, video walkthroughs, a full Notion OS, and 100+ tested prompts. Build your entire marketing function on AI.</div><div class="cc-foot"><span class="cc-price">$197</span><span class="cc-cta">Get notified →</span></div></div></a>
+      <a href="courses.html" class="cc reveal rd3"><div class="cc-ban cb3">⚡</div><div class="cc-body"><div class="cc-type">Prompt Library</div><div class="cc-name">100+ B2B and B2C Marketing Prompts</div><div class="cc-desc">Hand-crafted prompts tested on real campaigns. Works with Claude, ChatGPT, and Gemini.</div><div class="cc-foot"><span class="cc-price">$27</span><span class="cc-cta">Get notified →</span></div></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="cta-grain"></div>
+  <div class="cta-in reveal">
+    <div class="cta-ey">Ready to start?</div>
+    <h2 class="cta-hl">Let's build something that compounds.</h2>
+    <p class="cta-sub">Every engagement starts with a 30-minute discovery call. No pitch. You leave with at least one useful idea — whether we work together or not.</p>
+    <div class="cta-acts">
+      <a href="contact.html" class="btn-cw">Book a discovery call <span class="arr">→</span></a>
+      <a href="newsletter.html" class="btn-gh">Join the newsletter</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-in">
+    <div class="ft">
+      <div>
+        <div class="flogo">
+          <svg class="fc-svg" viewBox="0 0 24 24" fill="none">
+            <path d="M20 12A8 8 0 1 1 8 3.8" stroke="#8B5CF6" stroke-width=".9" stroke-linecap="round" fill="none" opacity=".35"/>
+            <path d="M17.5 12A5.5 5.5 0 1 1 9.3 6.5" stroke="#8B5CF6" stroke-width="1.1" stroke-linecap="round" fill="none" opacity=".55"/>
+            <path d="M15.5 8.5A5.5 5.5 0 1 0 15.5 15.5" stroke="#8B5CF6" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+          </svg>
+          <span class="fwm">Compound<span>.</span></span>
+        </div>
+        <p class="ftag">Strategy in motion. Results that compound. Founded by Shreya Kulkarni — senior practitioner across Omnicom, McDonald's, Volkswagen, Coles, and FireDaemon.</p>
+        <div class="fsoc"><a href="https://www.linkedin.com/in/shreyak1" target="_blank" rel="noopener">in</a><a href="mailto:shreyak800@gmail.com">✉</a></div>
+      </div>
+      <div class="fcol"><p class="fcol-t">Services</p><ul><li><a href="services.html#consulting">Strategy Consulting</a></li><li><a href="services.html#b2b">B2B Marketing</a></li><li><a href="services.html#b2c">B2C Marketing</a></li><li><a href="services.html#ai-content">AI Content</a></li><li><a href="services.html#paid-media">Paid Media</a></li></ul></div>
+      <div class="fcol"><p class="fcol-t">Company</p><ul><li><a href="about.html">About</a></li><li><a href="work.html">Case Studies</a></li><li><a href="courses.html">Courses</a></li><li><a href="newsletter.html">Newsletter</a></li></ul></div>
+      <div class="fcol"><p class="fcol-t">Contact</p><ul><li><a href="contact.html">Get in Touch</a></li><li><a href="mailto:shreyak800@gmail.com">shreyak800@gmail.com</a></li><li><a href="https://www.linkedin.com/in/shreyak1" target="_blank">LinkedIn</a></li></ul></div>
+    </div>
+    <div class="fb"><p>© 2026 Compound. All rights reserved. Founded by Shreya Kulkarni.</p><p>AI-powered. Strategy-led.</p></div>
+  </div>
+</footer>
+
 <script>
-// Counter animation for results band
-function animateCounter(el, target, suffix, duration) {
-  const isDecimal = target % 1 !== 0;
-  const start = performance.now();
-  function update(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const ease = 1 - Math.pow(1 - progress, 3);
-    const current = isDecimal ? (ease * target).toFixed(1) : Math.round(ease * target);
-    el.textContent = current;
-    if (progress < 1) requestAnimationFrame(update);
-  }
-  requestAnimationFrame(update);
-}
-
-const countObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const item = entry.target;
-      const target = parseFloat(item.dataset.count);
-      const numEl = item.querySelector('.count-num');
-      if (numEl && target) animateCounter(numEl, target, item.dataset.suffix, 1500);
-      countObserver.unobserve(item);
-    }
-  });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('.result-item[data-count]').forEach(el => countObserver.observe(el));
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20),{passive:true});
+document.getElementById('hbg').addEventListener('click',()=>document.getElementById('mob').classList.toggle('open'));
+document.querySelectorAll('#mob a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mob').classList.remove('open')));
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}}),{threshold:.07});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+function ac(el,to,dec){const s=performance.now(),d=1400;(function t(n){const p=Math.min((n-s)/d,1),e=1-Math.pow(1-p,3);el.textContent=dec?(e*to).toFixed(dec):Math.round(e*to);if(p<1)requestAnimationFrame(t)})(s)}
+const co=new IntersectionObserver(e=>e.forEach(x=>{if(!x.isIntersecting)return;const el=x.target;ac(el,parseFloat(el.dataset.to),parseInt(el.dataset.dec||0));co.unobserve(el)}),{threshold:.6});
+document.querySelectorAll('.cnt').forEach(el=>co.observe(el));
 </script>
 </body>
 </html>

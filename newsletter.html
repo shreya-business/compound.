@@ -1,337 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Newsletter — Shreya Kulkarni</title>
-<meta name="description" content="AI for B2B Marketers — weekly tactics on using AI for SEO, content, paid media, and marketing automation.">
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Newsletter — Compound.</title>
+<meta name="description" content="Practical AI marketing tactics from real campaigns. The Compound. newsletter — no fluff, no theory, just things that work.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-
-.nl-hero {
-  padding: calc(var(--nav-h) + 6rem) 3rem 6rem;
-  background: var(--ink);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.nl-hero-glow {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 600px; height: 400px;
-  background: radial-gradient(ellipse, rgba(109,40,217,0.2) 0%, transparent 65%);
-  pointer-events: none;
-}
-.nl-hero-inner {
-  max-width: 680px;
-  margin: 0 auto;
-  position: relative; z-index: 1;
-}
-.nl-hero .section-eyebrow { color: var(--violet-light); justify-content: center; }
-.nl-hero .section-title { color: var(--white); font-size: clamp(2.5rem,5vw,4rem); }
-.nl-hero .section-desc { color: rgba(255,255,255,0.55); margin: 0 auto 2.5rem; }
-
-/* SUBSCRIBE FORM */
-.nl-form {
-  display: flex;
-  gap: 0.75rem;
-  max-width: 480px;
-  margin: 0 auto 1.5rem;
-}
-.nl-input {
-  flex: 1;
-  padding: 0.9rem 1.25rem;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 8px;
-  color: var(--white);
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  outline: none;
-  transition: border-color 0.2s;
-}
-.nl-input::placeholder { color: rgba(255,255,255,0.35); }
-.nl-input:focus { border-color: var(--violet-light); }
-.nl-fine {
-  font-size: 0.73rem;
-  color: rgba(255,255,255,0.3);
-  text-align: center;
-}
-
-/* PERKS ROW */
-.nl-perks {
-  display: flex;
-  justify-content: center;
-  gap: 2.5rem;
-  margin-top: 3rem;
-  flex-wrap: wrap;
-}
-.nl-perk {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.82rem;
-  color: rgba(255,255,255,0.45);
-}
-.nl-perk-check { color: var(--violet-light); font-weight: 700; }
-
-/* WHAT YOU GET */
-.nl-what {
-  padding: 6rem 3rem;
-  background: var(--white);
-}
-.nl-what-inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  align-items: start;
-}
-.nl-issue-preview {
-  background: var(--off-white);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  overflow: hidden;
-}
-.nl-issue-top {
-  background: var(--ink);
-  padding: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.nl-issue-from {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: rgba(255,255,255,0.5);
-}
-.nl-issue-badge {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  background: var(--violet-pale);
-  color: var(--violet);
-  padding: 0.25rem 0.6rem;
-  border-radius: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-}
-.nl-issue-body { padding: 1.75rem; }
-.nl-issue-subject {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--ink);
-  letter-spacing: -0.02em;
-  margin-bottom: 1rem;
-}
-.nl-issue-preview-text {
-  font-size: 0.85rem;
-  color: var(--ink-soft);
-  line-height: 1.75;
-  margin-bottom: 1rem;
-}
-.nl-issue-divider {
-  height: 1px;
-  background: var(--border);
-  margin: 1rem 0;
-}
-.nl-issue-section-label {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--violet);
-  margin-bottom: 0.5rem;
-}
-.nl-issue-tactic {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1rem 1.1rem;
-  margin-bottom: 0.5rem;
-}
-.nl-issue-tactic-title {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--ink);
-  margin-bottom: 0.2rem;
-}
-.nl-issue-tactic-desc {
-  font-size: 0.78rem;
-  color: var(--ink-soft);
-  line-height: 1.5;
-}
-
-/* PAST ISSUES */
-.nl-archive {
-  padding: 5rem 3rem 6rem;
-  background: var(--off-white);
-  border-top: 1px solid var(--border);
-}
-.nl-archive-inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
-}
-.past-issues-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-top: 3rem;
-}
-.past-issue-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  cursor: pointer;
-}
-.past-issue-card:hover {
-  border-color: var(--violet-light);
-  box-shadow: 0 4px 16px rgba(109,40,217,0.08);
-}
-.pi-date {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-  margin-bottom: 0.5rem;
-}
-.pi-title {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--ink);
-  line-height: 1.4;
-  margin-bottom: 0.4rem;
-}
-.pi-desc {
-  font-size: 0.78rem;
-  color: var(--ink-soft);
-  line-height: 1.5;
-}
-
-/* RESPONSIVE */
-@media (max-width: 960px) {
-  .nl-hero { padding: calc(var(--nav-h) + 3rem) 1.5rem 3.5rem; }
-  .nl-what { padding: 4rem 1.5rem; }
-  .nl-what-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-  .nl-archive { padding: 4rem 1.5rem 5rem; }
-  .past-issues-grid { grid-template-columns: 1fr; }
-  .nl-form { flex-direction: column; }
-  .nl-perks { gap: 1.25rem; }
-}
+:root{--v:#6D28D9;--vm:#7C3AED;--vl:#8B5CF6;--vp:#EDE9FE;--ink:#0D0D0D;--ink2:#3D3D3D;--muted:#888;--border:#E4E2DC;--ow:#F7F6F3;--cream:#F0EDE6;--white:#fff;--ff:'Fraunces',Georgia,serif;--fb:'DM Sans',sans-serif;--fm:'DM Mono',monospace;--max:1200px;--nav:68px;--ease:cubic-bezier(0.16,1,0.3,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}body{font-family:var(--fb);background:var(--white);color:var(--ink);overflow-x:hidden;line-height:1.6}
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;height:var(--nav);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;background:rgba(255,255,255,.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:box-shadow .3s}.nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.07)}.nav-logo{display:flex;align-items:center;gap:.55rem;text-decoration:none;color:var(--ink)}.nav-c{width:24px;height:24px;overflow:visible;flex-shrink:0}.na1{transform-origin:12px 12px;animation:r1 16s linear infinite}.na2{transform-origin:12px 12px;animation:r2 10s linear infinite}.na3{transform-origin:12px 12px;animation:r1 6s linear infinite}@keyframes r1{to{transform:rotate(360deg)}}@keyframes r2{to{transform:rotate(-360deg)}}.nav-wm{font-family:var(--ff);font-size:1.12rem;font-weight:700;letter-spacing:-.03em;color:var(--ink)}.nav-wm span{color:var(--v)}.nav-links{display:flex;align-items:center;gap:.05rem;list-style:none}.nav-links a{font-size:.82rem;font-weight:500;color:var(--ink2);text-decoration:none;padding:.38rem .78rem;border-radius:6px;transition:color .2s,background .2s}.nav-links a:hover{color:var(--ink);background:var(--ow)}.nav-links a.active{color:var(--v);background:var(--vp)}.nav-cta{display:inline-flex;align-items:center;gap:.35rem;background:var(--v);color:var(--white);padding:.52rem 1.2rem;border-radius:8px;font-weight:600;font-size:.82rem;text-decoration:none;transition:all .2s;white-space:nowrap}.nav-cta:hover{background:var(--vm);transform:translateY(-1px)}.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px}.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--white);border-bottom:1px solid var(--border);padding:1.25rem 1.5rem;z-index:850;flex-direction:column;gap:.35rem;box-shadow:0 8px 32px rgba(0,0,0,.08)}.mob.open{display:flex}.mob a{font-size:.95rem;font-weight:500;color:var(--ink2);text-decoration:none;padding:.6rem 0;border-bottom:1px solid var(--border);transition:color .2s}.mob a:hover{color:var(--v)}.mob a:last-child{border:none;color:var(--v);font-weight:600}
+.hero{padding:calc(var(--nav)+5rem) 2.5rem 5rem;background:var(--ink);text-align:center;position:relative;overflow:hidden}.hero-glow{position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:700px;height:500px;background:radial-gradient(ellipse,rgba(109,40,217,.28) 0%,transparent 65%);pointer-events:none}.hero-in{max-width:640px;margin:0 auto;position:relative;z-index:1}
+.ey{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fm);font-size:.65rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--v);margin-bottom:1.1rem}.ey::before{content:'';display:block;width:18px;height:1px;background:var(--v)}.ey-w{color:var(--vl)}.ey-w::before{background:var(--vl)}
+.h-hl{font-family:var(--ff);font-size:clamp(2.5rem,5vw,4.2rem);font-weight:600;color:var(--white);letter-spacing:-.048em;line-height:1;margin-bottom:.85rem}.h-stmt{font-family:var(--ff);font-style:italic;font-weight:300;color:var(--vl);font-size:1.1rem;margin-bottom:1.25rem}.h-sub{font-size:.96rem;color:rgba(255,255,255,.5);line-height:1.82;margin-bottom:2.5rem}
+.sub-box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:2rem;max-width:480px;margin:0 auto}.sub-form{display:flex;flex-direction:column;gap:.75rem}.sub-form input{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:.82rem 1.1rem;font-size:.9rem;color:var(--white);font-family:var(--fb);outline:none;transition:border-color .2s}.sub-form input::placeholder{color:rgba(255,255,255,.3)}.sub-form input:focus{border-color:var(--vl)}.sub-btn{background:var(--v);color:var(--white);border:none;padding:.9rem;border-radius:8px;font-weight:600;font-size:.92rem;cursor:pointer;font-family:var(--fb);transition:background .2s}.sub-btn:hover{background:var(--vm)}.sub-note{font-size:.72rem;color:rgba(255,255,255,.28);margin-top:.35rem;text-align:center;line-height:1.5}.sub-success{display:none;text-align:center;padding:1rem}.sub-success-t{font-family:var(--ff);font-size:1.2rem;font-weight:600;color:var(--white);margin-bottom:.35rem}.sub-success-d{font-size:.83rem;color:rgba(255,255,255,.5)}
+.prev{padding:7rem 2.5rem;background:var(--white)}.prev-in{max-width:var(--max);margin:0 auto}.p-wrap{background:var(--ow);border:1px solid var(--border);border-radius:16px;overflow:hidden;max-width:680px;margin:2.5rem auto 0}
+.p-head{background:var(--ink);padding:1.1rem 1.5rem;display:flex;align-items:center;justify-content:space-between}.ph-from{display:flex;align-items:center;gap:.6rem}.ph-av{width:32px;height:32px;background:var(--v);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:white;font-family:var(--ff)}.ph-from-n{font-size:.8rem;font-weight:600;color:var(--white)}.ph-from-d{font-size:.71rem;color:rgba(255,255,255,.4)}.ph-subj{font-size:.79rem;color:rgba(255,255,255,.5)}.p-body{padding:1.75rem}
+.p-eyi{font-family:var(--fm);font-size:.61rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:1rem;border-bottom:1px solid var(--border);padding-bottom:.65rem}
+.p-intro{font-size:.88rem;color:var(--ink2);line-height:1.78;margin-bottom:1.5rem}
+.tactic-cards{display:flex;flex-direction:column;gap:.75rem}
+.tc{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.15rem 1.25rem}.tc-num{font-family:var(--fm);font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:var(--v);margin-bottom:.35rem}.tc-t{font-size:.9rem;font-weight:600;color:var(--ink);margin-bottom:.3rem}.tc-d{font-size:.8rem;color:var(--ink2);line-height:1.62}
+.p-sign{padding-top:1.25rem;border-top:1px solid var(--border);margin-top:1.25rem;font-size:.8rem;color:var(--ink2)}.p-sign strong{color:var(--ink);display:block;font-weight:600}
+.st{font-family:var(--ff);font-size:clamp(1.9rem,3.2vw,2.8rem);font-weight:600;color:var(--ink);letter-spacing:-.035em;line-height:1.08;margin-bottom:.75rem}
+.archive{padding:7rem 2.5rem;background:var(--ow);border-top:1px solid var(--border)}.archive-in{max-width:var(--max);margin:0 auto}.ar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem}.ar-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.5rem;display:flex;flex-direction:column;gap:.65rem}.ar-num{font-family:var(--fm);font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}.ar-t{font-size:.9rem;font-weight:600;color:var(--ink);line-height:1.3}.ar-cs{font-size:.78rem;color:var(--ink2);line-height:1.55;flex:1}.ar-tag{font-size:.69rem;color:var(--muted);font-family:var(--fm);letter-spacing:.06em}.ar-card.cs{opacity:.55;cursor:not-allowed}.ar-cs-badge{font-size:.66rem;background:var(--ow);border:1px solid var(--border);color:var(--muted);padding:.18rem .5rem;border-radius:4px;display:inline-block;margin-top:.4rem;font-family:var(--fm);letter-spacing:.06em}
+.cta-band{padding:7rem 2.5rem;text-align:center;background:linear-gradient(155deg,var(--v) 0%,#3b0764 100%);position:relative;overflow:hidden}.cta-grain{position:absolute;inset:0;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}.cta-in{max-width:640px;margin:0 auto;position:relative;z-index:1}.cta-hl{font-family:var(--ff);font-size:clamp(2rem,4vw,3.4rem);font-weight:600;color:var(--white);letter-spacing:-.04em;line-height:1.06;margin-bottom:1rem}.cta-sub{font-size:1rem;color:rgba(255,255,255,.52);line-height:1.82;margin-bottom:2.25rem}.cta-acts{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap}.btn-cw{display:inline-flex;align-items:center;gap:.45rem;background:var(--white);color:var(--v);padding:.88rem 1.8rem;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none;transition:all .2s}.btn-cw:hover{background:var(--cream);transform:translateY(-2px)}.btn-gh{display:inline-flex;align-items:center;gap:.45rem;background:rgba(255,255,255,.1);color:var(--white);padding:.86rem 1.8rem;border-radius:8px;font-weight:500;font-size:.9rem;text-decoration:none;border:1.5px solid rgba(255,255,255,.25);transition:all .2s}.btn-gh:hover{background:rgba(255,255,255,.2)}
+.footer{background:#111;color:rgba(255,255,255,.68);padding:4.5rem 2.5rem 2rem}.footer-in{max-width:var(--max);margin:0 auto}.ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:1.75rem}.flogo{display:flex;align-items:center;gap:.55rem;margin-bottom:.85rem}.fc-svg{width:22px;height:22px;overflow:visible}.fwm{font-family:var(--ff);font-size:1.08rem;font-weight:700;color:var(--white);letter-spacing:-.03em}.fwm span{color:var(--vl)}.ftag{font-size:.84rem;color:rgba(255,255,255,.34);line-height:1.75;max-width:250px;margin-bottom:1.5rem}.fsoc{display:flex;gap:.5rem}.fsoc a{width:34px;height:34px;background:rgba(255,255,255,.08);border-radius:7px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.52);font-size:.82rem;text-decoration:none;font-weight:700;transition:background .2s,color .2s}.fsoc a:hover{background:var(--v);color:var(--white)}.fcol-t{font-size:.64rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:1.1rem}.fcol ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}.fcol a{font-size:.83rem;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}.fcol a:hover{color:var(--white)}.fb{display:flex;justify-content:space-between;font-size:.76rem;color:rgba(255,255,255,.26)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s var(--ease),transform .65s var(--ease)}.reveal.visible{opacity:1;transform:translateY(0)}.rd1{transition-delay:.08s}.rd2{transition-delay:.16s}.rd3{transition-delay:.24s}
+@media(max-width:960px){.nav{padding:0 1.25rem}.nav-links{display:none}.hamburger{display:flex}.hero,.prev,.archive,.cta-band{padding-left:1.25rem;padding-right:1.25rem}.hero{padding-top:calc(var(--nav)+2.5rem);padding-bottom:3rem}.ar-grid{grid-template-columns:1fr 1fr}.ft{grid-template-columns:1fr 1fr;gap:2rem}.fb{flex-direction:column;gap:.5rem;text-align:center}.p-head{flex-direction:column;align-items:flex-start;gap:.5rem}}
+@media(max-width:600px){.ar-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="page-wrap">
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo"><svg class="nav-c" viewBox="0 0 24 24" fill="none"><g class="na1" opacity=".22"><path d="M21 12A9 9 0 1 1 7.5 3.6" stroke="#6D28D9" stroke-width=".9" stroke-linecap="round" fill="none"/></g><g class="na2" opacity=".4"><path d="M18.5 12A6.5 6.5 0 1 1 8.8 5.6" stroke="#7C3AED" stroke-width="1.1" stroke-linecap="round" fill="none"/></g><g class="na3" opacity=".65"><path d="M16 12A4 4 0 1 1 10.3 8.2" stroke="#8B5CF6" stroke-width="1.4" stroke-linecap="round" fill="none"/></g><path d="M15.5 8.5A5.5 5.5 0 1 0 15.5 15.5" stroke="#6D28D9" stroke-width="2.2" stroke-linecap="round" fill="none"/></svg><span class="nav-wm">Compound<span>.</span></span></a>
+  <ul class="nav-links"><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="work.html">Work</a></li><li><a href="courses.html">Courses</a></li><li><a href="newsletter.html" class="active">Newsletter</a></li></ul>
+  <a href="contact.html" class="nav-cta">Work with us →</a>
+  <div class="hamburger" id="hbg"><span></span><span></span><span></span></div>
+</nav>
+<div class="mob" id="mob"><a href="about.html">About</a><a href="services.html">Services</a><a href="work.html">Work</a><a href="courses.html">Courses</a><a href="newsletter.html">Newsletter</a><a href="contact.html">Work with us →</a></div>
 
-  <!-- HERO -->
-  <section class="nl-hero">
-    <div class="nl-hero-glow"></div>
-    <div class="nl-hero-inner">
-      <div class="section-eyebrow" style="justify-content:center;">Free weekly newsletter</div>
-      <h1 class="section-title">AI for B2B Marketers</h1>
-      <p class="section-desc">Practical tactics on using AI for SEO, content, paid media, and marketing automation — written by a practitioner with 7+ years and real enterprise results. Every Thursday.</p>
-      <div class="nl-form">
-        <input type="email" class="nl-input" placeholder="your@email.com">
-        <button class="btn btn-violet" type="button">Subscribe</button>
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-in reveal">
+    <div class="ey ey-w">Newsletter</div>
+    <h1 class="h-hl">From: Compound<span style="color:var(--v)">.</span></h1>
+    <p class="h-stmt">Marketing that compounds, one insight at a time.</p>
+    <p class="h-sub">Practical AI marketing tactics from real campaigns. Sent to founders, marketers, and operators who want to run better marketing without a bigger team. No fluff. No theory. Just things that work.</p>
+    <div class="sub-box">
+      <form class="sub-form" id="subForm" onsubmit="handleSub(event)">
+        <input type="text" placeholder="Your name" required id="subName">
+        <input type="email" placeholder="Your email address" required id="subEmail">
+        <button type="submit" class="sub-btn">Subscribe — it is free →</button>
+        <p class="sub-note">No spam. One email per week. Unsubscribe any time.</p>
+      </form>
+      <div class="sub-success" id="subSuccess"><p class="sub-success-t">You are in.</p><p class="sub-success-d">First issue drops next week. Check your inbox to confirm your subscription.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="prev">
+  <div class="prev-in">
+    <div class="reveal"><div class="ey">Sample issue</div><h2 class="st">What to expect.</h2></div>
+    <div class="p-wrap reveal rd1">
+      <div class="p-head">
+        <div class="ph-from"><div class="ph-av">C.</div><div><div class="ph-from-n">Compound. Newsletter</div><div class="ph-from-d">From: shreyak800@gmail.com</div></div></div>
+        <div class="ph-subj">3 AI tactics I used this week that you can steal</div>
       </div>
-      <p class="nl-fine">No spam. No affiliate content. Unsubscribe anytime.</p>
-      <div class="nl-perks">
-        <span class="nl-perk"><span class="nl-perk-check">✓</span> Weekly AI tactics</span>
-        <span class="nl-perk"><span class="nl-perk-check">✓</span> Real case studies</span>
-        <span class="nl-perk"><span class="nl-perk-check">✓</span> Subscriber-only templates</span>
-        <span class="nl-perk"><span class="nl-perk-check">✓</span> Tool reviews & prompts</span>
+      <div class="p-body">
+        <p class="p-eyi">Issue No. 01 — AI Marketing Tactics</p>
+        <p class="p-intro">This week I ran three things that produced results faster than I expected. Here they are, with enough detail to actually copy them. No vague instructions. No 1,000-word warm-up.</p>
+        <div class="tactic-cards">
+          <div class="tc"><div class="tc-num">Tactic 01 — SEO</div><div class="tc-t">How I built 8 content briefs in 40 minutes using Claude</div><div class="tc-d">The exact prompt chain I used to go from a competitor backlink audit to 8 draft-ready content briefs, including the prompts and the Notion template you need to run it.</div></div>
+          <div class="tc"><div class="tc-num">Tactic 02 — Email</div><div class="tc-t">The A/B subject line test that lifted open rates by 18%</div><div class="tc-d">What I tested, why I tested it, what won, and the one pattern I now apply across all email copy before it goes out.</div></div>
+          <div class="tc"><div class="tc-num">Tactic 03 — Paid Media</div><div class="tc-t">Using AI to identify negative keywords at scale</div><div class="tc-d">A Google Ads account was bleeding budget on irrelevant queries. Here is the 15-minute process I used to find and clean them using AI, without wading through the search terms report manually.</div></div>
+        </div>
+        <div class="p-sign">Until next week,<strong>Shreya — Compound.</strong></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- WHAT YOU GET -->
-  <section class="nl-what">
-    <div class="nl-what-inner">
-      <div class="reveal">
-        <div class="section-eyebrow">What you'll get</div>
-        <h2 class="section-title">Tactics, not theory.</h2>
-        <p class="section-desc">Every issue is written from a practitioner's perspective — someone who runs these systems on real accounts with real budgets. Not recycled LinkedIn posts dressed up as newsletters.</p>
-        <br>
-        <p class="section-desc">Each issue includes one main tactic, one prompt breakdown, one tool or resource, and one thing I'm watching in the AI marketing space. Short enough to read in 5 minutes. Dense enough to be worth it.</p>
-        <br><br>
-        <a href="#subscribe" class="btn btn-dark">Subscribe free <span class="arrow">→</span></a>
-      </div>
-      <div class="nl-issue-preview reveal reveal-delay-2">
-        <div class="nl-issue-top">
-          <div class="nl-issue-from">From: Shreya Kulkarni · shreyak800@gmail.com</div>
-          <span class="nl-issue-badge">Sample issue</span>
-        </div>
-        <div class="nl-issue-body">
-          <div class="nl-issue-subject">The 3-prompt SEO brief that outranks agencies</div>
-          <p class="nl-issue-preview-text">Most marketers use AI to write content. The smart ones use AI to build the brief before a word of content is written. Here's the exact 3-prompt sequence I use to generate SEO briefs that have consistently outperformed agency-produced content...</p>
-          <div class="nl-issue-divider"></div>
-          <div class="nl-issue-section-label">This week's tactics</div>
-          <div class="nl-issue-tactic">
-            <div class="nl-issue-tactic-title">🎯 Main tactic: The 3-prompt SEO brief</div>
-            <div class="nl-issue-tactic-desc">Prompt 1: ICP intent mapping. Prompt 2: SERP gap analysis. Prompt 3: Content structure.</div>
-          </div>
-          <div class="nl-issue-tactic">
-            <div class="nl-issue-tactic-title">⚡ Prompt of the week</div>
-            <div class="nl-issue-tactic-desc">The exact prompt I use to generate a 1,500-word blog draft that passes an editorial review first time.</div>
-          </div>
-          <div class="nl-issue-tactic">
-            <div class="nl-issue-tactic-title">🔧 Tool: Perplexity for competitor content research</div>
-            <div class="nl-issue-tactic-desc">How I use it to find content gaps in under 10 minutes — with a repeatable workflow.</div>
-          </div>
-        </div>
-      </div>
+<section class="archive">
+  <div class="archive-in">
+    <div class="reveal"><div class="ey">Archive</div><h2 class="st">Past issues.</h2><p style="font-size:.97rem;color:var(--ink2);margin-bottom:.5rem">New newsletter. These are coming.</p></div>
+    <div class="ar-grid">
+      <div class="ar-card cs reveal rd1"><div class="ar-num">Issue 02</div><div class="ar-t">The 3-column approach to email segmentation that tripled engagement</div><div class="ar-cs">Coming soon.</div><div><span class="ar-cs-badge">Coming soon</span></div></div>
+      <div class="ar-card cs reveal rd2"><div class="ar-num">Issue 03</div><div class="ar-t">Why most paid media accounts are structured for the platform's benefit, not yours</div><div class="ar-cs">Coming soon.</div><div><span class="ar-cs-badge">Coming soon</span></div></div>
+      <div class="ar-card cs reveal rd3"><div class="ar-num">Issue 04</div><div class="ar-t">What a 45% email open rate looks like and how to build towards it</div><div class="ar-cs">Coming soon.</div><div><span class="ar-cs-badge">Coming soon</span></div></div>
+      <div class="ar-card cs reveal rd1"><div class="ar-num">Issue 05</div><div class="ar-t">The SEO audit checklist I run on every new client before anything else</div><div class="ar-cs">Coming soon.</div><div><span class="ar-cs-badge">Coming soon</span></div></div>
+      <div class="ar-card cs reveal rd2"><div class="ar-num">Issue 06</div><div class="ar-t">AI content without the slop: the editorial layer that changes everything</div><div class="ar-cs">Coming soon.</div><div><span class="ar-cs-badge">Coming soon</span></div></div>
+      <div class="ar-card cs reveal rd3"><div class="ar-num">Issue 07</div><div class="ar-t">How to read a GA4 dashboard in 10 minutes and know what to fix</div><div class="ar-cs">Coming soon.</div><div><span class="ar-cs-badge">Coming soon</span></div></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PAST ISSUES -->
-  <section class="nl-archive">
-    <div class="nl-archive-inner">
-      <div class="reveal">
-        <div class="section-eyebrow">Archive</div>
-        <h2 class="section-title">Coming soon.</h2>
-        <p class="section-desc">The newsletter launches shortly. These are a preview of the topics coming in the first 8 issues.</p>
-      </div>
-      <div class="past-issues-grid">
-        <div class="past-issue-card reveal">
-          <div class="pi-date">Issue 001 · Coming soon</div>
-          <div class="pi-title">The 3-prompt SEO brief that outranks agencies</div>
-          <div class="pi-desc">How to use AI to build content briefs so strong that execution almost doesn't matter.</div>
-        </div>
-        <div class="past-issue-card reveal reveal-delay-1">
-          <div class="pi-date">Issue 002 · Coming soon</div>
-          <div class="pi-title">Why your AI content sounds like AI (and how to fix it)</div>
-          <div class="pi-desc">The 5 prompting mistakes that produce generic output — and the fixes for each one.</div>
-        </div>
-        <div class="past-issue-card reveal reveal-delay-2">
-          <div class="pi-date">Issue 003 · Coming soon</div>
-          <div class="pi-title">The email nurture sequence that hit 45% open rates</div>
-          <div class="pi-desc">A full breakdown of the 6-email sequence I built for a B2B SaaS product — including the subject lines.</div>
-        </div>
-        <div class="past-issue-card reveal">
-          <div class="pi-date">Issue 004 · Coming soon</div>
-          <div class="pi-title">How I use AI for paid media without losing creative quality</div>
-          <div class="pi-desc">The ad copy workflow that runs A/B tests 10× faster than a human copywriter can.</div>
-        </div>
-        <div class="past-issue-card reveal reveal-delay-1">
-          <div class="pi-date">Issue 005 · Coming soon</div>
-          <div class="pi-title">Building a Notion marketing OS in a weekend</div>
-          <div class="pi-desc">The exact template structure I use to run content, campaigns, and reporting for B2B clients.</div>
-        </div>
-        <div class="past-issue-card reveal reveal-delay-2">
-          <div class="pi-date">Issue 006 · Coming soon</div>
-          <div class="pi-title">The McDonald's lesson: data beats opinion, always</div>
-          <div class="pi-desc">A case study on using data to save a program every stakeholder wanted to kill.</div>
-        </div>
-      </div>
-    </div>
-  </section>
+<section class="cta-band"><div class="cta-grain"></div><div class="cta-in reveal"><h2 class="cta-hl">Want us to run the whole thing?</h2><p class="cta-sub">The newsletter is free. If you want a senior practitioner actually executing your marketing — that is what our services are for.</p><div class="cta-acts"><a href="contact.html" class="btn-cw">Book a discovery call →</a><a href="services.html" class="btn-gh">View services</a></div></div></section>
 
-</div>
-<script src="shared.js"></script>
-</body>
-</html>
+<footer class="footer"><div class="footer-in"><div class="ft"><div><div class="flogo"><svg class="fc-svg" viewBox="0 0 24 24" fill="none"><path d="M20 12A8 8 0 1 1 8 3.8" stroke="#8B5CF6" stroke-width=".9" stroke-linecap="round" fill="none" opacity=".35"/><path d="M17.5 12A5.5 5.5 0 1 1 9.3 6.5" stroke="#8B5CF6" stroke-width="1.1" stroke-linecap="round" fill="none" opacity=".55"/><path d="M15.5 8.5A5.5 5.5 0 1 0 15.5 15.5" stroke="#8B5CF6" stroke-width="2.2" stroke-linecap="round" fill="none"/></svg><span class="fwm">Compound<span>.</span></span></div><p class="ftag">Strategy in motion. Results that compound. Founded by Shreya Kulkarni.</p><div class="fsoc"><a href="https://www.linkedin.com/in/shreyak1" target="_blank" rel="noopener">in</a><a href="mailto:shreyak800@gmail.com">✉</a></div></div><div class="fcol"><p class="fcol-t">Services</p><ul><li><a href="services.html#consulting">Strategy Consulting</a></li><li><a href="services.html#b2b">B2B Marketing</a></li><li><a href="services.html#b2c">B2C Marketing</a></li><li><a href="services.html#ai-content">AI Content</a></li><li><a href="services.html#paid-media">Paid Media</a></li></ul></div><div class="fcol"><p class="fcol-t">Company</p><ul><li><a href="about.html">About</a></li><li><a href="work.html">Case Studies</a></li><li><a href="courses.html">Courses</a></li><li><a href="newsletter.html">Newsletter</a></li></ul></div><div class="fcol"><p class="fcol-t">Contact</p><ul><li><a href="contact.html">Get in Touch</a></li><li><a href="mailto:shreyak800@gmail.com">shreyak800@gmail.com</a></li><li><a href="https://www.linkedin.com/in/shreyak1" target="_blank">LinkedIn</a></li></ul></div></div><div class="fb"><p>© 2026 Compound. All rights reserved. Founded by Shreya Kulkarni.</p><p>AI-powered. Strategy-led.</p></div></div></footer>
+<script>
+const nav=document.getElementById('mainNav');window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20),{passive:true});document.getElementById('hbg').addEventListener('click',()=>document.getElementById('mob').classList.toggle('open'));document.querySelectorAll('#mob a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mob').classList.remove('open')));
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}}),{threshold:.07});document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+function handleSub(e){e.preventDefault();document.getElementById('subForm').style.display='none';document.getElementById('subSuccess').style.display='block'}
+</script>
+</body></html>

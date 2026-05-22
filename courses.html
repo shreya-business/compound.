@@ -1,322 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Courses and Templates — Shreya Kulkarni</title>
-<meta name="description" content="AI Marketing OS: courses, templates, and prompt libraries for B2B and B2C marketers who want to work smarter with AI.">
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courses — Compound.</title>
+<meta name="description" content="AI Marketing OS — courses, templates, and prompt libraries built from real campaigns. By Compound.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* PAGE HEADER */
-.page-header { padding: calc(var(--nav-h) + 4rem) 2.5rem 3rem; background: var(--off-white); border-bottom: 1px solid var(--border); }
-.page-header-inner { max-width: var(--max-w); margin: 0 auto; }
-.page-header .section-title { font-size: clamp(2.4rem,5vw,4.2rem); }
-
-/* PERSONAL STORY */
-.story-band {
-  padding: 4.5rem 2.5rem; background: var(--ink);
-  position: relative; overflow: hidden;
-}
-.story-band-glow { position: absolute; right: -80px; top: -80px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(109,40,217,0.2) 0%, transparent 65%); pointer-events: none; animation: blobFloat 8s ease-in-out infinite; }
-@keyframes blobFloat { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-.story-band-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
-.story-band .section-eyebrow { color: var(--violet-light); }
-.story-band .section-title { color: var(--white); font-size: clamp(1.75rem,3vw,2.5rem); }
-.story-band-text { font-size: 1rem; color: rgba(255,255,255,0.65); line-height: 1.85; margin-bottom: 1rem; }
-.story-band-text strong { color: rgba(255,255,255,0.9); font-weight: 600; }
-.story-band-highlight {
-  background: rgba(109,40,217,0.2); border: 1px solid rgba(109,40,217,0.35);
-  border-radius: 10px; padding: 1.1rem 1.25rem; margin-top: 1.5rem;
-  font-size: 0.9rem; color: rgba(255,255,255,0.75); line-height: 1.7; font-style: italic;
-}
-
-/* PRODUCTS */
-.products-section { padding: 5rem 2.5rem; background: var(--white); }
-.products-inner { max-width: var(--max-w); margin: 0 auto; }
-.products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2.5rem; }
-.product-card {
-  border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
-  display: flex; flex-direction: column;
-  transition: box-shadow 0.3s, transform 0.25s;
-}
-.product-card:hover { box-shadow: 0 10px 36px rgba(0,0,0,0.08); transform: translateY(-4px); }
-.product-card.featured { border-color: var(--violet-light); box-shadow: 0 0 0 3px var(--violet-pale); }
-.product-banner { height: 118px; display: flex; align-items: center; justify-content: center; font-size: 2.75rem; position: relative; overflow: hidden; }
-.pb-v { background: linear-gradient(135deg, #3b0764, #6D28D9); }
-.pb-b { background: linear-gradient(135deg, #1e3a5f, #1D4ED8); }
-.pb-g { background: linear-gradient(135deg, #064e3b, #059669); }
-.product-featured-badge { position: absolute; top: 0.6rem; right: 0.6rem; font-family: var(--font-mono); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: var(--white); color: var(--violet); padding: 0.22rem 0.55rem; border-radius: 4px; }
-.product-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
-.product-type { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--violet); margin-bottom: 0.4rem; }
-.product-name { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--ink); letter-spacing: -0.02em; line-height: 1.3; margin-bottom: 0.5rem; }
-.product-desc { font-size: 0.83rem; color: var(--ink-soft); line-height: 1.7; margin-bottom: 1.1rem; flex: 1; }
-.product-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 1.1rem; border-top: 1px solid var(--border); gap: 0.5rem; flex-wrap: wrap; }
-.product-price { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--ink); letter-spacing: -0.03em; }
-.product-actions { display: flex; gap: 0.5rem; }
-.product-cta { font-size: 0.75rem; font-weight: 600; color: var(--violet); text-decoration: none; border: 1.5px solid var(--violet); padding: 0.4rem 0.85rem; border-radius: 6px; transition: all 0.2s; cursor: pointer; background: transparent; font-family: var(--font-body); }
-.product-cta:hover { background: var(--violet); color: var(--white); }
-.product-cta.solid { background: var(--violet); color: var(--white); }
-.product-cta.solid:hover { background: var(--violet-mid); }
-
-/* MODULES */
-.inside-section { padding: 4.5rem 2.5rem; background: var(--off-white); border-top: 1px solid var(--border); }
-.inside-inner { max-width: var(--max-w); margin: 0 auto; }
-.modules-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.85rem; margin-top: 2.5rem; }
-.module-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 1.35rem; display: flex; gap: 0.85rem; transition: border-color 0.2s; }
-.module-card:hover { border-color: var(--violet-light); }
-.module-num { font-family: var(--font-mono); font-size: 0.75rem; color: var(--violet); font-weight: 600; flex-shrink: 0; padding-top: 0.1rem; }
-.module-title { font-size: 0.9rem; font-weight: 600; color: var(--ink); margin-bottom: 0.25rem; }
-.module-desc { font-size: 0.79rem; color: var(--ink-soft); line-height: 1.6; }
-
-/* FAQ */
-.faq-section { padding: 4.5rem 2.5rem; background: var(--white); }
-.faq-inner { max-width: 720px; margin: 0 auto; }
-.faq-list { margin-top: 2.5rem; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
-.faq-item { border-bottom: 1px solid var(--border); }
-.faq-item:last-child { border-bottom: none; }
-.faq-question { width: 100%; text-align: left; background: none; border: none; padding: 1.25rem 1.5rem; font-size: 0.93rem; font-weight: 600; color: var(--ink); font-family: var(--font-body); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; transition: background 0.2s; }
-.faq-question:hover { background: var(--off-white); }
-.faq-question .icon { font-size: 1.1rem; color: var(--muted); transition: transform 0.3s; flex-shrink: 0; }
-.faq-item.open .faq-question .icon { transform: rotate(45deg); color: var(--violet); }
-.faq-answer { display: none; padding: 0 1.5rem 1.25rem; font-size: 0.86rem; color: var(--ink-soft); line-height: 1.75; }
-.faq-item.open .faq-answer { display: block; }
-
-@media (max-width: 960px) {
-  .page-header { padding: calc(var(--nav-h) + 2rem) 1.25rem 2rem; }
-  .story-band, .products-section, .inside-section, .faq-section { padding: 3.5rem 1.25rem; }
-  .products-grid { grid-template-columns: 1fr; }
-  .modules-grid { grid-template-columns: 1fr; }
-}
+:root{--v:#6D28D9;--vm:#7C3AED;--vl:#8B5CF6;--vp:#EDE9FE;--ink:#0D0D0D;--ink2:#3D3D3D;--muted:#888;--border:#E4E2DC;--ow:#F7F6F3;--cream:#F0EDE6;--white:#fff;--ff:'Fraunces',Georgia,serif;--fb:'DM Sans',sans-serif;--fm:'DM Mono',monospace;--max:1200px;--nav:68px;--ease:cubic-bezier(0.16,1,0.3,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}body{font-family:var(--fb);background:var(--white);color:var(--ink);overflow-x:hidden;line-height:1.6}
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;height:var(--nav);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;background:rgba(255,255,255,.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:box-shadow .3s}.nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.07)}.nav-logo{display:flex;align-items:center;gap:.55rem;text-decoration:none;color:var(--ink)}.nav-c{width:24px;height:24px;overflow:visible;flex-shrink:0}.na1{transform-origin:12px 12px;animation:r1 16s linear infinite}.na2{transform-origin:12px 12px;animation:r2 10s linear infinite}.na3{transform-origin:12px 12px;animation:r1 6s linear infinite}@keyframes r1{to{transform:rotate(360deg)}}@keyframes r2{to{transform:rotate(-360deg)}}.nav-wm{font-family:var(--ff);font-size:1.12rem;font-weight:700;letter-spacing:-.03em;color:var(--ink)}.nav-wm span{color:var(--v)}.nav-links{display:flex;align-items:center;gap:.05rem;list-style:none}.nav-links a{font-size:.82rem;font-weight:500;color:var(--ink2);text-decoration:none;padding:.38rem .78rem;border-radius:6px;transition:color .2s,background .2s}.nav-links a:hover{color:var(--ink);background:var(--ow)}.nav-links a.active{color:var(--v);background:var(--vp)}.nav-cta{display:inline-flex;align-items:center;gap:.35rem;background:var(--v);color:var(--white);padding:.52rem 1.2rem;border-radius:8px;font-weight:600;font-size:.82rem;text-decoration:none;transition:all .2s;white-space:nowrap}.nav-cta:hover{background:var(--vm);transform:translateY(-1px)}.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px}.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--white);border-bottom:1px solid var(--border);padding:1.25rem 1.5rem;z-index:850;flex-direction:column;gap:.35rem;box-shadow:0 8px 32px rgba(0,0,0,.08)}.mob.open{display:flex}.mob a{font-size:.95rem;font-weight:500;color:var(--ink2);text-decoration:none;padding:.6rem 0;border-bottom:1px solid var(--border);transition:color .2s}.mob a:hover{color:var(--v)}.mob a:last-child{border:none;color:var(--v);font-weight:600}
+.ph{padding:calc(var(--nav)+4rem) 2.5rem 4rem;background:var(--ink);position:relative;overflow:hidden}.ph-glow{position:absolute;top:-80px;right:-60px;width:500px;height:500px;background:radial-gradient(circle,rgba(109,40,217,.2) 0%,transparent 65%);pointer-events:none;border-radius:50%;animation:gp 7s ease-in-out infinite}@keyframes gp{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}.ph-in{max-width:var(--max);margin:0 auto;position:relative;z-index:1}
+.ey{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fm);font-size:.65rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--v);margin-bottom:1.1rem}.ey::before{content:'';display:block;width:18px;height:1px;background:var(--v)}.ey-w{color:var(--vl)}.ey-w::before{background:var(--vl)}.st-w{font-family:var(--ff);font-size:clamp(2rem,4vw,3.8rem);font-weight:600;color:var(--white);letter-spacing:-.04em;line-height:1.06;margin-bottom:.75rem}.sd-w{font-size:.97rem;color:rgba(255,255,255,.5);max-width:580px}
+.story{padding:7rem 2.5rem;background:var(--ink);position:relative;overflow:hidden;border-top:1px solid rgba(255,255,255,.08)}.story-glow{position:absolute;right:-80px;top:-80px;width:450px;height:450px;background:radial-gradient(circle,rgba(109,40,217,.2) 0%,transparent 65%);pointer-events:none}.story-in{max-width:760px;margin:0 auto;position:relative;z-index:1}.story-text{font-size:1rem;color:rgba(255,255,255,.62);line-height:1.88;margin-bottom:1rem}.story-text strong{color:rgba(255,255,255,.9);font-weight:600}.story-hl{background:rgba(109,40,217,.2);border:1px solid rgba(109,40,217,.35);border-radius:10px;padding:1.15rem 1.3rem;margin-top:1.75rem;font-size:.9rem;color:rgba(255,255,255,.72);line-height:1.72;font-style:italic}
+.products{padding:7rem 2.5rem;background:var(--white)}.products-in{max-width:var(--max);margin:0 auto}.p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.75rem}
+.pc{border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .3s,transform .25s;text-decoration:none;color:var(--ink)}.pc:hover{box-shadow:0 10px 36px rgba(109,40,217,.1);transform:translateY(-4px)}.pc.ft{border-color:var(--vl);box-shadow:0 0 0 3px var(--vp)}.pc-ban{height:110px;display:flex;align-items:center;justify-content:center;font-size:2.6rem;position:relative}.pb1{background:linear-gradient(135deg,#3b0764,var(--v))}.pb2{background:linear-gradient(135deg,#064e3b,#059669)}.pb3{background:linear-gradient(135deg,#1e3a5f,#1D4ED8)}.pc-badge{position:absolute;top:.65rem;right:.65rem;font-family:var(--fm);font-size:.6rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--white);color:var(--v);padding:.22rem .55rem;border-radius:4px}
+.pc-body{padding:1.6rem;flex:1;display:flex;flex-direction:column}.pc-type{font-family:var(--fm);font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:var(--v);margin-bottom:.45rem}.pc-name{font-family:var(--ff);font-size:1.1rem;font-weight:600;color:var(--ink);letter-spacing:-.02em;line-height:1.3;margin-bottom:.55rem}.pc-desc{font-size:.83rem;color:var(--ink2);line-height:1.72;margin-bottom:1.1rem;flex:1}.pc-foot{display:flex;align-items:center;justify-content:space-between;padding-top:1.1rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:.5rem}.pc-price{font-family:var(--ff);font-size:1.3rem;font-weight:600;color:var(--ink);letter-spacing:-.03em}.pc-acts{display:flex;gap:.5rem}.pc-btn{font-size:.74rem;font-weight:600;color:var(--v);text-decoration:none;border:1.5px solid var(--vp);background:var(--vp);padding:.42rem .85rem;border-radius:6px;transition:all .2s;cursor:pointer;font-family:var(--fb)}.pc-btn:hover,.pc-btn.solid{background:var(--v);color:var(--white);border-color:var(--v)}
+.modules{padding:7rem 2.5rem;background:var(--ow);border-top:1px solid var(--border)}.modules-in{max-width:var(--max);margin:0 auto}.m-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem;margin-top:2.5rem}.mcard{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.35rem;display:flex;gap:.9rem;transition:border-color .2s}.mcard:hover{border-color:#c4b5fd}.m-num{font-family:var(--fm);font-size:.73rem;color:var(--v);font-weight:600;flex-shrink:0;padding-top:.1rem}.m-title{font-size:.9rem;font-weight:600;color:var(--ink);margin-bottom:.25rem}.m-desc{font-size:.79rem;color:var(--ink2);line-height:1.62}
+.faq{padding:7rem 2.5rem;background:var(--white)}.faq-in{max-width:720px;margin:0 auto}.faq-list{margin-top:2.5rem;border:1px solid var(--border);border-radius:12px;overflow:hidden}.faq-item{border-bottom:1px solid var(--border)}.faq-item:last-child{border-bottom:none}.fq{width:100%;text-align:left;background:none;border:none;padding:1.3rem 1.5rem;font-size:.92rem;font-weight:600;color:var(--ink);font-family:var(--fb);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:background .2s}.fq:hover{background:var(--ow)}.fq .ico{font-size:1.1rem;color:var(--muted);transition:transform .3s;flex-shrink:0}.faq-item.open .fq .ico{transform:rotate(45deg);color:var(--v)}.fa{display:none;padding:0 1.5rem 1.3rem;font-size:.86rem;color:var(--ink2);line-height:1.78}.faq-item.open .fa{display:block}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);z-index:9000;align-items:center;justify-content:center;padding:1.5rem}.modal-overlay.open{display:flex;animation:fi .2s ease}@keyframes fi{from{opacity:0}to{opacity:1}}.modal-box{background:var(--white);border-radius:16px;padding:2.25rem;max-width:560px;width:100%;max-height:88vh;overflow-y:auto;position:relative;animation:sc .25s var(--ease);box-shadow:0 24px 80px rgba(0,0,0,.22)}@keyframes sc{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}.modal-close{position:absolute;top:1.1rem;right:1.1rem;background:var(--ow);border:none;width:30px;height:30px;border-radius:50%;font-size:.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink2);transition:background .2s}.modal-close:hover{background:var(--cream)}.m-ey{font-family:var(--fm);font-size:.64rem;text-transform:uppercase;letter-spacing:.1em;color:var(--v);margin-bottom:.4rem}.m-t{font-family:var(--ff);font-size:1.4rem;font-weight:600;color:var(--ink);letter-spacing:-.02em;line-height:1.2;margin-bottom:1rem}.m-d{font-size:.9rem;color:var(--ink2);line-height:1.78;margin-bottom:1.25rem}.m-sh{font-size:.69rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);margin:1rem 0 .5rem}.m-list{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.25rem}.m-list li{display:flex;align-items:flex-start;gap:.6rem;font-size:.87rem;color:var(--ink2);line-height:1.55}.m-list li::before{content:'✓';color:var(--v);font-weight:700;flex-shrink:0;margin-top:.05rem}.m-div{height:1px;background:var(--border);margin:1.1rem 0}.m-note{font-size:.77rem;color:var(--muted);line-height:1.6}.sc-btn{display:flex;align-items:center;justify-content:center;width:100%;background:var(--v);color:var(--white);padding:.82rem;border-radius:8px;font-weight:600;font-size:.87rem;text-decoration:none;transition:all .2s;margin-top:1rem}.sc-btn:hover{background:var(--vm)}
+.cta-band{padding:8rem 2.5rem;text-align:center;background:linear-gradient(155deg,var(--v) 0%,#3b0764 100%);position:relative;overflow:hidden}.cta-grain{position:absolute;inset:0;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}.cta-in{max-width:640px;margin:0 auto;position:relative;z-index:1}.cta-hl{font-family:var(--ff);font-size:clamp(2rem,4vw,3.4rem);font-weight:600;color:var(--white);letter-spacing:-.04em;line-height:1.06;margin-bottom:1rem}.cta-sub{font-size:1rem;color:rgba(255,255,255,.52);line-height:1.82;margin-bottom:2.25rem}.cta-acts{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap}.btn-cw{display:inline-flex;align-items:center;gap:.45rem;background:var(--white);color:var(--v);padding:.88rem 1.8rem;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none;transition:all .2s}.btn-cw:hover{background:var(--cream);transform:translateY(-2px)}.btn-gh{display:inline-flex;align-items:center;gap:.45rem;background:rgba(255,255,255,.1);color:var(--white);padding:.86rem 1.8rem;border-radius:8px;font-weight:500;font-size:.9rem;text-decoration:none;border:1.5px solid rgba(255,255,255,.25);transition:all .2s}.btn-gh:hover{background:rgba(255,255,255,.2)}
+.footer{background:#111;color:rgba(255,255,255,.68);padding:4.5rem 2.5rem 2rem}.footer-in{max-width:var(--max);margin:0 auto}.ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:1.75rem}.flogo{display:flex;align-items:center;gap:.55rem;margin-bottom:.85rem}.fc-svg{width:22px;height:22px;overflow:visible}.fwm{font-family:var(--ff);font-size:1.08rem;font-weight:700;color:var(--white);letter-spacing:-.03em}.fwm span{color:var(--vl)}.ftag{font-size:.84rem;color:rgba(255,255,255,.34);line-height:1.75;max-width:250px;margin-bottom:1.5rem}.fsoc{display:flex;gap:.5rem}.fsoc a{width:34px;height:34px;background:rgba(255,255,255,.08);border-radius:7px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.52);font-size:.82rem;text-decoration:none;font-weight:700;transition:background .2s,color .2s}.fsoc a:hover{background:var(--v);color:var(--white)}.fcol-t{font-size:.64rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:1.1rem}.fcol ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}.fcol a{font-size:.83rem;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}.fcol a:hover{color:var(--white)}.fb{display:flex;justify-content:space-between;font-size:.76rem;color:rgba(255,255,255,.26)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s var(--ease),transform .65s var(--ease)}.reveal.visible{opacity:1;transform:translateY(0)}.rd1{transition-delay:.08s}.rd2{transition-delay:.16s}.rd3{transition-delay:.24s}
+.st{font-family:var(--ff);font-size:clamp(1.9rem,3.2vw,2.8rem);font-weight:600;color:var(--ink);letter-spacing:-.035em;line-height:1.08;margin-bottom:.75rem}
+@media(max-width:960px){.nav{padding:0 1.25rem}.nav-links{display:none}.hamburger{display:flex}.ph,.story,.products,.modules,.faq{padding:4.5rem 1.25rem}.p-grid{grid-template-columns:1fr}.m-grid{grid-template-columns:1fr}.ft{grid-template-columns:1fr 1fr;gap:2rem}.fb{flex-direction:column;gap:.5rem;text-align:center}.cta-band{padding:5rem 1.25rem}}
 </style>
 </head>
 <body>
-<div class="page-wrap">
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo"><svg class="nav-c" viewBox="0 0 24 24" fill="none"><g class="na1" opacity=".22"><path d="M21 12A9 9 0 1 1 7.5 3.6" stroke="#6D28D9" stroke-width=".9" stroke-linecap="round" fill="none"/></g><g class="na2" opacity=".4"><path d="M18.5 12A6.5 6.5 0 1 1 8.8 5.6" stroke="#7C3AED" stroke-width="1.1" stroke-linecap="round" fill="none"/></g><g class="na3" opacity=".65"><path d="M16 12A4 4 0 1 1 10.3 8.2" stroke="#8B5CF6" stroke-width="1.4" stroke-linecap="round" fill="none"/></g><path d="M15.5 8.5A5.5 5.5 0 1 0 15.5 15.5" stroke="#6D28D9" stroke-width="2.2" stroke-linecap="round" fill="none"/></svg><span class="nav-wm">Compound<span>.</span></span></a>
+  <ul class="nav-links"><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="work.html">Work</a></li><li><a href="courses.html" class="active">Courses</a></li><li><a href="newsletter.html">Newsletter</a></li></ul>
+  <a href="contact.html" class="nav-cta">Work with us →</a>
+  <div class="hamburger" id="hbg"><span></span><span></span><span></span></div>
+</nav>
+<div class="mob" id="mob"><a href="about.html">About</a><a href="services.html">Services</a><a href="work.html">Work</a><a href="courses.html">Courses</a><a href="newsletter.html">Newsletter</a><a href="contact.html">Work with us →</a></div>
 
-  <div class="page-header">
-    <div class="page-header-inner">
-      <div class="section-eyebrow">Courses and Templates</div>
-      <h1 class="section-title">AI Marketing OS</h1>
-      <p class="section-desc">The exact systems, frameworks, and prompts I use to run AI-powered marketing. Packaged so you can implement them yourself.</p>
+<div class="ph"><div class="ph-glow"></div><div class="ph-in"><div class="ey ey-w">Courses</div><h1 class="st-w">AI Marketing OS</h1><p class="sd-w">The exact systems, frameworks, and prompts we run on real accounts, packaged so you can implement them yourself.</p></div></div>
+
+<section class="story">
+  <div class="story-glow"></div>
+  <div class="story-in">
+    <div class="ey ey-w">Why we built this</div>
+    <h2 style="font-family:var(--ff);font-size:clamp(1.75rem,3vw,2.6rem);font-weight:600;color:var(--white);letter-spacing:-.03em;line-height:1.08;margin-bottom:1.5rem">This started with teaching SQL using AI.</h2>
+    <p class="story-text">When Shreya needed to learn SQL and Python to qualify for a role she really wanted, she did not enrol in a course or find a tutor. She opened an AI tool and started asking questions — explained concepts, created practice problems, checked answers, and built actual things. In four weeks, the skills were there and the role was hers.</p>
+    <p class="story-text">That experience changed how we think about learning and about AI. <strong>Not as a shortcut, but as the best teacher most people have ever had.</strong> Infinitely patient, always available, able to meet you exactly where you are.</p>
+    <p class="story-text">Since then, we have built marketing systems using AI that produce results no traditional agency setup could match at the same cost and speed. And we have watched other marketers, founders, and business owners struggle with AI — not because they are not smart enough, but because nobody has shown them how to use it properly for their actual work.</p>
+    <p class="story-text"><strong>That is what this is.</strong> Not a theory course about AI. A practical system built by someone who runs these tools on real accounts with real budgets.</p>
+    <div class="story-hl">"If AI could help compress months of learning into weeks, it can help you run a better marketing function starting this week. That is what we are trying to prove with these products."</div>
+  </div>
+</section>
+
+<section class="products">
+  <div class="products-in">
+    <div class="reveal"><div class="ey">Products</div><h2 class="st">Pick your starting point.</h2><p style="font-size:.97rem;color:var(--ink2);line-height:1.78;max-width:520px">All products are coming soon. Join the notify list and get 30% off launch pricing.</p></div>
+    <div class="p-grid">
+      <a href="#" class="pc reveal rd1" onclick="openModal('m-starter');return false">
+        <div class="pc-ban pb2">🗂️</div>
+        <div class="pc-body"><div class="pc-type">Template Pack</div><div class="pc-name">AI Content and SEO Starter Kit</div><div class="pc-desc">Notion templates for content planning, SEO brief creation, and email campaign workflows. Running in an afternoon.</div><div class="pc-foot"><span class="pc-price">$47</span><div class="pc-acts"><button class="pc-btn" onclick="event.stopPropagation();openModal('m-starter')">Know more</button><a href="contact.html?ref=starter" class="pc-btn solid" onclick="event.stopPropagation()">Get notified</a></div></div></div>
+      </a>
+      <a href="#" class="pc ft reveal rd2" onclick="openModal('m-full');return false">
+        <div class="pc-ban pb1">🎯<span class="pc-badge">Most popular</span></div>
+        <div class="pc-body"><div class="pc-type">Mini Course and Templates</div><div class="pc-name">AI Marketing OS: Full System</div><div class="pc-desc">Build your entire marketing function on AI. SEO, paid, email, content, and reporting. Video walkthroughs for every module plus the Notion OS to run it all.</div><div class="pc-foot"><span class="pc-price">$197</span><div class="pc-acts"><button class="pc-btn" onclick="event.stopPropagation();openModal('m-full')">Know more</button><a href="contact.html?ref=full-os" class="pc-btn solid" onclick="event.stopPropagation()">Get notified</a></div></div></div>
+      </a>
+      <a href="#" class="pc reveal rd3" onclick="openModal('m-prompts');return false">
+        <div class="pc-ban pb3">⚡</div>
+        <div class="pc-body"><div class="pc-type">Prompt Library</div><div class="pc-name">100+ B2B and B2C Marketing Prompts</div><div class="pc-desc">Hand-crafted AI prompts for blog posts, ads, email, briefs, reports, and more. Every prompt tested on real campaigns. Works with Claude, ChatGPT, and Gemini.</div><div class="pc-foot"><span class="pc-price">$27</span><div class="pc-acts"><button class="pc-btn" onclick="event.stopPropagation();openModal('m-prompts')">Know more</button><a href="contact.html?ref=prompts" class="pc-btn solid" onclick="event.stopPropagation()">Get notified</a></div></div></div>
+      </a>
     </div>
   </div>
+</section>
 
-  <!-- PERSONAL STORY -->
-  <section class="story-band">
-    <div class="story-band-glow"></div>
-    <div class="story-band-inner">
-      <div class="section-eyebrow">Why I built this</div>
-      <h2 class="section-title">This started with me teaching myself SQL using AI.</h2>
-      <p class="story-band-text">When I needed to learn SQL and Python to qualify for a role I really wanted, I enrolled in a course. It taught me all the theory I needed but interviewers don't ask theory questions in interviews. They ask application-based questions. Their assignments also require you to be able to use these commands in the shortest and most effective way to reach the correct conclusion. I opened an AI tool and started asking questions. I asked it to explain concepts, create and solve practice problems, check my answers, and help me build my knowledge. In four weeks, I had the skills I needed and landed the role.</p>
-      <p class="story-band-text">That experience changed how I think about learning and about AI. <strong>Not as a shortcut, but as the best teacher I had ever had.</strong> Infinitely patient, always available, and able to meet me exactly where I was.</p>
-      <p class="story-band-text">Since then, I have built marketing systems using AI that produce results no traditional agency setup could match at the same cost and speed. And I have watched other marketers, founders, and business owners struggle with AI, not because they are not smart enough, but because nobody has shown them how to use it properly for their actual work.</p>
-      <p class="story-band-text">That is what this is. Not a theory course about AI. Not a generic prompt list. <strong>A practical system built by someone who runs these tools on real accounts with real budgets,</strong> packaged so that you can get the same output without having to figure it all out yourself.</p>
-      <div class="story-band-highlight">
-        "If AI could help me compress months of learning into weeks, it can help you run a better marketing function starting this week. That is what I am trying to prove with these products."
-      </div>
+<section class="modules">
+  <div class="modules-in">
+    <div class="reveal"><div class="ey">Curriculum</div><h2 class="st">What is inside the full OS.</h2><p style="font-size:.97rem;color:var(--ink2);line-height:1.78;max-width:520px">Eight modules covering every core marketing function, with AI systems built for each one.</p></div>
+    <div class="m-grid">
+      <div class="mcard reveal"><div class="m-num">01</div><div><div class="m-title">SEO Strategy with AI</div><div class="m-desc">Keyword research, content gap analysis, brief creation, and technical audits at a speed no traditional SEO workflow can match.</div></div></div>
+      <div class="mcard reveal rd1"><div class="m-num">02</div><div><div class="m-title">AI-Powered Content Production</div><div class="m-desc">Blog posts, landing pages, and pillar content that does not read like AI wrote it, because strategy comes before prompting.</div></div></div>
+      <div class="mcard reveal"><div class="m-num">03</div><div><div class="m-title">Email Marketing Systems</div><div class="m-desc">Nurture sequences, segmentation logic, and subject line testing. The frameworks behind 45% open rates for a B2B SaaS product.</div></div></div>
+      <div class="mcard reveal rd1"><div class="m-num">04</div><div><div class="m-title">Paid Media with AI</div><div class="m-desc">Ad copy generation, creative testing frameworks, and audience strategy for Google, Meta, and LinkedIn campaigns.</div></div></div>
+      <div class="mcard reveal"><div class="m-num">05</div><div><div class="m-title">Analytics and Reporting</div><div class="m-desc">Dashboards that get used, data interpretation without a data team, and using AI to write your monthly report in 20 minutes.</div></div></div>
+      <div class="mcard reveal rd1"><div class="m-num">06</div><div><div class="m-title">Go-to-Market Planning</div><div class="m-desc">ICP definition, positioning, channel prioritisation, and launch sequencing. The GTM playbook we use across B2B and B2C.</div></div></div>
+      <div class="mcard reveal"><div class="m-num">07</div><div><div class="m-title">CRM and Personalisation</div><div class="m-desc">Segmentation, lifecycle marketing, and behavioural triggers. Personalisation at scale without a dedicated data science team.</div></div></div>
+      <div class="mcard reveal rd1"><div class="m-num">08</div><div><div class="m-title">Notion Marketing OS Setup</div><div class="m-desc">Full walkthrough of the Notion system: content calendar, campaign tracker, results dashboard, and prompt library, all connected.</div></div></div>
     </div>
-  </section>
-
-  <!-- PRODUCTS -->
-  <section class="products-section">
-    <div class="products-inner">
-      <div class="reveal">
-        <div class="section-eyebrow">Products</div>
-        <h2 class="section-title">Pick your starting point.</h2>
-      </div>
-      <div class="products-grid">
-
-        <div class="product-card reveal reveal-delay-1">
-          <div class="product-banner pb-g">🗂️</div>
-          <div class="product-body">
-            <p class="product-type">Template Pack</p>
-            <h3 class="product-name">AI Content and SEO Starter Kit</h3>
-            <p class="product-desc">Notion templates for content planning, SEO brief creation, and email campaign workflows. Plug in your product and you are running in an afternoon.</p>
-            <div class="product-footer">
-              <span class="product-price">$47</span>
-              <div class="product-actions">
-                <button class="product-cta" onclick="openModal('modal-starter')">Know more</button>
-                <a href="contact.html?ref=starter-kit" class="product-cta solid">Get notified</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card featured reveal reveal-delay-2">
-          <div class="product-banner pb-v">
-            🎯
-            <span class="product-featured-badge">Most popular</span>
-          </div>
-          <div class="product-body">
-            <p class="product-type">Mini Course and Templates</p>
-            <h3 class="product-name">AI Marketing OS: Full System</h3>
-            <p class="product-desc">Build your entire marketing function on AI. SEO, paid, email, content, and reporting. Video walkthroughs for every module plus the Notion OS to run it all.</p>
-            <div class="product-footer">
-              <span class="product-price">$197</span>
-              <div class="product-actions">
-                <button class="product-cta" onclick="openModal('modal-full-os')">Know more</button>
-                <a href="contact.html?ref=full-os" class="product-cta solid">Get notified</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card reveal reveal-delay-3">
-          <div class="product-banner pb-b">⚡</div>
-          <div class="product-body">
-            <p class="product-type">Prompt Library</p>
-            <h3 class="product-name">100+ B2B and B2C Marketing Prompts</h3>
-            <p class="product-desc">Hand-crafted AI prompts for blog posts, ads, email, briefs, reports, and more. Every prompt tested on real campaigns. Works with Claude, ChatGPT, and Gemini.</p>
-            <div class="product-footer">
-              <span class="product-price">$127</span>
-              <div class="product-actions">
-                <button class="product-cta" onclick="openModal('modal-prompts')">Know more</button>
-                <a href="contact.html?ref=prompts" class="product-cta solid">Get notified</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- MODULES -->
-  <section class="inside-section">
-    <div class="inside-inner">
-      <div class="reveal">
-        <div class="section-eyebrow">Curriculum</div>
-        <h2 class="section-title">What is inside the full OS.</h2>
-        <p class="section-desc">Eight modules covering every core marketing function, with AI systems built for each one.</p>
-      </div>
-      <div class="modules-grid">
-        <div class="module-card reveal"><div class="module-num">01</div><div><div class="module-title">SEO Strategy with AI</div><div class="module-desc">Keyword research, content gap analysis, brief creation, and technical audits at a speed no traditional SEO workflow can match.</div></div></div>
-        <div class="module-card reveal reveal-delay-1"><div class="module-num">02</div><div><div class="module-title">AI-Powered Content Production</div><div class="module-desc">Blog posts, landing pages, and pillar content that does not read like AI wrote it, because strategy comes before prompting.</div></div></div>
-        <div class="module-card reveal reveal-delay-2"><div class="module-num">03</div><div><div class="module-title">Email Marketing Systems</div><div class="module-desc">Nurture sequences, segmentation logic, and subject line testing. The frameworks behind 45% open rates for a B2B SaaS product.</div></div></div>
-        <div class="module-card reveal reveal-delay-3"><div class="module-num">04</div><div><div class="module-title">Paid Media with AI</div><div class="module-desc">Ad copy generation, creative testing frameworks, and audience strategy for Google, Meta, and LinkedIn campaigns.</div></div></div>
-        <div class="module-card reveal"><div class="module-num">05</div><div><div class="module-title">Analytics and Reporting</div><div class="module-desc">Dashboards that get used, data interpretation without a data team, and using AI to write your monthly report in 20 minutes.</div></div></div>
-        <div class="module-card reveal reveal-delay-1"><div class="module-num">06</div><div><div class="module-title">Go-to-Market Planning</div><div class="module-desc">ICP definition, positioning, channel prioritisation, and launch sequencing. The GTM playbook I use across B2B and B2C.</div></div></div>
-        <div class="module-card reveal reveal-delay-2"><div class="module-num">07</div><div><div class="module-title">CRM and Personalisation</div><div class="module-desc">Segmentation, lifecycle marketing, and behavioural triggers. Personalisation at scale without a dedicated data science team.</div></div></div>
-        <div class="module-card reveal reveal-delay-3"><div class="module-num">08</div><div><div class="module-title">Notion Marketing OS Setup</div><div class="module-desc">Full walkthrough of the Notion system: content calendar, campaign tracker, results dashboard, and prompt library, all connected.</div></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="faq-section">
-    <div class="faq-inner">
-      <div class="reveal">
-        <div class="section-eyebrow">FAQ</div>
-        <h2 class="section-title">Common questions.</h2>
-      </div>
-      <div class="faq-list">
-        <div class="faq-item">
-          <button class="faq-question">When do the products launch? <span class="icon">+</span></button>
-          <div class="faq-answer">The prompt library and starter kit are launching first. Email shreyak800@gmail.com to join the notify list and get 30% off launch pricing. The full OS follows 4 to 6 weeks after.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">Do I need technical skills? <span class="icon">+</span></button>
-          <div class="faq-answer">No. If you can use Notion and access an AI tool like Claude or ChatGPT, you have everything you need. The course is built for marketers, not developers.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">What AI tools do the prompts work with? <span class="icon">+</span></button>
-          <div class="faq-answer">All prompts work with Claude, ChatGPT, Gemini, or any large language model. Claude is recommended for the best output on long-form content.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">Is there a refund policy? <span class="icon">+</span></button>
-          <div class="faq-answer">All sales are final. Given the nature of digital products, refunds are not offered. If you have questions before purchasing, email shreyak800@gmail.com and I will answer them directly.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">Can I use these for client work? <span class="icon">+</span></button>
-          <div class="faq-answer">Yes. All templates and prompts come with a commercial licence. You can use them for your own clients without paying extra or providing attribution.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</div>
-
-<!-- MODALS -->
-<div class="modal-overlay" id="modal-starter">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal('modal-starter')">✕</button>
-    <p class="modal-eyebrow">Template Pack</p>
-    <h2 class="modal-title">AI Content and SEO Starter Kit</h2>
-    <p class="modal-desc">A practical Notion-based system for marketers who want to start using AI for content and SEO immediately, without building everything from scratch.</p>
-    <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink);margin-bottom:0.5rem;">What is included</p>
-    <ul class="modal-includes">
-      <li>Content calendar template with status tracking and publishing workflow</li>
-      <li>SEO brief generator: fill in your keyword and ICP, get a complete brief</li>
-      <li>Email sequence planner with subject line testing framework</li>
-      <li>30 AI writing prompts covering blog posts, email, ad copy, and landing pages</li>
-      <li>Brand voice guide template to keep all AI output consistent</li>
-      <li>Quick-start video walkthrough (under 20 minutes)</li>
-    </ul>
-    <div class="modal-divider"></div>
-    <p class="modal-note">Instant digital delivery. Works with Notion (free or paid plan). Prompts are tool-agnostic. All sales final.</p>
-    <br>
-    <a href="contact.html?ref=starter-kit" class="btn btn-violet" style="width:100%;justify-content:center;">Get notified at launch <span class="arrow">→</span></a>
   </div>
-</div>
+</section>
 
-<div class="modal-overlay" id="modal-full-os">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal('modal-full-os')">✕</button>
-    <p class="modal-eyebrow">Mini Course and Templates</p>
-    <h2 class="modal-title">AI Marketing OS: Full System</h2>
-    <p class="modal-desc">A complete system to run your entire marketing function using AI. Eight modules, video walkthroughs, a full Notion OS, and 100+ prompts. Built for B2B and B2C marketers who want to work at a level that used to require a much bigger team.</p>
-    <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink);margin-bottom:0.5rem;">What is included</p>
-    <ul class="modal-includes">
-      <li>8 video modules covering SEO, content, email, paid, analytics, GTM, CRM, and the Notion OS setup</li>
-      <li>Full Notion Marketing OS: content calendar, campaign tracker, results dashboard, and prompt library</li>
-      <li>100+ tested AI prompts across every marketing channel</li>
-      <li>SEO brief generator and content workflow templates</li>
-      <li>Email nurture frameworks with real subject line examples</li>
-      <li>Paid media audit checklists and creative testing templates</li>
-      <li>Monthly updates: new prompts, templates, and tactics added as AI evolves</li>
-      <li>Private community access for questions and peer learning</li>
-    </ul>
-    <div class="modal-divider"></div>
-    <p class="modal-note">Instant digital delivery. Works with Notion free or paid. All sales final.</p>
-    <br>
-    <a href="contact.html?ref=full-os" class="btn btn-violet" style="width:100%;justify-content:center;">Get notified at launch <span class="arrow">→</span></a>
+<section class="faq">
+  <div class="faq-in">
+    <div class="reveal"><div class="ey">FAQ</div><h2 class="st">Common questions.</h2></div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="fq">When do the products launch? <span class="ico">+</span></button><div class="fa">The prompt library and starter kit are launching first. Email shreyak800@gmail.com to join the notify list and get 30% off launch pricing. The full OS follows 4 to 6 weeks after.</div></div>
+      <div class="faq-item"><button class="fq">Do I need technical skills? <span class="ico">+</span></button><div class="fa">No. If you can use Notion and access an AI tool like Claude or ChatGPT, you have everything you need. The course is built for marketers, not developers.</div></div>
+      <div class="faq-item"><button class="fq">What AI tools do the prompts work with? <span class="ico">+</span></button><div class="fa">All prompts work with Claude, ChatGPT, Gemini, or any large language model. Claude is recommended for the best output on long-form content.</div></div>
+      <div class="faq-item"><button class="fq">Is there a refund policy? <span class="ico">+</span></button><div class="fa">All sales are final. Given the nature of digital products, refunds are not offered. If you have questions before purchasing, email shreyak800@gmail.com and we will answer them directly.</div></div>
+      <div class="faq-item"><button class="fq">Can I use these for client work? <span class="ico">+</span></button><div class="fa">Yes. All templates and prompts come with a commercial licence. You can use them for your own clients without paying extra or providing attribution.</div></div>
+    </div>
   </div>
-</div>
+</section>
 
-<div class="modal-overlay" id="modal-prompts">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal('modal-prompts')">✕</button>
-    <p class="modal-eyebrow">Prompt Library</p>
-    <h2 class="modal-title">100+ B2B and B2C Marketing Prompts</h2>
-    <p class="modal-desc">Every prompt in this library has been tested on a real campaign, for a real client or product, with a real budget. Not generated in bulk. Not theoretical. These are the prompts I actually use.</p>
-    <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink);margin-bottom:0.5rem;">What is included</p>
-    <ul class="modal-includes">
-      <li>25 SEO and content prompts: blog briefs, pillar pages, meta copy, content gap analysis</li>
-      <li>20 email marketing prompts: subject lines, nurture sequences, re-engagement campaigns</li>
-      <li>20 paid media prompts: ad copy variants, audience targeting briefs, creative testing structures</li>
-      <li>15 strategy prompts: ICP definitions, positioning statements, competitive analysis</li>
-      <li>10 reporting prompts: monthly report summaries, board presentations, performance narratives</li>
-      <li>10+ bonus prompts: LinkedIn posts, newsletter intros, case study frameworks</li>
-      <li>Works with Claude, ChatGPT, Gemini, or any LLM</li>
-    </ul>
-    <div class="modal-divider"></div>
-    <p class="modal-note">Instant delivery as a structured PDF and Notion page. Commercial licence included. All sales final.</p>
-    <br>
-    <a href="contact.html?ref=prompts" class="btn btn-violet" style="width:100%;justify-content:center;">Get notified at launch <span class="arrow">→</span></a>
-  </div>
-</div>
+<div class="modal-overlay" id="m-starter"><div class="modal-box"><button class="modal-close" onclick="closeModal('m-starter')">✕</button><p class="m-ey">Template Pack</p><h2 class="m-t">AI Content and SEO Starter Kit</h2><p class="m-d">A practical Notion-based system for marketers who want to start using AI for content and SEO immediately, without building everything from scratch.</p><p class="m-sh">What is included</p><ul class="m-list"><li>Content calendar template with status tracking and publishing workflow</li><li>SEO brief generator: fill in your keyword and ICP, get a complete brief</li><li>Email sequence planner with subject line testing framework</li><li>30 AI writing prompts covering blog posts, email, ad copy, and landing pages</li><li>Brand voice guide template to keep all AI output consistent</li><li>Quick-start video walkthrough (under 20 minutes)</li></ul><div class="m-div"></div><p class="m-note">Instant digital delivery. Works with Notion free or paid plan. All sales final.</p><a href="contact.html?ref=starter" class="sc-btn">Get notified at launch →</a></div></div>
+<div class="modal-overlay" id="m-full"><div class="modal-box"><button class="modal-close" onclick="closeModal('m-full')">✕</button><p class="m-ey">Mini Course and Templates</p><h2 class="m-t">AI Marketing OS: Full System</h2><p class="m-d">A complete system to run your entire marketing function using AI. Eight modules, video walkthroughs, a full Notion OS, and 100+ prompts.</p><p class="m-sh">What is included</p><ul class="m-list"><li>8 video modules covering SEO, content, email, paid, analytics, GTM, CRM, and Notion OS setup</li><li>Full Notion Marketing OS: content calendar, campaign tracker, results dashboard, and prompt library</li><li>100+ tested AI prompts across every marketing channel</li><li>SEO brief generator and content workflow templates</li><li>Email nurture frameworks with real subject line examples</li><li>Paid media audit checklists and creative testing templates</li><li>Monthly updates: new prompts and templates added as AI evolves</li></ul><div class="m-div"></div><p class="m-note">Instant digital delivery. Works with Notion free or paid. All sales final.</p><a href="contact.html?ref=full-os" class="sc-btn">Get notified at launch →</a></div></div>
+<div class="modal-overlay" id="m-prompts"><div class="modal-box"><button class="modal-close" onclick="closeModal('m-prompts')">✕</button><p class="m-ey">Prompt Library</p><h2 class="m-t">100+ B2B and B2C Marketing Prompts</h2><p class="m-d">Every prompt in this library has been tested on a real campaign, for a real client or product, with a real budget. Not generated in bulk. Not theoretical.</p><p class="m-sh">What is included</p><ul class="m-list"><li>25 SEO and content prompts: blog briefs, pillar pages, meta copy, content gap analysis</li><li>20 email marketing prompts: subject lines, nurture sequences, re-engagement campaigns</li><li>20 paid media prompts: ad copy variants, audience targeting briefs, creative testing structures</li><li>15 strategy prompts: ICP definitions, positioning statements, competitive analysis</li><li>10 reporting prompts: monthly report summaries, board presentations, performance narratives</li><li>10+ bonus prompts: LinkedIn posts, newsletter intros, case study frameworks</li><li>Works with Claude, ChatGPT, Gemini, or any LLM. Commercial licence included.</li></ul><div class="m-div"></div><p class="m-note">Instant delivery as a structured PDF and Notion page. All sales final.</p><a href="contact.html?ref=prompts" class="sc-btn">Get notified at launch →</a></div></div>
 
-<script src="shared.js"></script>
+<section class="cta-band"><div class="cta-grain"></div><div class="cta-in reveal"><h2 class="cta-hl">Want the done-for-you version?</h2><p class="cta-sub">If you would rather have us run it for you, that is what our services are for. Book a call and we will find the right fit.</p><div class="cta-acts"><a href="contact.html" class="btn-cw">Book a discovery call →</a><a href="services.html" class="btn-gh">View services</a></div></div></section>
+
+<footer class="footer"><div class="footer-in"><div class="ft"><div><div class="flogo"><svg class="fc-svg" viewBox="0 0 24 24" fill="none"><path d="M20 12A8 8 0 1 1 8 3.8" stroke="#8B5CF6" stroke-width=".9" stroke-linecap="round" fill="none" opacity=".35"/><path d="M17.5 12A5.5 5.5 0 1 1 9.3 6.5" stroke="#8B5CF6" stroke-width="1.1" stroke-linecap="round" fill="none" opacity=".55"/><path d="M15.5 8.5A5.5 5.5 0 1 0 15.5 15.5" stroke="#8B5CF6" stroke-width="2.2" stroke-linecap="round" fill="none"/></svg><span class="fwm">Compound<span>.</span></span></div><p class="ftag">Strategy in motion. Results that compound. Founded by Shreya Kulkarni.</p><div class="fsoc"><a href="https://www.linkedin.com/in/shreyak1" target="_blank" rel="noopener">in</a><a href="mailto:shreyak800@gmail.com">✉</a></div></div><div class="fcol"><p class="fcol-t">Services</p><ul><li><a href="services.html#consulting">Strategy Consulting</a></li><li><a href="services.html#b2b">B2B Marketing</a></li><li><a href="services.html#b2c">B2C Marketing</a></li><li><a href="services.html#ai-content">AI Content</a></li><li><a href="services.html#paid-media">Paid Media</a></li></ul></div><div class="fcol"><p class="fcol-t">Company</p><ul><li><a href="about.html">About</a></li><li><a href="work.html">Case Studies</a></li><li><a href="courses.html">Courses</a></li><li><a href="newsletter.html">Newsletter</a></li></ul></div><div class="fcol"><p class="fcol-t">Contact</p><ul><li><a href="contact.html">Get in Touch</a></li><li><a href="mailto:shreyak800@gmail.com">shreyak800@gmail.com</a></li><li><a href="https://www.linkedin.com/in/shreyak1" target="_blank">LinkedIn</a></li></ul></div></div><div class="fb"><p>© 2026 Compound. All rights reserved. Founded by Shreya Kulkarni.</p><p>AI-powered. Strategy-led.</p></div></div></footer>
 <script>
-function openModal(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow = 'hidden'; }
-function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
-document.querySelectorAll('.faq-question').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
-  });
-});
+const nav=document.getElementById('mainNav');window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20),{passive:true});document.getElementById('hbg').addEventListener('click',()=>document.getElementById('mob').classList.toggle('open'));document.querySelectorAll('#mob a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mob').classList.remove('open')));
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}}),{threshold:.07});document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden'}
+function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow=''}
+document.querySelectorAll('.modal-overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o){o.classList.remove('open');document.body.style.overflow=''}}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.modal-overlay.open').forEach(o=>{o.classList.remove('open');document.body.style.overflow=''})});
+document.querySelectorAll('.fq').forEach(b=>b.addEventListener('click',()=>{const i=b.closest('.faq-item'),o=i.classList.contains('open');document.querySelectorAll('.faq-item').forEach(x=>x.classList.remove('open'));if(!o)i.classList.add('open')}));
 </script>
-</body>
-</html>
+</body></html>

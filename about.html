@@ -76,6 +76,35 @@
   .cta-band{padding:4rem 1.25rem}
 }
 @media(max-width:600px){.val-grid{grid-template-columns:1fr}.founder-ctas{flex-direction:column}.founder-ctas a{justify-content:center}}
+
+/* STATS BAR */
+.stats-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:1.25rem;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--white)}
+.stat-item{padding:1rem .75rem;text-align:center;position:relative}
+.stat-item+.stat-item::before{content:'';position:absolute;left:0;top:15%;bottom:15%;width:1px;background:var(--border)}
+.stat-num{font-family:var(--ff);font-size:1.45rem;font-weight:700;color:var(--v);letter-spacing:-.04em;line-height:1;margin-bottom:.25rem}
+.stat-lbl{font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
+
+/* BRAND CAROUSEL */
+
+
+
+
+
+
+
+
+
+100%{transform:translateX(-50%)}}
+
+/* BRAND LOGOS */
+
+
+
+
+/* BLOCKQUOTE pull-quote */
+.founder-bq{border-left:3px solid var(--v);padding:.9rem 1.25rem;background:var(--vp);border-radius:0 8px 8px 0;margin:1.25rem 0}
+.founder-bq p{font-size:.93rem;color:var(--ink2);line-height:1.75;font-style:italic;margin:0}
+.founder-bq p strong{color:var(--v);font-style:normal}
 </style>
 </head>
 <body>
@@ -145,11 +174,15 @@
       <p>Compound. was founded by <strong>Shreya</strong>, a marketing strategist with 7+ years running campaigns at enterprise scale across McDonald's, Volkswagen, Coles, 7-Eleven, Dulux, Nivea and many more, across APAC, EMEA and North America.</p>
       <p>After co-founding Floodgate Digital in Australia (sold to the New Wave Group), leading strategy for small, medium and enterprise clients from scratch, one thing became obvious. <strong>The most expensive thing a business can do is hire an agency that doesn't understand its commercial model.</strong></p>
       <p>Compound. exists to fix that. We work with a small number of clients at a time because that is the only way to do work we are proud of. We do not have a junior team running your accounts who don't understand how strategy evolves. We do not outsource strategy to templates. Every engagement gets the same senior-level thinking that drives measurable results over vanity metrics.</p>
+      <div class="founder-bq">
+        <p>This is not recycled marketing theory. It is <strong>pattern recognition built across industries, teams, budgets, and real accountability.</strong></p>
+      </div>
       <p>We are based in Sydney, the Gold Coast, and Pune, and work with clients globally. If you are a B2B SaaS company, a consumer brand, or an enterprise team that needs a sharp marketing partner, we should talk.</p>
       <div class="founder-ctas">
         <a href="https://calendly.com/compounddigital/discovery-call" target="_blank" rel="noopener" class="btn-primary">Book a discovery call <span class="arr">→</span></a>
         <a href="work.html" class="btn-secondary">See the work</a>
       </div>
+
     </div>
 
     <div class="reveal rd2">
@@ -174,6 +207,20 @@
             <a href="https://www.linkedin.com/in/shreyak1/" target="_blank" rel="noopener">LinkedIn →</a>
             <a href="mailto:shreya@compounddigital.co">Email →</a>
           </div>
+          <div class="stats-bar" id="statsBar">
+            <div class="stat-item">
+              <div class="stat-num" data-target="7" data-suffix="+">0</div>
+              <div class="stat-lbl">Years exp.</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num" data-target="30" data-suffix="+">0</div>
+              <div class="stat-lbl">Clients</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num" data-target="10" data-suffix="+">0</div>
+              <div class="stat-lbl">Industries</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -194,65 +241,7 @@
   </div>
 </section>
 
-<section class="sec career-sec">
-  <div class="career-in">
-    <div class="reveal">
-      <div class="ey">Career</div>
-      <h2 class="st">7+ years of the real work.</h2>
-      <p class="sd" style="max-width:520px;margin-bottom:2rem">Every number on this site comes from one of these roles. No invented case studies. No inflated metrics.</p>
-    </div>
-    <div class="career-timeline">
-      <div class="cr-item current reveal">
-        <div class="cr-dot"><div class="cr-dot-inner"></div></div>
-        <div class="cr-body">
-          <div class="cr-role">FireDaemon Technology</div>
-          <div class="cr-co">United Kingdom &amp; Australia</div>
-        </div>
-        <span class="cr-hl">+25% organic &middot; +45% email opens</span>
-      </div>
-      <div class="cr-item reveal">
-        <div class="cr-dot"><div class="cr-dot-inner"></div></div>
-        <div class="cr-body">
-          <div class="cr-role">Service.com.au</div>
-          <div class="cr-co">Australia</div>
-        </div>
-        <span class="cr-hl">+30% organic &middot; -18% CPA</span>
-      </div>
-      <div class="cr-item reveal">
-        <div class="cr-dot"><div class="cr-dot-inner"></div></div>
-        <div class="cr-body">
-          <div class="cr-role">Naty</div>
-          <div class="cr-co">Sweden</div>
-        </div>
-        <span class="cr-hl">3.4x ROAS</span>
-      </div>
-      <div class="cr-item reveal">
-        <div class="cr-dot"><div class="cr-dot-inner"></div></div>
-        <div class="cr-body">
-          <div class="cr-role">McDonald's, Volkswagen, Coles, NSW Gov, Vic Gov, 7-Eleven + more</div>
-          <div class="cr-co">Australia, UK, USA, Germany &amp; Spain</div>
-        </div>
-        <span class="cr-hl">+35% precision &middot; +40% CTR &middot; 1,000+ variants</span>
-      </div>
-      <div class="cr-item reveal">
-        <div class="cr-dot"><div class="cr-dot-inner"></div></div>
-        <div class="cr-body">
-          <div class="cr-role">Floodgate Digital — Co-Founder &amp; Head of Digital Strategy</div>
-          <div class="cr-co">Australia &middot; 30+ clients</div>
-        </div>
-        <span class="cr-hl">3.1x avg ROAS</span>
-      </div>
-      <div class="cr-item reveal">
-        <div class="cr-dot"><div class="cr-dot-inner"></div></div>
-        <div class="cr-body">
-          <div class="cr-role">OneCorp Australia</div>
-          <div class="cr-co">Australia</div>
-        </div>
-        <span class="cr-hl">+35% qualified leads</span>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <section class="cta-band">
   <div class="cta-grain"></div>
@@ -302,6 +291,34 @@ function closePopup(){document.getElementById('nlPopup').classList.remove('open'
 function submitPopup(){const e=document.getElementById('nlEmail').value.trim();if(!e)return;document.getElementById('nlForm').style.display='none';document.getElementById('nlSuccess').style.display='block';setTimeout(()=>closePopup(),2500);}
 if(!sessionStorage.getItem('nl_dismissed')){setTimeout(()=>document.getElementById('nlPopup').classList.add('open'),2500);}
 document.getElementById('nlPopup').addEventListener('click',function(e){if(e.target===this)closePopup();});
+
+// Counter animation
+function animateCounters() {
+  const nums = document.querySelectorAll('.stat-num[data-target]');
+  nums.forEach(el => {
+    const target = parseInt(el.dataset.target);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1400;
+    const start = performance.now();
+    function step(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(ease * target) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  });
+}
+// Trigger when stats bar comes into view
+const statsEl = document.getElementById('statsBar');
+if (statsEl) {
+  const cObs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) { animateCounters(); cObs.disconnect(); }
+  }, { threshold: 0.3 });
+  cObs.observe(statsEl);
+}
+
 </script>
 </body>
 </html>

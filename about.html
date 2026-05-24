@@ -63,7 +63,7 @@
 /* NEWSLETTER POPUP */
 .nl-popup{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);z-index:9500;align-items:center;justify-content:center;padding:1.5rem}.nl-popup.open{display:flex;animation:pfu .25s ease}@keyframes pfu{from{opacity:0}to{opacity:1}}.nl-box{background:var(--white);border-radius:18px;max-width:440px;width:100%;position:relative;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.2);animation:psc .3s var(--ease)}@keyframes psc{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}.nl-top{background:linear-gradient(135deg,var(--v),#3b0764);padding:1.75rem;text-align:center;position:relative}.nl-close{position:absolute;top:.75rem;right:.75rem;background:rgba(255,255,255,.15);border:none;width:28px;height:28px;border-radius:50%;cursor:pointer;color:var(--white);font-size:.9rem;display:flex;align-items:center;justify-content:center;transition:background .2s}.nl-close:hover{background:rgba(255,255,255,.28)}.nl-title{font-family:var(--ff);font-size:1.4rem;font-weight:600;color:var(--white);letter-spacing:-.03em;line-height:1.15;margin-bottom:.35rem}.nl-sub-title{font-size:.82rem;color:rgba(255,255,255,.58)}.nl-body{padding:1.35rem}.nl-form{display:flex;flex-direction:column;gap:.6rem}.nl-form input{border:1.5px solid var(--border);border-radius:8px;padding:.7rem 1rem;font-size:.9rem;font-family:var(--fb);color:var(--ink);outline:none;transition:border-color .2s;width:100%}.nl-form input:focus{border-color:var(--vl)}.nl-form-btn{background:var(--v);color:var(--white);border:none;padding:.8rem;border-radius:8px;font-weight:600;font-size:.88rem;cursor:pointer;font-family:var(--fb);transition:background .2s}.nl-form-btn:hover{background:var(--vm)}.nl-skip{display:block;text-align:center;font-size:.72rem;color:var(--muted);margin-top:.65rem;cursor:pointer;text-decoration:underline}.nl-success{display:none;text-align:center;padding:1.5rem}
 
-@media(max-width:960px){
+@media(max-width:960px){.brands-sec{padding:2.5rem 1.25rem}.brand-item{min-width:120px;padding:.85rem 1rem}.brand-name{font-size:.9rem}
   .nav{padding:0 1.25rem}.nav-links{display:none}.hamburger{display:flex}
   .ph{padding:1.75rem 1.25rem 2.5rem}.sec{padding:4rem 1.25rem}
   .founder-in{grid-template-columns:1fr;gap:2.5rem}
@@ -78,28 +78,21 @@
 @media(max-width:600px){.val-grid{grid-template-columns:1fr}.founder-ctas{flex-direction:column}.founder-ctas a{justify-content:center}}
 
 /* STATS BAR */
-.stats-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:1.25rem;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--white)}
-.stat-item{padding:1rem .75rem;text-align:center;position:relative}
-.stat-item+.stat-item::before{content:'';position:absolute;left:0;top:15%;bottom:15%;width:1px;background:var(--border)}
-.stat-num{font-family:var(--ff);font-size:1.45rem;font-weight:700;color:var(--v);letter-spacing:-.04em;line-height:1;margin-bottom:.25rem}
-.stat-lbl{font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
-
-/* BRAND CAROUSEL */
-
-
-
-
-
-
-
-
-
-100%{transform:translateX(-50%)}}
+.stats-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:2rem;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.stat-item{padding:1.4rem 1.5rem;text-align:center;position:relative}
+.stat-item+.stat-item::before{content:'';position:absolute;left:0;top:20%;bottom:20%;width:1px;background:var(--border)}
+.stat-num{font-family:var(--ff);font-size:2rem;font-weight:700;color:var(--v);letter-spacing:-.04em;line-height:1;margin-bottom:.3rem}
+.stat-lbl{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
 
 /* BRAND LOGOS */
-
-
-
+.brands-sec{background:var(--ink);padding:3.5rem 2.5rem}
+.brands-in{max-width:var(--max);margin:0 auto}
+.brands-label{font-family:var(--fm);font-size:.63rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.32);text-align:center;margin-bottom:2rem}
+.brands-grid{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0}
+.brand-item{padding:1rem 2rem;border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;min-width:160px;flex:1}
+.brand-item:last-child{border-right:none}
+.brand-name{font-family:var(--ff);font-size:1.05rem;font-weight:600;color:rgba(255,255,255,.28);letter-spacing:-.01em;transition:color .2s;text-align:center;white-space:nowrap}
+.brand-item:hover .brand-name{color:rgba(255,255,255,.65)}
 
 /* BLOCKQUOTE pull-quote */
 .founder-bq{border-left:3px solid var(--v);padding:.9rem 1.25rem;background:var(--vp);border-radius:0 8px 8px 0;margin:1.25rem 0}
@@ -182,7 +175,20 @@
         <a href="https://calendly.com/compounddigital/discovery-call" target="_blank" rel="noopener" class="btn-primary">Book a discovery call <span class="arr">→</span></a>
         <a href="work.html" class="btn-secondary">See the work</a>
       </div>
-
+      <div class="stats-bar reveal rd3">
+        <div class="stat-item">
+          <div class="stat-num">7+</div>
+          <div class="stat-lbl">Years experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">50+</div>
+          <div class="stat-lbl">Brands worked with</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">16</div>
+          <div class="stat-lbl">Industries</div>
+        </div>
+      </div>
     </div>
 
     <div class="reveal rd2">
@@ -207,20 +213,6 @@
             <a href="https://www.linkedin.com/in/shreyak1/" target="_blank" rel="noopener">LinkedIn →</a>
             <a href="mailto:shreya@compounddigital.co">Email →</a>
           </div>
-          <div class="stats-bar" id="statsBar">
-            <div class="stat-item">
-              <div class="stat-num" data-target="7" data-suffix="+">0</div>
-              <div class="stat-lbl">Years exp.</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-num" data-target="30" data-suffix="+">0</div>
-              <div class="stat-lbl">Clients</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-num" data-target="10" data-suffix="+">0</div>
-              <div class="stat-lbl">Industries</div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -241,7 +233,21 @@
   </div>
 </section>
 
-
+<section class="brands-sec">
+  <div class="brands-in">
+    <p class="brands-label reveal">Brands Shreya has worked with</p>
+    <div class="brands-grid reveal">
+      <div class="brand-item"><span class="brand-name">McDonald's</span></div>
+      <div class="brand-item"><span class="brand-name">Volkswagen</span></div>
+      <div class="brand-item"><span class="brand-name">Coles</span></div>
+      <div class="brand-item"><span class="brand-name">7-Eleven</span></div>
+      <div class="brand-item"><span class="brand-name">Dulux</span></div>
+      <div class="brand-item"><span class="brand-name">Nivea</span></div>
+      <div class="brand-item"><span class="brand-name">NSW Gov</span></div>
+      <div class="brand-item"><span class="brand-name">Naty</span></div>
+    </div>
+  </div>
+</section>
 
 <section class="cta-band">
   <div class="cta-grain"></div>
@@ -287,38 +293,10 @@ document.getElementById('hbg').addEventListener('click',()=>document.getElementB
 document.querySelectorAll('#mob a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mob').classList.remove('open')));
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}}),{threshold:.07});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-function closePopup(){document.getElementById('nlPopup').classList.remove('open');sessionStorage.setItem('nl_dismissed','1');}
-function submitPopup(){const e=document.getElementById('nlEmail').value.trim();if(!e)return;document.getElementById('nlForm').style.display='none';document.getElementById('nlSuccess').style.display='block';setTimeout(()=>closePopup(),2500);}
-if(!sessionStorage.getItem('nl_dismissed')){setTimeout(()=>document.getElementById('nlPopup').classList.add('open'),2500);}
+function closePopup(){document.getElementById('nlPopup').classList.remove('open');localStorage.setItem('nl_dismissed','1');}
+async function submitPopup(){const name=document.getElementById('nlName').value.trim();const email=document.getElementById('nlEmail').value.trim();if(!email)return;const btn=document.querySelector('.nl-form-btn');btn.disabled=true;btn.textContent='Subscribing...';try{await fetch('/.netlify/functions/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,firstName:name})});}catch(err){console.warn(err);}document.getElementById('nlForm').style.display='none';document.getElementById('nlSuccess').style.display='block';setTimeout(closePopup,2800);}
+if(!localStorage.getItem('nl_dismissed')){setTimeout(()=>document.getElementById('nlPopup').classList.add('open'),2500);}
 document.getElementById('nlPopup').addEventListener('click',function(e){if(e.target===this)closePopup();});
-
-// Counter animation
-function animateCounters() {
-  const nums = document.querySelectorAll('.stat-num[data-target]');
-  nums.forEach(el => {
-    const target = parseInt(el.dataset.target);
-    const suffix = el.dataset.suffix || '';
-    const duration = 1400;
-    const start = performance.now();
-    function step(now) {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const ease = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.round(ease * target) + suffix;
-      if (progress < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  });
-}
-// Trigger when stats bar comes into view
-const statsEl = document.getElementById('statsBar');
-if (statsEl) {
-  const cObs = new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting) { animateCounters(); cObs.disconnect(); }
-  }, { threshold: 0.3 });
-  cObs.observe(statsEl);
-}
-
 </script>
 </body>
 </html>

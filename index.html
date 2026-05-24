@@ -130,7 +130,7 @@ body{font-family:var(--fb);background:var(--white);color:var(--ink);overflow-x:h
 .rlink{font-size:.82rem;font-weight:600;color:var(--vl);text-decoration:none;display:flex;align-items:center;gap:.3rem;transition:gap .2s}
 .rlink:hover{gap:.55rem}
 .rlink .arr{color:var(--vl)}
-.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06);border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.06)}
+.proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06);border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.06)}
 .rc{background:rgba(255,255,255,.02);padding:2rem 1.75rem;display:flex;flex-direction:column;gap:.3rem;transition:background .25s,transform .2s;cursor:default}
 .rc:hover{background:rgba(109,40,217,.2);transform:translateY(-2px)}
 .rc-cl{font-family:var(--fm);font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.28);margin-bottom:.3rem}
@@ -630,7 +630,7 @@ document.querySelectorAll('.cnt').forEach(el=>co.observe(el));
 // NEWSLETTER POPUP — show after 2.5 seconds if not already dismissed
 function closePopup(){
   document.getElementById('nlPopup').classList.remove('open');
-  sessionStorage.setItem('nl_dismissed','1');
+  localStorage.setItem('nl_dismissed','1');
 }
 function submitPopup(){
   const name=document.getElementById('nlName').value.trim();
@@ -642,7 +642,7 @@ function submitPopup(){
   document.getElementById('nlSuccess').style.display='block';
   setTimeout(()=>closePopup(),2800);
 }
-if(!sessionStorage.getItem('nl_dismissed')){
+if(!localStorage.getItem('nl_dismissed')){
   setTimeout(()=>document.getElementById('nlPopup').classList.add('open'),2500);
 }
 document.getElementById('nlPopup').addEventListener('click',function(e){if(e.target===this)closePopup();});

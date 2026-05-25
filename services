@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services @ Compound.</title>
-<meta name="description" content="Five ways to work with Compound. - strategy consulting, B2B marketing, B2C marketing, AI content, and paid media.">
+<title>Services at Compound.</title>
+<meta name="description" content="Five ways to work with Compound. are strategy consulting, B2B marketing, B2C marketing, AI content, and paid media.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -34,6 +34,26 @@
 @media(max-width:600px){.how-steps{grid-template-columns:1fr}}
 
 .nl-popup{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);z-index:9500;align-items:center;justify-content:center;padding:1.5rem}.nl-popup.open{display:flex}.nl-box{background:var(--white);border-radius:18px;max-width:440px;width:100%;position:relative;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.2)}.nl-top{background:linear-gradient(135deg,var(--v),#3b0764);padding:1.75rem;text-align:center;position:relative}.nl-close{position:absolute;top:.75rem;right:.75rem;background:rgba(255,255,255,.15);border:none;width:28px;height:28px;border-radius:50%;cursor:pointer;color:var(--white);font-size:.9rem;display:flex;align-items:center;justify-content:center}.nl-title{font-family:var(--ff);font-size:1.35rem;font-weight:600;color:var(--white);letter-spacing:-.03em;margin-bottom:.3rem}.nl-sub-title{font-size:.8rem;color:rgba(255,255,255,.58)}.nl-body{padding:1.35rem}.nl-form{display:flex;flex-direction:column;gap:.6rem}.nl-form input{border:1.5px solid var(--border);border-radius:8px;padding:.7rem 1rem;font-size:.88rem;font-family:var(--fb);color:var(--ink);outline:none;transition:border-color .2s;width:100%}.nl-form input:focus{border-color:var(--vl)}.nl-form-btn{background:var(--v);color:var(--white);border:none;padding:.8rem;border-radius:8px;font-weight:600;font-size:.88rem;cursor:pointer;font-family:var(--fb)}.nl-skip{display:block;text-align:center;font-size:.72rem;color:var(--muted);margin-top:.6rem;cursor:pointer;text-decoration:underline}.nl-success{display:none;text-align:center;padding:1.5rem}
+
+/* ---- Brand icon animations ---- */
+.val-ico svg,.pc-ico svg,.st-ic svg,.fc-ico svg{transition:filter .3s,transform .3s}
+.val-card:hover .val-ico svg{filter:drop-shadow(0 0 6px rgba(139,92,246,.55));transform:scale(1.12) rotate(-4deg)}
+.pc:hover .pc-ico svg{filter:drop-shadow(0 0 5px rgba(109,40,217,.5));transform:scale(1.15)}
+.stile:hover .st-ic svg g{stroke:rgba(255,255,255,.9)!important}
+.stile:hover .st-ic svg g[fill]{fill:rgba(255,255,255,.9)!important}
+.cc-banner svg{filter:drop-shadow(0 0 8px rgba(109,40,217,.35));transition:filter .3s,transform .3s}
+.ccard:hover .cc-banner svg{filter:drop-shadow(0 0 14px rgba(139,92,246,.7));transform:scale(1.1)}
+.fc-ico svg{transition:filter .25s,transform .25s}
+.founder-card:hover .fc-ico svg{filter:drop-shadow(0 0 4px rgba(109,40,217,.45))}
+@keyframes icon-pulse{0%,100%{filter:drop-shadow(0 0 3px rgba(109,40,217,.3))}50%{filter:drop-shadow(0 0 8px rgba(139,92,246,.6))}}
+.nl-icon svg{animation:icon-pulse 2.8s ease-in-out infinite}
+
+
+.stab svg{transition:opacity .2s}
+.stab:hover svg,.stab.act svg{opacity:1}
+.stab.act svg g[stroke]{stroke:#6D28D9!important}
+.stab.act svg g[fill]{fill:#6D28D9!important}
+
 </style>
 </head>
 <body>
@@ -54,7 +74,7 @@
         </div>
         <span class="nl-skip" onclick="closePopup()">No thanks</span>
       </div>
-      <div class="nl-success" id="nlSuccess"><p style="font-size:1.6rem;margin-bottom:.4rem">🎉</p><p style="font-family:var(--ff);font-size:1.1rem;font-weight:600;color:var(--ink)">You're in!</p></div>
+      <div class="nl-success" id="nlSuccess"><p style="font-size:1.6rem;margin-bottom:.4rem"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" style="display:inline-block;vertical-align:-.125em;flex-shrink:0;"><g stroke="#22C55E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></g></svg></p><p style="font-family:var(--ff);font-size:1.1rem;font-weight:600;color:var(--ink)">You're in!</p></div>
     </div>
   </div>
 </div>
@@ -69,15 +89,15 @@
 
 <div class="ph"><div class="ph-glow"></div><div class="ph-in"><div class="ey ey-w">Services</div><h1 class="st st-w">Five ways to work together.</h1><p class="sd sd-w">All of them accountable to revenue. All of them delivered by a senior practitioner, not a junior team.</p></div></div>
 
-<div class="price-note"><div class="pn-in">💬 All pricing is quoted based on your specific requirements. Discovery calls are free.<a href="contact.html">Book one →</a></div></div>
+<div class="price-note"><div class="pn-in"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" style="display:inline-block;vertical-align:-.125em;flex-shrink:0;"><g stroke="rgba(255,255,255,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></g></svg> All pricing is quoted based on your specific requirements. Discovery calls are free.<a href="contact.html">Book one →</a></div></div>
 
 <nav class="svc-nav">
   <div class="svc-nav-in">
-    <a href="#consulting" class="stab act">🧠 Strategy Consulting</a>
-    <a href="#b2b" class="stab">📊 B2B Marketing</a>
-    <a href="#b2c" class="stab">🛍 B2C Marketing</a>
-    <a href="#ai-content" class="stab">✍ AI Content</a>
-    <a href="#paid-media" class="stab">🎯 Paid Media</a>
+    <a href="#consulting" class="stab act"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" style="display:inline-block;vertical-align:-.125em;flex-shrink:0;opacity:.75"><g stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/></g></svg> Strategy Consulting</a>
+    <a href="#b2b" class="stab"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" style="display:inline-block;vertical-align:-.125em;flex-shrink:0;opacity:.75"><g stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></g></svg> B2B Marketing</a>
+    <a href="#b2c" class="stab"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" style="display:inline-block;vertical-align:-.125em;flex-shrink:0;opacity:.75"><g stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></g></svg> B2C Marketing</a>
+    <a href="#ai-content" class="stab"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" style="display:inline-block;vertical-align:-.125em;flex-shrink:0;opacity:.75"><g stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></g></svg> AI Content</a>
+    <a href="#paid-media" class="stab"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" style="display:inline-block;vertical-align:-.125em;flex-shrink:0;opacity:.75"><g stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/></g><g fill="#7C3AED" stroke="none"><circle cx="12" cy="12" r="2"/></g></svg> Paid Media</a>
   </div>
 </nav>
 
@@ -86,7 +106,7 @@
     <div class="reveal">
       <p class="s-num">Service 01</p>
       <h2 class="s-title">Strategy Consulting</h2>
-      <p class="s-desc">You have a product. You don't have a plan. We build one — structured, data-driven, and commercially sharp. Not a vague framework with your logo on it. A clear recommendation with the reasoning behind it.</p>
+      <p class="s-desc">You have a product. You don't have a plan. We build one that is structured, data-driven, and commercially sharp. Not a vague framework with your logo on it. A clear recommendation with the reasoning behind it.</p>
       <p class="s-desc">This covers go-to-market strategy, channel prioritisation, growth planning, market positioning, and marketing function audits.</p>
       <ul class="s-list"><li>Go-to-market strategy and launch sequencing</li><li>Channel mix analysis and prioritisation</li><li>Growth planning and roadmap development</li><li>Marketing function audit and restructure</li><li>Competitive positioning and market analysis</li><li>Board-ready marketing presentations</li></ul>
       <div class="s-acts"><a href="contact.html" class="btn-p">Book a discovery call <span class="arr">→</span></a><button class="btn-o" onclick="openModal('m-consulting')">Know more</button></div>
@@ -107,7 +127,7 @@
     <div class="reveal">
       <p class="s-num">Service 02</p>
       <h2 class="s-title">B2B Marketing</h2>
-      <p class="s-desc">Full-service B2B marketing for SaaS, tech, and professional services companies. We handle the full stack: SEO, content, paid media, CRM, email, and demand generation — managed together by one senior strategist who understands how all these channels interact.</p>
+      <p class="s-desc">Full-service B2B marketing for SaaS, tech, and professional services companies. We handle the full stack: SEO, content, paid media, CRM, email, and demand generation. All managed together by one senior strategist who understands how all these channels interact.</p>
       <p class="s-desc">This works best for companies with a strong product that have not yet built a repeatable marketing engine to match it.</p>
       <ul class="s-list"><li>SEO strategy and content pipeline</li><li>Paid media across Google, LinkedIn, and Meta</li><li>Email nurture and CRM workflows</li><li>Demand generation and lead scoring</li><li>Account-based marketing (ABM)</li><li>Monthly performance reporting and strategy review</li></ul>
       <div class="s-acts"><a href="contact.html" class="btn-p">Book a discovery call <span class="arr">→</span></a><button class="btn-o" onclick="openModal('m-b2b')">Know more</button></div>
@@ -128,7 +148,7 @@
     <div class="reveal">
       <p class="s-num">Service 03</p>
       <h2 class="s-title">B2C Marketing</h2>
-      <p class="s-desc">Performance and brand marketing for consumer businesses. We have run campaigns across QSR, automotive, retail, and home services — managing DCO campaigns, personalisation programs, and programmatic at enterprise scale.</p>
+      <p class="s-desc">Performance and brand marketing for consumer businesses. We have run campaigns across QSR, FMCG, automotive, retail, real estate, home services and many more by product lists and dynamic pricing, running personalisation programs at enterprise scale.</p>
       <p class="s-desc">The same rigour applied to your consumer audience, without the enterprise overhead.</p>
       <ul class="s-list"><li>Google Ads, Meta Ads, and LinkedIn campaign management</li><li>Dynamic creative optimisation (DCO)</li><li>Audience strategy and segmentation</li><li>Programmatic and display advertising</li><li>CRM personalisation and lifecycle marketing</li><li>Campaign reporting and attribution</li></ul>
       <div class="s-acts"><a href="contact.html" class="btn-p">Book a discovery call <span class="arr">→</span></a><button class="btn-o" onclick="openModal('m-b2c')">Know more</button></div>
@@ -198,7 +218,7 @@
   </div>
 </section>
 
-<section class="cta-band"><div class="cta-grain"></div><div class="cta-in reveal"><h2 class="cta-hl">Not sure which service fits?</h2><p class="cta-sub">Book a 30-minute call. We will listen properly and tell you exactly what we think you need — even if it is not something we offer.</p><div class="cta-acts"><a href="https://calendly.com/compounddigital/discovery-call" target="_blank" rel="noopener" class="btn-cw">Book a discovery call →</a><a href="work.html" class="btn-gh">See our work</a></div></div></section>
+<section class="cta-band"><div class="cta-grain"></div><div class="cta-in reveal"><h2 class="cta-hl">Not sure which service fits?</h2><p class="cta-sub">Book a 30-minute call. We will listen properly and tell you exactly what we think you need, even if it is not something we offer.</p><div class="cta-acts"><a href="https://calendly.com/compounddigital/discovery-call" target="_blank" rel="noopener" class="btn-cw">Book a discovery call →</a><a href="work.html" class="btn-gh">See our work</a></div></div></section>
 
 <!-- MODALS -->
 <div class="modal-overlay" id="m-consulting"><div class="modal-box"><button class="modal-close" onclick="closeModal('m-consulting')">✕</button><p class="m-ey">Service 01</p><h2 class="m-t">Strategy Consulting</h2><p class="m-d">Structured strategic advice built around your specific business situation. Clear recommendations with reasoning, and something you can act on.</p><p class="m-sh">What you get</p><ul class="m-list"><li>A structured discovery process covering your market, product, and goals</li><li>A written strategic recommendation with clear reasoning behind every call</li><li>Channel prioritisation with logic, not just a list</li><li>Go-to-market plan or growth roadmap depending on the brief</li><li>A follow-up session to refine the output and answer questions</li><li>Optional ongoing advisory retainer for continued strategic support</li></ul><div class="m-div"></div><p class="m-note">Typical engagements run 2 to 8 weeks. Pricing quoted after discovery call.</p><br><a href="contact.html" class="sc-btn">Book a discovery call →</a></div></div>

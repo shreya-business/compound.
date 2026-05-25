@@ -121,7 +121,7 @@ async function handleForm(e){
   const fullName=document.getElementById('fn').value.trim();
   const parts=fullName.split(' ');
   try{
-    await fetch('/.netlify/functions/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:document.getElementById('fe').value.trim(),firstName:parts[0]||fullName,lastName:parts.slice(1).join(' ')||'',company:document.getElementById('fc').value.trim(),service:document.getElementById('fs').value,message:document.getElementById('fm').value.trim()})});
+    await fetch('https://compound-contact.YOUR-SUBDOMAIN.workers.dev',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:document.getElementById('fe').value.trim(),firstName:parts[0]||fullName,lastName:parts.slice(1).join(' ')||'',company:document.getElementById('fc').value.trim(),service:document.getElementById('fs').value,message:document.getElementById('fm').value.trim()})});
   }catch(err){console.warn(err);}
   window.location.href='thankyou.html';
 }

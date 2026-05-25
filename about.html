@@ -81,7 +81,7 @@
 .stats-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:2rem;border:1px solid var(--border);border-radius:12px;overflow:hidden}
 .stat-item{padding:1.4rem 1.5rem;text-align:center;position:relative}
 .stat-item+.stat-item::before{content:'';position:absolute;left:0;top:20%;bottom:20%;width:1px;background:var(--border)}
-.stat-num{font-family:var(--ff);font-size:2rem;font-weight:700;color:var(--v);letter-spacing:-.04em;line-height:1;margin-bottom:.3rem}
+.stat-num{font-family:var(--ff);font-size:2rem;font-weight:700;color:var(--v);letter-spacing:-.04em;line-height:1;margin-bottom:.3rem;transition:color .2s}
 .stat-lbl{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
 
 /* BRAND LOGOS */
@@ -177,15 +177,15 @@
       </div>
       <div class="stats-bar reveal rd3">
         <div class="stat-item">
-          <div class="stat-num">7+</div>
+          <div class="stat-num" data-to="7" data-suffix="+">7+</div>
           <div class="stat-lbl">Years experience</div>
         </div>
         <div class="stat-item">
-          <div class="stat-num">50+</div>
+          <div class="stat-num" data-to="30" data-suffix="+">30+</div>
           <div class="stat-lbl">Brands worked with</div>
         </div>
         <div class="stat-item">
-          <div class="stat-num">16</div>
+          <div class="stat-num" data-to="10">10</div>
           <div class="stat-lbl">Industries</div>
         </div>
       </div>
@@ -293,6 +293,9 @@ document.getElementById('hbg').addEventListener('click',()=>document.getElementB
 document.querySelectorAll('#mob a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mob').classList.remove('open')));
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}}),{threshold:.07});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+function animateCount(el,to,suffix){const s=performance.now(),d=1400;(function t(n){const p=Math.min((n-s)/d,1),e=1-Math.pow(1-p,3),v=Math.round(e*to);el.textContent=v+(suffix||'');if(p<1)requestAnimationFrame(t)})(s)}
+const co=new IntersectionObserver(e=>e.forEach(x=>{if(!x.isIntersecting)return;const el=x.target;animateCount(el,parseInt(el.dataset.to),el.dataset.suffix||'');co.unobserve(el)}),{threshold:.6});
+document.querySelectorAll('.stat-num[data-to]').forEach(el=>co.observe(el));
 function closePopup(){document.getElementById('nlPopup').classList.remove('open');localStorage.setItem('nl_dismissed','1');}
 async function submitPopup(){const name=document.getElementById('nlName').value.trim();const email=document.getElementById('nlEmail').value.trim();if(!email)return;const btn=document.querySelector('.nl-form-btn');btn.disabled=true;btn.textContent='Subscribing...';try{await fetch('/.netlify/functions/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,firstName:name})});}catch(err){console.warn(err);}document.getElementById('nlForm').style.display='none';document.getElementById('nlSuccess').style.display='block';setTimeout(closePopup,2800);}
 if(!localStorage.getItem('nl_dismissed')){setTimeout(()=>document.getElementById('nlPopup').classList.add('open'),2500);}

@@ -127,7 +127,7 @@ async function handleSub(e) {
   btn.textContent = 'Subscribing...';
 
   try {
-    await fetch('/.netlify/functions/subscribe', {
+    await fetch('https://compound-subscribe.YOUR-SUBDOMAIN.workers.dev', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

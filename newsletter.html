@@ -4,6 +4,14 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Newsletter Compound.</title>
 <meta name="description" content="Practical AI marketing tactics from real campaigns. The Compound. newsletter has no fluff, no theory, just things that work.">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KBGXFGQT');</script>
+<!-- End Google Tag Manager -->
+<link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -39,9 +47,15 @@
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KBGXFGQT"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <nav class="nav" id="mainNav">
-  <a href="index.html" class="nav-logo"><svg class="nav-c" viewBox="0 0 24 24" fill="none"><g class="na1" opacity=".22"><path d="M21 12A9 9 0 1 1 7.5 3.6" stroke="#6D28D9" stroke-width=".9" stroke-linecap="round" fill="none"/></g><g class="na2" opacity=".4"><path d="M18.5 12A6.5 6.5 0 1 1 8.8 5.6" stroke="#7C3AED" stroke-width="1.1" stroke-linecap="round" fill="none"/></g><g class="na3" opacity=".65"><path d="M16 12A4 4 0 1 1 10.3 8.2" stroke="#8B5CF6" stroke-width="1.4" stroke-linecap="round" fill="none"/></g><path d="M15.5 8.5A5.5 5.5 0 1 0 15.5 15.5" stroke="#6D28D9" stroke-width="2.2" stroke-linecap="round" fill="none"/></svg><span class="nav-wm">Compound<span>.</span></span></a>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="Compound." style="height:32px;width:auto;display:block;">
+  </a>
   <ul class="nav-links"><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="work.html">Work</a></li><li><a href="courses.html">Courses</a></li><li><a href="newsletter.html" class="active">Newsletter</a></li></ul>
   <a href="contact.html" class="nav-cta">Work with us &rarr;</a>
   <div class="hamburger" id="hbg"><span></span><span></span><span></span></div>
@@ -116,7 +130,6 @@ const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20), {passive:true});
 document.getElementById('hbg').addEventListener('click', () => document.getElementById('mob').classList.toggle('open'));
 document.querySelectorAll('#mob a').forEach(a => a.addEventListener('click', () => document.getElementById('mob').classList.remove('open')));
-
 const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)} }), {threshold:.07});
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
@@ -125,9 +138,8 @@ async function handleSub(e) {
   const btn = document.getElementById('subBtn');
   btn.disabled = true;
   btn.textContent = 'Subscribing...';
-
   try {
-    await fetch('https://compound-subscribe.orange-math-2481.workers.dev/', {
+    const res = await fetch('https://compound-subscribe.orange-math-2481.workers.dev/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -135,10 +147,10 @@ async function handleSub(e) {
         firstName: document.getElementById('subName').value.trim()
       })
     });
+    await res.json();
   } catch(err) {
     console.warn('Submit error:', err);
   }
-
   document.getElementById('subForm').style.display = 'none';
   document.getElementById('subSuccess').style.display = 'block';
 }

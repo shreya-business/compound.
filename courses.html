@@ -701,4 +701,19 @@ document.addEventListener('DOMContentLoaded',function(){
 })();
 </script>
 
+<script>
+(function(){
+  var validModals = ['m-starter','m-full','m-prompts'];
+  function openOnHash(){
+    var hash = window.location.hash.replace('#','');
+    if(validModals.indexOf(hash) > -1){
+      var el = document.getElementById(hash);
+      if(el){ el.classList.add('open'); document.body.style.overflow='hidden'; window.scrollTo(0,0); }
+    }
+  }
+  document.addEventListener('DOMContentLoaded', openOnHash);
+  window.addEventListener('hashchange', openOnHash);
+})();
+</script>
+
 </body></html>

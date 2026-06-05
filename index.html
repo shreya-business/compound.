@@ -311,7 +311,8 @@ body{font-family:var(--fb);background:var(--white);color:var(--ink);overflow-x:h
 .svc{padding:5rem 2.5rem;background:var(--ow)}
 .svc-in{max-width:var(--max);margin:0 auto}
 .svc-hd{margin-bottom:2.5rem;display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem}
-.svc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.svc-grid .stile:nth-child(6){grid-column:span 2}
 .stile{background:var(--white);padding:1.8rem 1.3rem;display:flex;flex-direction:column;gap:.7rem;text-decoration:none;color:var(--ink);position:relative;border-bottom:3px solid transparent;transition:background .25s,border-color .25s}
 .stile:hover,.stile:focus-visible{background:var(--v);border-bottom-color:var(--vm);outline:none}
 .stile:hover .st-n,.stile:hover .st-d,.stile:hover .st-a,.stile:hover .st-num,
@@ -503,6 +504,7 @@ body{font-family:var(--fb);background:var(--white);color:var(--ink);overflow-x:h
   .svc-grid{grid-template-columns:1fr 1fr}
   /* 5th tile spans full width at 2col */
   .svc-grid .stile:nth-child(5){grid-column:1 / -1}
+  .svc-grid .stile:nth-child(6){grid-column:1 / -1}
   .proof{padding:4rem 1.25rem}
   .proof-grid{grid-template-columns:1fr 1fr}
   .proof-hd{flex-direction:column;align-items:flex-start;gap:1rem}
@@ -523,6 +525,7 @@ body{font-family:var(--fb);background:var(--white);color:var(--ink);overflow-x:h
   .hero-sub{font-size:.93rem}
   .svc-grid{grid-template-columns:1fr}
   .svc-grid .stile:nth-child(5){grid-column:auto}
+  .svc-grid .stile:nth-child(6){grid-column:auto}
   .proof-grid{grid-template-columns:1fr 1fr}
   .hero-actions{flex-direction:column;align-items:stretch;gap:.6rem}
   .btn-p,.btn-o{justify-content:center;width:100%;text-align:center}
@@ -622,7 +625,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="line"><span class="li">We sell growth.</span></span>
     </h1>
     <p class="hero-stmt">Marketing that compounds.</p>
-    <p class="hero-sub">Compound. is a boutique AI marketing agency. Strategy drives every decision. AI gives us the speed to execute it, without the overhead, the junior handoffs, or the vanity metrics.</p>
+    <p class="hero-sub">Compound. is a boutique AI marketing agency. Strategy drives every decision. AI gives us the speed to execute it, without the overhead, the account layers, or the vanity metrics.</p>
     <div class="hero-actions">
       <a href="https://calendly.com/compounddigital/discovery-call" target="_blank" rel="noopener" class="btn-p">Book a discovery call <span class="arr">→</span></a>
       <a href="/work" class="btn-o">See the results <span class="arr">→</span></a>
@@ -681,7 +684,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="pov-cards reveal rd2">
       <div class="pc"><span class="pc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" style="display:inline-block;vertical-align:-.125em;flex-shrink:0;"><defs><linearGradient id="ig2" gradientUnits="userSpaceOnUse" x1="0" y1="24" x2="24" y2="0"><stop offset="0%" stop-color="#6D28D9"/><stop offset="100%" stop-color="#8B5CF6"/></linearGradient></defs><g stroke="url(#ig2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></g></svg></span><div><div class="pc-t">No vanity metrics</div><div class="pc-d">Followers and impressions are not in our reports unless they connect to revenue. We measure what your CFO cares about.</div></div></div>
-      <div class="pc"><span class="pc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" style="display:inline-block;vertical-align:-.125em;flex-shrink:0;"><defs><linearGradient id="ig3" gradientUnits="userSpaceOnUse" x1="0" y1="24" x2="24" y2="0"><stop offset="0%" stop-color="#6D28D9"/><stop offset="100%" stop-color="#8B5CF6"/></linearGradient></defs><g stroke="url(#ig3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></g></svg></span><div><div class="pc-t">No junior handoffs</div><div class="pc-d">The person who builds the strategy executes it. You always deal with a senior practitioner and not someone reading from a playbook.</div></div></div>
+      <div class="pc"><span class="pc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" style="display:inline-block;vertical-align:-.125em;flex-shrink:0;"><defs><linearGradient id="ig3" gradientUnits="userSpaceOnUse" x1="0" y1="24" x2="24" y2="0"><stop offset="0%" stop-color="#6D28D9"/><stop offset="100%" stop-color="#8B5CF6"/></linearGradient></defs><g stroke="url(#ig3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></g></svg></span><div><div class="pc-t">Senior-led, start to finish</div><div class="pc-d">The person who builds the strategy executes it. You always deal with a senior practitioner, not someone reading from a playbook.</div></div></div>
       <div class="pc"><span class="pc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" style="display:inline-block;vertical-align:-.125em;flex-shrink:0;"><defs><linearGradient id="ig4" gradientUnits="userSpaceOnUse" x1="0" y1="24" x2="24" y2="0"><stop offset="0%" stop-color="#6D28D9"/><stop offset="100%" stop-color="#8B5CF6"/></linearGradient></defs><g fill="url(#ig4)" stroke="none"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></g></svg></span><div><div class="pc-t">AI speed, human strategy</div><div class="pc-d">AI gives us execution speed traditional agencies cannot match. Strategy gives it direction. You get both at a fraction of the cost.</div></div></div>
       <div class="pc"><span class="pc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" style="display:inline-block;vertical-align:-.125em;flex-shrink:0;"><defs><linearGradient id="ig5" gradientUnits="userSpaceOnUse" x1="0" y1="24" x2="24" y2="0"><stop offset="0%" stop-color="#6D28D9"/><stop offset="100%" stop-color="#8B5CF6"/></linearGradient></defs><g stroke="url(#ig5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></g></svg></span><div><div class="pc-t">Only what moves the needle</div><div class="pc-d">We will tell you to stop spending on channels that don't work, even if that means less billing. That is how client relationships last.</div></div></div>
     </div>
@@ -695,18 +698,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div>
         <div class="ey">What we do</div>
         <h2 class="st">Five ways to work together.</h2>
-        <p class="sd">All of them accountable to revenue. None of them handed to a junior team.</p>
+        <p class="sd">All of them accountable to revenue. All of them delivered by a senior practitioner. We work across B2B, B2C, and D2C.</p>
       </div>
       <a href="/services" class="btn-all" style="flex-shrink:0">See all services <span class="arr">→</span></a>
     </div>
     <div class="svc-grid">
-      <a href="/services#consulting" class="stile reveal"><span class="st-num">01</span><span class="st-ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" style="display:inline-block;vertical-align:-.125em;flex-shrink:0;"><defs><linearGradient id="ig6" gradientUnits="userSpaceOnUse" x1="0" y1="24" x2="24" y2="0"><stop offset="0%" stop-color="#6D28D9"/><stop offset="100%" stop-color="#8B5CF6"/></linearGradient></defs><g stroke="url(#ig6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/></g></svg></span><div class="st-n">Strategy Consulting</div><div class="st-d">You have a product. You need a plan. We fix that — GTM, positioning, channel prioritisation.</div><div class="st-a">→</div></a>
-      <a href="/services#b2b" class="stile reveal rd1"><span class="st-num">02</span><span class="st-ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" style="display:inline-block;vertical-align:-.125em;flex-shrink:0;"><defs><linearGradient id="ig7" gradientUnits="userSpaceOnUse" x1="0" y1="24" x2="24" y2="0"><stop offset="0%" stop-color="#6D28D9"/><stop offset="100%" stop-color="#8B5CF6"/></linearGradient></defs><g stroke="url(#ig7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></g></svg></span><div class="st-n">B2B Marketing</div><div class="st-d">The full stack. One senior person connecting SEO, content, paid, CRM, and email.</div><div class="st-a">→</div></a>
-      <a href="/services#b2c" class="stile reveal rd2"><span class="st-num">03</span><span class="st-ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" style="display:inline-block;vertical-align:-.125em;flex-shrink:0;"><defs><linearGradient id="ig8" gradientUnits="userSpaceOnUse" x1="0" y1="24" x2="24" y2="0"><stop offset="0%" stop-color="#6D28D9"/><stop offset="100%" stop-color="#8B5CF6"/></linearGradient></defs><g stroke="url(#ig8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></g></svg></span><div class="st-n">B2C Marketing</div><div class="st-d">Enterprise-scale consumer campaign thinking. Google, Meta, LinkedIn, programmatic.</div><div class="st-a">→</div></a>
-      <a href="/services#ai-content" class="stile reveal rd3"><span class="st-num">04</span><span class="st-ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" style="display:inline-block;vertical-align:-.125em;flex-shrink:0;"><defs><linearGradient id="ig9" gradientUnits="userSpaceOnUse" x1="0" y1="24" x2="24" y2="0"><stop offset="0%" stop-color="#6D28D9"/><stop offset="100%" stop-color="#8B5CF6"/></linearGradient></defs><g stroke="url(#ig9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></g></svg></span><div class="st-n">AI Content</div><div class="st-d">Content at AI speed. Quality at the standard of a senior editor. Not prompt-and-publish.</div><div class="st-a">→</div></a>
-      <a href="/services#paid-media" class="stile reveal rd4"><span class="st-num">05</span><span class="st-ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" style="display:inline-block;vertical-align:-.125em;flex-shrink:0;"><defs><linearGradient id="ig10" gradientUnits="userSpaceOnUse" x1="0" y1="24" x2="24" y2="0"><stop offset="0%" stop-color="#6D28D9"/><stop offset="100%" stop-color="#8B5CF6"/></linearGradient></defs><g stroke="url(#ig10)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/></g><g fill="url(#ig10)" stroke="none"><circle cx="12" cy="12" r="2"/></g></svg></span><div class="st-n">Paid Media</div><div class="st-d">Campaigns run by someone who has managed these platforms at enterprise scale.</div><div class="st-a">→</div></a>
+      <a href="/services#consulting" class="stile reveal"><span class="st-num">01</span><div class="st-n">Strategy</div><div class="st-d">GTM, positioning, channel prioritisation, and growth roadmaps built around your business goals.</div><div class="st-a">→</div></a>
+      <a href="/services#paid-media" class="stile reveal rd1"><span class="st-num">02</span><div class="st-n">Paid Media</div><div class="st-d">Paid search, programmatic, affiliate, and social across Meta, TikTok, LinkedIn, Pinterest, and Snapchat.</div><div class="st-a">→</div></a>
+      <a href="/services#content-seo" class="stile reveal rd2"><span class="st-num">03</span><div class="st-n">Content and SEO</div><div class="st-d">AI-built content that ranks and converts. SEO strategy, blogs, email sequences, and user guides.</div><div class="st-a">→</div></a>
+      <a href="/services#analytics" class="stile reveal rd3"><span class="st-num">04</span><div class="st-n">Analytics</div><div class="st-d">GTM setup, GA4, Adobe Analytics, Looker Studio dashboards, and cross-channel attribution.</div><div class="st-a">→</div></a>
+      <a href="/services#cro-web" class="stile reveal rd4"><span class="st-num">05</span><div class="st-n">CRO and Web</div><div class="st-d">Conversion audits, A/B testing, landing page optimisation, and ongoing web updates.</div><div class="st-a">→</div></a>
+      <a href="/services#personalisation" class="stile reveal rd5"><span class="st-num">06</span><div class="st-n">Personalisation</div><div class="st-d">Audience segmentation, behavioural triggers, dynamic content, and lifecycle flows across channels.</div><div class="st-a">→</div></a>
     </div>
-  </div>
 </section>
 
 <!-- PROOF -->
@@ -857,11 +860,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="fcol">
         <p class="fcol-t">Services</p>
         <ul>
-          <li><a href="/services#consulting">Strategy Consulting</a></li>
-          <li><a href="/services#b2b">B2B Marketing</a></li>
-          <li><a href="/services#b2c">B2C Marketing</a></li>
-          <li><a href="/services#ai-content">AI Content</a></li>
+          <li><a href="/services#consulting">Strategy</a></li>
           <li><a href="/services#paid-media">Paid Media</a></li>
+          <li><a href="/services#content-seo">Content and SEO</a></li>
+          <li><a href="/services#analytics">Analytics</a></li>
+          <li><a href="/services#cro-web">CRO and Web</a></li>
+          <li><a href="/services#personalisation">Personalisation</a></li>
         </ul>
       </div>
       <div class="fcol">

@@ -310,7 +310,7 @@ body{font-family:var(--fb);background:var(--white);color:var(--ink);overflow-x:h
 /* ===================== SERVICES ===================== */
 .svc{padding:5rem 2.5rem;background:var(--ow)}
 .svc-in{max-width:var(--max);margin:0 auto}
-.svc-hd{margin-bottom:2.5rem}
+.svc-hd{margin-bottom:2.5rem;display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem}
 .svc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:14px;overflow:hidden}
 .stile{background:var(--white);padding:1.8rem 1.3rem;display:flex;flex-direction:column;gap:.7rem;text-decoration:none;color:var(--ink);position:relative;border-bottom:3px solid transparent;transition:background .25s,border-color .25s}
 .stile:hover,.stile:focus-visible{background:var(--v);border-bottom-color:var(--vm);outline:none}
@@ -507,6 +507,8 @@ body{font-family:var(--fb);background:var(--white);color:var(--ink);overflow-x:h
   .proof-grid{grid-template-columns:1fr 1fr}
   .proof-hd{flex-direction:column;align-items:flex-start;gap:1rem}
   .hr,.courses-hd{flex-direction:column;align-items:flex-start;gap:1rem}
+  .svc-hd{flex-direction:column;align-items:flex-start;gap:1rem}
+  .svc-hd .btn-all{align-self:flex-start}
   .work-grid{grid-template-columns:1fr}
   .c-grid{grid-template-columns:repeat(2,1fr)}
   .cta-band{padding:4.5rem 1.25rem}
@@ -689,7 +691,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- SERVICES -->
 <section class="svc">
   <div class="svc-in">
-    <div class="svc-hd reveal" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem">
+    <div class="svc-hd reveal">
       <div>
         <div class="ey">What we do</div>
         <h2 class="st">Five ways to work together.</h2>

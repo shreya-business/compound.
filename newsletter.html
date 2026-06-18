@@ -95,33 +95,6 @@ body { font-family: var(--fb); background: var(--white); color: var(--ink); over
 .fcol a:hover { color: var(--white); }
 .fb { display: flex; justify-content: space-between; font-size: .76rem; color: rgba(255,255,255,.26); }
 
-/* ── NEWSLETTER POPUP ── */
-.nl-popup { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.6); backdrop-filter: blur(6px); z-index: 9500; align-items: center; justify-content: center; padding: 1.5rem; }
-.nl-popup.open { display: flex; animation: pfu .25s ease; }
-@keyframes pfu { from { opacity: 0; } to { opacity: 1; } }
-.nl-box { background: var(--white); border-radius: 18px; max-width: 460px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; box-shadow: 0 24px 80px rgba(0,0,0,.2); animation: psc .3s var(--ease); }
-@keyframes psc { from { opacity: 0; transform: scale(.94) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
-.nl-top { background: linear-gradient(135deg, var(--v), #3b0764); padding: 2rem; text-align: center; position: relative; }
-.nl-close { position: absolute; top: .85rem; right: .85rem; background: rgba(255,255,255,.15); border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; color: var(--white); font-size: .9rem; display: flex; align-items: center; justify-content: center; transition: background .2s; }
-.nl-close:hover { background: rgba(255,255,255,.28); }
-.nl-icon { font-size: 2rem; margin-bottom: .75rem; }
-.nl-title { font-family: var(--ff); font-size: 1.55rem; font-weight: 600; color: var(--white); letter-spacing: -.03em; line-height: 1.15; margin-bottom: .4rem; }
-.nl-sub-title { font-size: .84rem; color: rgba(255,255,255,.58); line-height: 1.6; }
-.nl-body { padding: 1.5rem; }
-.nl-perks { list-style: none; display: flex; flex-direction: column; gap: .45rem; margin-bottom: 1.25rem; }
-.nl-perks li { font-size: .82rem; color: var(--ink2); display: flex; align-items: center; gap: .5rem; }
-.nl-perks li::before { content: '✓'; color: var(--v); font-weight: 700; flex-shrink: 0; }
-.nl-form { display: flex; flex-direction: column; gap: .65rem; }
-.nl-form input { border: 1.5px solid var(--border); border-radius: 8px; padding: .72rem 1rem; font-size: .9rem; font-family: var(--fb); color: var(--ink); outline: none; transition: border-color .2s; width: 100%; }
-.nl-form input:focus { border-color: var(--vl); }
-.nl-form-btn { background: var(--v); color: var(--white); border: none; padding: .82rem; border-radius: 8px; font-weight: 600; font-size: .9rem; cursor: pointer; font-family: var(--fb); transition: background .2s; min-height: 44px; width: 100%; }
-.nl-form-btn:hover { background: var(--vm); }
-.nl-skip { display: block; text-align: center; font-size: .74rem; color: var(--muted); margin-top: .75rem; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; transition: color .2s; }
-.nl-skip:hover { color: var(--ink); }
-.nl-success { display: none; text-align: center; padding: 2rem; }
-.nl-success-t { font-family: var(--ff); font-size: 1.3rem; font-weight: 600; color: var(--ink); margin-bottom: .5rem; }
-.nl-success-d { font-size: .85rem; color: var(--ink2); line-height: 1.7; }
-
 /* ── REVEAL ANIMATIONS ── */
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s var(--ease), transform .65s var(--ease); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -382,7 +355,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 /* ============================================================
    COMPOUND. — SHARED JS
    Covers: nav scroll/hamburger, reveal observer, counter
-   observer, touch affordance, newsletter popup logic.
+   observer, touch affordance.
    Canvas (index only) and page-specific JS stay inline.
    ============================================================ */
 
@@ -474,70 +447,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }, { threshold: 0.3 });
   document.querySelectorAll('[data-to]').forEach(function (el) { countObs.observe(el); });
 
-  /* ── NEWSLETTER POPUP ── */
-  function closePopup() {
-    var popup = document.getElementById('nlPopup');
-    if (popup) popup.classList.remove('open');
-    localStorage.setItem('nl_dismissed', '1');
-  }
-
-  async function submitPopup() {
-    var name  = (document.getElementById('nlName')  || {}).value || '';
-    var email = (document.getElementById('nlEmail') || {}).value || '';
-    name  = name.trim();
-    email = email.trim();
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      var inp = document.getElementById('nlEmail');
-      if (inp) inp.style.borderColor = '#ef4444';
-      return;
-    }
-    var btn = document.querySelector('.nl-form-btn');
-    if (btn) { btn.disabled = true; btn.textContent = 'Subscribing...'; }
-    try {
-      var res = await fetch('https://compound-subscribe.orange-math-2481.workers.dev', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email, firstName: name })
-      });
-      await res.json();
-    } catch (err) { console.warn(err); }
-    var form = document.getElementById('nlForm');
-    var success = document.getElementById('nlSuccess');
-    if (form) form.style.display = 'none';
-    if (success) success.style.display = 'block';
-    setTimeout(closePopup, 2800);
-  }
-
-  /* Show popup: skip if dismissed within 30 days, or shown in last 24 h */
-  (function () {
-    var dismissed = localStorage.getItem('nl_dismissed');
-    var lastSeen  = parseInt(localStorage.getItem('nl_last_shown') || '0', 10);
-    var now       = Date.now();
-    /* Reset dismissal after 30 days so returning visitors see it again */
-    if (dismissed && (now - parseInt(dismissed, 10)) > 30 * 24 * 60 * 60 * 1000) {
-      localStorage.removeItem('nl_dismissed');
-      dismissed = null;
-    }
-    if (dismissed) return;
-    if (now - lastSeen < 86400000) return;
-    setTimeout(function () {
-      var popup = document.getElementById('nlPopup');
-      if (popup) popup.classList.add('open');
-      localStorage.setItem('nl_last_shown', String(now));
-    }, 2500);
-  })();
-
-  var popup = document.getElementById('nlPopup');
-  if (popup) {
-    popup.addEventListener('click', function (e) {
-      if (e.target === this) closePopup();
-    });
-  }
-
-  /* Expose to inline onclick handlers */
-  window.closePopup  = closePopup;
-  window.submitPopup = submitPopup;
-
 })();
 
 </script>
@@ -572,28 +481,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   init();loop();
 })();
 </script>
-
-<div class="nl-popup" id="nlPopup">
-  <div class="nl-box">
-    <button class="nl-close" onclick="closePopup()" aria-label="Close">&#x2715;</button>
-    <div id="nlForm">
-      <div class="ey" style="margin-bottom:.6rem">Free weekly tactics</div>
-      <h3 style="font-family:var(--ff);font-size:1.45rem;font-weight:600;color:var(--ink);letter-spacing:-.03em;line-height:1.15;margin-bottom:.55rem">AI marketing tactics, every week.</h3>
-      <p style="font-size:.87rem;color:var(--ink2);line-height:1.72;margin-bottom:1.25rem">Real strategies from real client accounts. No fluff. Join 500+ marketers building smarter.</p>
-      <div class="nl-form">
-        <input type="text"  id="nlName"  placeholder="First name" autocomplete="given-name">
-        <input type="email" id="nlEmail" placeholder="Your email address" required autocomplete="email" inputmode="email">
-        <button type="button" class="nl-form-btn" onclick="submitPopup()">Get the newsletter</button>
-      </div>
-      <p style="font-size:.7rem;color:var(--muted);text-align:center;margin-top:.75rem">No spam. Unsubscribe anytime.</p>
-    </div>
-    <div id="nlSuccess" style="display:none;text-align:center;padding:1.5rem 0">
-      <div style="font-size:2.4rem;margin-bottom:.6rem">&#x1F389;</div>
-      <p style="font-family:var(--ff);font-size:1.3rem;font-weight:600;color:var(--ink);letter-spacing:-.02em;margin-bottom:.4rem">You are in.</p>
-      <p style="font-size:.85rem;color:var(--ink2);line-height:1.65">First issue arriving soon. Keep an eye on your inbox.</p>
-    </div>
-  </div>
-</div>
 
 <script>
 async function handleSub(e) {

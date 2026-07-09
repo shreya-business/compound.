@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://compounddigital.co/blog">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://compounddigital.co/blog">
-<meta property="og:title" content="Blog — Compound. Marketing Insights">
+<meta property="og:title" content="Blogs by Compound. Marketing Insights">
 <meta property="og:description" content="Practical articles on marketing strategy, paid media, SEO, and analytics from Compound.">
 <meta property="og:image" content="https://compounddigital.co/og-image.png">
 <!-- Google Tag Manager -->
@@ -233,13 +233,23 @@ body { font-family: var(--fb); background: var(--white); color: var(--ink); over
 @media(max-width:960px){.nav-cta{display:none}.nav{padding:0 1.25rem}.nav-links{display:none}.hamburger{display:flex}.ft{grid-template-columns:1fr 1fr;gap:2rem}.fb{flex-direction:column;gap:.5rem;text-align:center}}
 @media(max-width:480px){.ft{grid-template-columns:1fr}}
 
+/* ── BLOG FILTER BAR ── */
+.blog-filter{background:var(--ow);border-bottom:1px solid var(--border);padding:0 2.5rem;position:sticky;top:var(--nav);z-index:100;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.blog-filter::-webkit-scrollbar{display:none}
+.bf-inner{display:flex;gap:.25rem;max-width:var(--max);margin:0 auto;padding:.6rem 0}
+.bf-btn{font-family:var(--fm);font-size:.62rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:none;border:1px solid transparent;border-radius:6px;padding:.38rem .78rem;cursor:pointer;white-space:nowrap;transition:color .2s,background .2s,border-color .2s}
+.bf-btn:hover{color:var(--ink);background:var(--white);border-color:var(--border)}
+.bf-btn.active{color:var(--v);background:var(--vp);border-color:transparent}
+.bc.hidden{display:none}
+@media(max-width:960px){.blog-filter{padding:0 1.25rem}}
+
 /* ── PAGE HEADER CANVAS ── */
 #ph-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;touch-action:pan-y}
 .ph-orb-wrap{display:none;position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.ph-orb{position:absolute;border-radius:50%;filter:blur(60px)}
-.ph-orb1{width:280px;height:280px;background:rgba(255,255,255,0.07);top:-60px;left:-40px;animation:phdrift1 10s ease-in-out infinite}
-.ph-orb2{width:220px;height:220px;background:rgba(139,92,246,0.18);top:20px;right:-30px;animation:phdrift2 13s ease-in-out infinite}
-.ph-orb3{width:180px;height:180px;background:rgba(255,255,255,0.05);bottom:-40px;left:45%;animation:phdrift3 8s ease-in-out infinite}
+.ph-orb{position:absolute;border-radius:50%;filter:blur(52px);opacity:.55}
+.ph-orb1{width:320px;height:320px;background:#4C1D95;top:-80px;left:-60px;animation:phdrift1 10s ease-in-out infinite}
+.ph-orb2{width:260px;height:260px;background:#6D28D9;top:20px;right:-40px;animation:phdrift2 13s ease-in-out infinite}
+.ph-orb3{width:200px;height:200px;background:#8B5CF6;bottom:-60px;left:45%;animation:phdrift3 8s ease-in-out infinite}
 @keyframes phdrift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(25px,-15px) scale(1.07)}}
 @keyframes phdrift2{0%,100%{transform:translate(0,0) scale(1.04)}50%{transform:translate(-20px,15px) scale(.94)}}
 @keyframes phdrift3{0%,100%{transform:translate(0,0) scale(.97)}50%{transform:translate(18px,20px) scale(1.05)}}
@@ -299,34 +309,126 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<div class="blog-filter" id="blogFilter">
+  <div class="bf-inner">
+    <button class="bf-btn active" data-f="all">All</button>
+    <button class="bf-btn" data-f="strategy">Strategy</button>
+    <button class="bf-btn" data-f="paid-media">Paid Media</button>
+    <button class="bf-btn" data-f="content-seo">Content and SEO</button>
+    <button class="bf-btn" data-f="analytics">Analytics</button>
+    <button class="bf-btn" data-f="cro-web">CRO and Web</button>
+    <button class="bf-btn" data-f="personalisation">Personalisation</button>
+    <button class="bf-btn" data-f="general">General</button>
+  </div>
+</div>
+
 <section style="background:var(--white)">
   <div class="blog-wrap">
     <div class="reveal"><div class="ey">Latest</div><h2 style="font-family:var(--ff);font-size:clamp(1.9rem,3vw,2.6rem);font-weight:600;color:var(--ink);letter-spacing:-.035em;line-height:1.08">All articles.</h2></div>
-    <div class="blog-grid">
+    <div class="blog-grid" id="blogGrid">
 
-      <!-- LIVE POST — duplicate this block for each real article -->
-      <article class="bc reveal rd1">
+      <article class="bc reveal rd1" data-c="content-seo">
         <div class="bc-body">
-          <span class="bc-tag">SEO</span>
-          <h3 class="bc-t">How I built 8 content briefs in 40 minutes using Claude</h3>
-          <p class="bc-d">The exact prompt chain to go from a competitor backlink audit to 8 draft-ready briefs — including the Notion template.</p>
-          <p class="bc-meta"><span class="bc-cs-badge">Coming soon</span></p>
+          <span class="bc-tag">Content and SEO</span>
+          <h3 class="bc-t">How we built a full SEO and content pipeline for a B2B SaaS product in 90 days?</h3>
+          <p class="bc-d">The exact architecture, from keyword strategy to content calendar to publishing cadence, that took a SaaS product from invisible to ranking in under three months.</p>
+          <p class="bc-meta">July 2026 - 6 min read</p>
+          <a href="/blog/seo-content-pipeline-b2b-saas/" class="bc-link">Read article →</a>
         </div>
       </article>
 
-      <!-- COMING SOON — use for placeholders -->
-      <article class="bc cs reveal rd2">
+      <article class="bc reveal rd2" data-c="paid-media">
         <div class="bc-body">
           <span class="bc-tag">Paid Media</span>
-          <h3 class="bc-t">Using AI to identify negative keywords at scale</h3>
-          <p class="bc-d">A 15-minute process to find and clean wasteful search terms without wading through the report manually.</p>
-          <p class="bc-meta"><span class="bc-cs-badge">Coming soon</span></p>
+          <h3 class="bc-t">Why your Google Ads quality score is a vanity metric (and what to optimise instead)?</h3>
+          <p class="bc-d">Quality score looks reassuring in reports and changes almost nothing about actual account performance. Here is what actually moves the needle.</p>
+          <p class="bc-meta">July 2026 - 5 min read</p>
+          <a href="/blog/google-ads-quality-score-vanity-metric/" class="bc-link">Read article →</a>
         </div>
       </article>
 
-      <!-- Add more cards here, cycling rd1 / rd2 / rd3 on reveal -->
+      <article class="bc reveal rd3" data-c="paid-media">
+        <div class="bc-body">
+          <span class="bc-tag">Paid Media</span>
+          <h3 class="bc-t">How to reduce cost-per-acquisition by restructuring the funnel, not the bids?</h3>
+          <p class="bc-d">Most CPA problems are not bid problems. They are funnel problems. The lever most accounts ignore is not inside the ad platform at all.</p>
+          <p class="bc-meta">July 2026 - 7 min read</p>
+          <a href="/blog/reduce-cpa-funnel-restructure/" class="bc-link">Read article →</a>
+        </div>
+      </article>
+
+      <article class="bc reveal rd1" data-c="personalisation">
+        <div class="bc-body">
+          <span class="bc-tag">Personalisation</span>
+          <h3 class="bc-t">What we learned running dynamic creative at scale for a global automotive brand across APAC?</h3>
+          <p class="bc-d">1,000+ creative variants, two markets, one campaign setup. What we built, what broke, and what we would do differently.</p>
+          <p class="bc-meta">June 2026 - 8 min read</p>
+          <a href="/blog/dynamic-creative-scale-automotive-apac/" class="bc-link">Read article →</a>
+        </div>
+      </article>
+
+      <article class="bc reveal rd2" data-c="paid-media">
+        <div class="bc-body">
+          <span class="bc-tag">Paid Media</span>
+          <h3 class="bc-t">Why most health and fitness brands waste their paid budget on the wrong audience?</h3>
+          <p class="bc-d">The targeting mistake that inflates reach and kills conversion. What the data shows and how to fix it without rebuilding from scratch.</p>
+          <p class="bc-meta">June 2026 - 5 min read</p>
+          <a href="/blog/health-fitness-paid-media-audience/" class="bc-link">Read article →</a>
+        </div>
+      </article>
+
+      <article class="bc reveal rd3" data-c="strategy">
+        <div class="bc-body">
+          <span class="bc-tag">Strategy</span>
+          <h3 class="bc-t">Why B2B SaaS brands keep spending on acquisition when their conversion problem is actually retention?</h3>
+          <p class="bc-d">Pouring budget into the top of the funnel when the leak is further down is one of the most common and expensive mistakes in SaaS marketing.</p>
+          <p class="bc-meta">June 2026 - 6 min read</p>
+          <a href="/blog/b2b-saas-acquisition-vs-retention/" class="bc-link">Read article →</a>
+        </div>
+      </article>
+
+      <article class="bc reveal rd1" data-c="paid-media">
+        <div class="bc-body">
+          <span class="bc-tag">Paid Media</span>
+          <h3 class="bc-t">The five things we check before recommending any paid media channel to a client?</h3>
+          <p class="bc-d">Channel selection is a strategy question, not a capability question. The checklist we run before committing a single dollar to any platform.</p>
+          <p class="bc-meta">June 2026 - 4 min read</p>
+          <a href="/blog/five-checks-before-paid-media-channel/" class="bc-link">Read article →</a>
+        </div>
+      </article>
+
+      <article class="bc reveal rd2" data-c="general">
+        <div class="bc-body">
+          <span class="bc-tag">General</span>
+          <h3 class="bc-t">Why we declined to renew a client scope (and what it taught us about what good work actually requires)?</h3>
+          <p class="bc-d">Saying no to a retainer renewal is uncomfortable. It is also sometimes the most honest thing you can do for both sides.</p>
+          <p class="bc-meta">May 2026 - 5 min read</p>
+          <a href="/blog/declined-client-scope-renewal/" class="bc-link">Read article →</a>
+        </div>
+      </article>
+
+      <article class="bc reveal rd3" data-c="paid-media">
+        <div class="bc-body">
+          <span class="bc-tag">Paid Media</span>
+          <h3 class="bc-t">How we ran a time-of-day paid media campaign for a major convenience retailer across three states?</h3>
+          <p class="bc-d">Dayparting is easy. Making it work at 350-store scale with location-level creative is not. What the build looked like and what the data showed.</p>
+          <p class="bc-meta">May 2026 - 7 min read</p>
+          <a href="/blog/time-of-day-paid-media-convenience-retail/" class="bc-link">Read article →</a>
+        </div>
+      </article>
+
+      <article class="bc reveal rd1" data-c="analytics">
+        <div class="bc-body">
+          <span class="bc-tag">Analytics</span>
+          <h3 class="bc-t">Why your GA4 reports are telling you what happened, not what to do next?</h3>
+          <p class="bc-d">GA4 is good at recording. It is not good at interpreting. The gap between the two is where most teams get stuck, and how to close it.</p>
+          <p class="bc-meta">May 2026 - 6 min read</p>
+          <a href="/blog/ga4-reports-what-to-do-next/" class="bc-link">Read article →</a>
+        </div>
+      </article>
 
     </div>
+    <p id="blogNoRes" style="display:none;font-family:var(--fm);font-size:.72rem;color:var(--muted);letter-spacing:.04em;padding:2rem 0">No articles in this category yet. Check back soon.</p>
   </div>
 </section>
 
@@ -520,6 +622,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 })();
 
+/* ── BLOG FILTER ── */
+(function(){
+  var btns = document.querySelectorAll('.bf-btn');
+  var cards = document.querySelectorAll('#blogGrid .bc');
+  var noRes = document.getElementById('blogNoRes');
+
+  btns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var f = this.dataset.f;
+      btns.forEach(function(b){ b.classList.remove('active'); });
+      this.classList.add('active');
+
+      var visible = 0;
+      cards.forEach(function(card){
+        if(f === 'all' || card.dataset.c === f){
+          card.classList.remove('hidden');
+          visible++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+      if(noRes) noRes.style.display = visible === 0 ? 'block' : 'none';
+    });
+  });
+})();
+
 </script>
 
 <script>
@@ -530,7 +658,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var ctx = canvas.getContext('2d');
   var W, H, particles, mouse = {x:-999, y:-999};
-  var COUNT = 60, CONNECT = 130, MDIST = 110;
+  var COUNT = 80, CONNECT = 150, MDIST = 130;
   var V = '255,255,255';
 
   function resize(){
@@ -538,48 +666,52 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     H = canvas.height = canvas.offsetHeight;
   }
   function makeP(){
-    var big = Math.random() < 0.18;
+    var big = Math.random() < 0.2;
     return {
       x: Math.random()*W, y: Math.random()*H,
-      vx: (Math.random()-.5)*(big?.22:.48),
-      vy: (Math.random()-.5)*(big?.22:.48),
-      r:  big ? Math.random()*1.1+1.6 : Math.random()*.7+0.5,
-      o:  big ? Math.random()*.18+0.22 : Math.random()*.14+0.10,
+      vx: (Math.random()-.5)*(big?.25:.55),
+      vy: (Math.random()-.5)*(big?.25:.55),
+      r:  big ? Math.random()*1.2+1.8 : Math.random()*.8+0.6,
+      o:  big ? Math.random()*.25+0.35 : Math.random()*.22+0.14,
       big: big
     };
   }
   function init(){ resize(); particles = Array.from({length:COUNT}, makeP); }
   function draw(){
     ctx.clearRect(0,0,W,H);
-    var CONNECT_SQ = CONNECT*CONNECT, MDIST_SQ = MDIST*MDIST;
-    for(var i=0;i<particles.length;i++){
-      var p = particles[i];
-      var mx=p.x-mouse.x, my=p.y-mouse.y, md2=mx*mx+my*my;
-      if(md2 < MDIST_SQ){
-        var md=Math.sqrt(md2), str=1-md/MDIST;
-        ctx.beginPath(); ctx.strokeStyle='rgba('+V+','+str*.4+')';
-        ctx.lineWidth=str*1.0;
-        ctx.moveTo(p.x,p.y); ctx.lineTo(mouse.x,mouse.y); ctx.stroke();
-        ctx.beginPath(); ctx.arc(p.x,p.y,p.r*(1+str*1.4),0,Math.PI*2);
-        ctx.fillStyle='rgba('+V+','+(p.o+str*.35)+')'; ctx.fill();
-        continue;
-      }
-      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle='rgba('+V+','+p.o+')'; ctx.fill();
-    }
     for(var i=0;i<particles.length;i++){
       for(var j=i+1;j<particles.length;j++){
         var dx=particles[i].x-particles[j].x, dy=particles[i].y-particles[j].y;
-        var d2=dx*dx+dy*dy;
-        if(d2<CONNECT_SQ){
-          var d=Math.sqrt(d2);
-          var a=(1-d/CONNECT)*.14;
-          ctx.beginPath(); ctx.strokeStyle='rgba('+V+','+a+')';
-          ctx.lineWidth=0.7;
+        var d=Math.sqrt(dx*dx+dy*dy);
+        if(d<CONNECT){
+          ctx.beginPath();
+          ctx.strokeStyle='rgba('+V+','+(1-d/CONNECT)*.17+')';
+          ctx.lineWidth=0.9;
           ctx.moveTo(particles[i].x,particles[i].y);
-          ctx.lineTo(particles[j].x,particles[j].y); ctx.stroke();
+          ctx.lineTo(particles[j].x,particles[j].y);
+          ctx.stroke();
         }
       }
+      var mx=particles[i].x-mouse.x, my=particles[i].y-mouse.y;
+      var md=Math.sqrt(mx*mx+my*my);
+      if(md<MDIST){
+        var str=1-md/MDIST;
+        ctx.beginPath();
+        ctx.strokeStyle='rgba('+V+','+str*.45+')';
+        ctx.lineWidth=str*1.2;
+        ctx.moveTo(particles[i].x,particles[i].y);
+        ctx.lineTo(mouse.x,mouse.y);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(particles[i].x,particles[i].y,particles[i].r*(1+str*1.5),0,Math.PI*2);
+        ctx.fillStyle='rgba('+V+','+(particles[i].o+str*.4)+')';
+        ctx.fill();
+        continue;
+      }
+      ctx.beginPath();
+      ctx.arc(particles[i].x,particles[i].y,particles[i].r,0,Math.PI*2);
+      ctx.fillStyle='rgba('+V+','+particles[i].o+')';
+      ctx.fill();
     }
   }
   function update(){
@@ -587,14 +719,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       p.x+=p.vx; p.y+=p.vy;
       if(p.x<-20)p.x=W+20; if(p.x>W+20)p.x=-20;
       if(p.y<-20)p.y=H+20; if(p.y>H+20)p.y=-20;
-      var dx=mouse.x-p.x, dy=mouse.y-p.y, d=Math.sqrt(dx*dx+dy*dy);
+      var dx=mouse.x-p.x, dy=mouse.y-p.y;
+      var d=Math.sqrt(dx*dx+dy*dy);
       if(d<MDIST&&d>0){
-        var f=(MDIST-d)/MDIST*.010;
+        var f=(MDIST-d)/MDIST*.012;
         p.vx+=(dx/d)*f; p.vy+=(dy/d)*f;
       }
       var spd=Math.sqrt(p.vx*p.vx+p.vy*p.vy);
-      if(spd>.8){p.vx=p.vx/spd*.8;p.vy=p.vy/spd*.8;}
-      p.vx*=.999; p.vy*=.999;
+      if(spd>.9){p.vx=(p.vx/spd)*.9;p.vy=(p.vy/spd)*.9;}
+      p.vx*=.998; p.vy*=.998;
     });
   }
   function loop(){update();draw();requestAnimationFrame(loop);}
@@ -604,6 +737,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     mouse.x=e.clientX-r.left; mouse.y=e.clientY-r.top;
   },{passive:true});
   ph.addEventListener('mouseleave',function(){mouse.x=-999;mouse.y=-999;},{passive:true});
+  ph.addEventListener('touchmove',function(e){
+    var r=canvas.getBoundingClientRect();
+    mouse.x=e.touches[0].clientX-r.left;
+    mouse.y=e.touches[0].clientY-r.top;
+  },{passive:true});
+  ph.addEventListener('touchend',function(){mouse.x=-999;mouse.y=-999;},{passive:true});
   window.addEventListener('resize',function(){resize();particles=Array.from({length:COUNT},makeP);});
   init(); loop();
 })();

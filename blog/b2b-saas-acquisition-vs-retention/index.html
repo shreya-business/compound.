@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why B2B SaaS brands keep spending on acquisition when their conversion problem is actually retention | Compound.</title>
+<meta name="description" content="Acquisition spend is visible. Retention problems are quiet. Here is how to tell which one is actually limiting your growth.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://compounddigital.co/blog/b2b-saas-acquisition-vs-retention/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Why B2B SaaS brands keep spending on acquisition when their conversion problem is actually retention | Compound.">
+<meta property="og:description" content="Acquisition spend is visible. Retention problems are quiet. Here is how to tell which one is actually limiting your growth.">
+<meta property="og:image" content="https://compounddigital.co/og-image.png">
+<link rel="icon" type="image/png" href="/favicon.png">
+<meta name="theme-color" content="#6D28D9">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap"></noscript>
+<style>
+:root{--v:#6D28D9;--vm:#7C3AED;--vl:#8B5CF6;--vp:#EDE9FE;--ink:#0D0D0D;--ink2:#3D3D3D;--muted:#888888;--border:#E4E2DC;--ow:#F7F6F3;--cream:#F0EDE6;--white:#ffffff;--ff:'Fraunces',Georgia,serif;--fb:'DM Sans',sans-serif;--fm:'DM Mono',monospace;--max:1200px;--nav:68px;--ease:cubic-bezier(0.16,1,0.3,1);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
+body{font-family:var(--fb);background:var(--white);color:var(--ink);overflow-x:hidden;line-height:1.6;padding-top:var(--nav);}
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;height:var(--nav);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;background:rgba(255,255,255,.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:box-shadow .3s;}
+.nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.07);}
+.nav-logo{display:flex;align-items:center;text-decoration:none;color:var(--ink);}
+.nav-links{display:flex;align-items:center;gap:.05rem;list-style:none;}
+.nav-links a{font-size:.82rem;font-weight:500;color:var(--ink2);text-decoration:none;padding:.38rem .78rem;border-radius:6px;transition:color .2s,background .2s;}
+.nav-links a:hover{color:var(--ink);background:var(--ow);}
+.nav-links a.active{color:var(--v);background:var(--vp);}
+.nav-cta{display:inline-flex;align-items:center;gap:.35rem;background:var(--v);color:var(--white);padding:.52rem 1.2rem;border-radius:8px;font-weight:600;font-size:.82rem;text-decoration:none;transition:all .2s;white-space:nowrap;}
+.nav-cta:hover{background:var(--vm);transform:translateY(-1px);box-shadow:0 4px 16px rgba(109,40,217,.35);}
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;padding:10px;min-width:44px;min-height:44px;border:none;background:none;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--white);border-bottom:1px solid var(--border);padding:1.25rem 1.5rem;z-index:850;flex-direction:column;gap:.35rem;box-shadow:0 8px 32px rgba(0,0,0,.08);}
+.mob.open{display:flex;}
+.mob a{font-size:.95rem;font-weight:500;color:var(--ink2);text-decoration:none;padding:.6rem 0;border-bottom:1px solid var(--border);transition:color .2s;display:block;}
+.mob a:hover{color:var(--v);}
+.mob a:last-child{border:none;}
+.mob-cta{display:block;margin-top:.5rem;background:var(--v);color:var(--white)!important;font-weight:600;text-align:center;padding:.75rem 1rem!important;border-radius:8px;border:none!important;}
+.post-hero{background:var(--ink);padding:3rem 0 2.75rem;position:relative;overflow:hidden;}
+.hero-glow{position:absolute;top:-100px;right:-80px;width:600px;height:600px;background:radial-gradient(circle,rgba(109,40,217,.22) 0%,transparent 65%);pointer-events:none;border-radius:50%;animation:gp 8s ease-in-out infinite;}
+@keyframes gp{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+.hero-inner{max-width:860px;margin:0 auto;padding:0 1.5rem;position:relative;z-index:1;}
+.ey{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fm);font-size:.65rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--vl);margin-bottom:.75rem;}
+.ey::before{content:'';display:block;width:18px;height:1px;background:var(--vl);}
+.post-hero h1{font-family:var(--ff);font-size:clamp(1.6rem,3vw,2.25rem);font-weight:600;color:var(--white);letter-spacing:-.03em;line-height:1.1;margin-bottom:1rem;}
+.post-meta{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;}
+.pm-item{font-family:var(--fm);font-size:.68rem;color:rgba(255,255,255,.38);letter-spacing:.06em;}
+.pm-sep{width:3px;height:3px;background:rgba(255,255,255,.2);border-radius:50%;flex-shrink:0;}
+.stats-strip{background:var(--vp);border-bottom:1px solid rgba(109,40,217,.12);padding:0;}
+.stats-inner{max-width:860px;margin:0 auto;padding:0 1.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
+.stat-item{text-align:center;padding:1.25rem .75rem;border-right:1px solid rgba(109,40,217,.12);}
+.stat-item:last-child{border-right:none;}
+.stat-num{font-family:var(--ff);font-size:2.2rem;font-weight:600;color:var(--v);letter-spacing:-.04em;line-height:1;margin-bottom:.4rem;}
+.stat-label{font-family:var(--fm);font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ink2);}
+.post-wrap{max-width:860px;margin:0 auto;padding:2.5rem 1.5rem 4rem;}
+.post-body p{font-size:1rem;line-height:1.8;color:var(--ink2);margin-bottom:1.25rem;font-family:var(--fb);font-weight:400;}
+.post-body h2{font-family:var(--ff);font-size:clamp(1.2rem,2.2vw,1.55rem);font-weight:600;color:var(--v);letter-spacing:-.025em;line-height:1.2;margin:2.25rem 0 .7rem;}
+.post-body h3{font-family:var(--fb);font-weight:600;font-size:1rem;color:var(--ink);margin:1.75rem 0 .5rem;letter-spacing:-.01em;}
+.post-body strong{font-weight:600;color:var(--ink);}
+.post-body ul,.post-body ol{padding-left:1.4rem;margin-bottom:1.25rem;}
+.post-body li{font-size:1rem;line-height:1.8;color:var(--ink2);margin-bottom:.4rem;}
+.post-body a{color:var(--v);text-decoration:none;border-bottom:1px solid rgba(109,40,217,.25);transition:border-color .2s;}
+.post-body a:hover{border-color:var(--v);}
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0 1.75rem;}
+.card-grid.col2{grid-template-columns:repeat(2,1fr);}
+.card-grid.col1{grid-template-columns:1fr;}
+.info-card{background:var(--ow);border:1px solid var(--border);border-radius:10px;padding:1.4rem;transition:border-color .2s;}
+.info-card:hover{border-color:var(--v);}
+.card-num{font-family:var(--fm);font-size:.62rem;color:var(--v);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem;}
+.card-title{font-family:var(--fb);font-weight:600;font-size:1rem;color:var(--ink);margin-bottom:.45rem;line-height:1.3;}
+.card-body{font-size:1rem;color:var(--ink2);line-height:1.8;}
+.ct-list{display:flex;flex-direction:column;gap:.75rem;margin:1.25rem 0 1.75rem;}
+.ct-item{display:flex;gap:1rem;align-items:flex-start;background:var(--ow);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem;}
+.ct-num{font-family:var(--fm);font-size:.68rem;color:var(--v);font-weight:500;flex-shrink:0;margin-top:.2rem;letter-spacing:.04em;}
+.ct-text{font-size:1rem;color:var(--ink2);line-height:1.8;}
+.ct-text strong{color:var(--ink);font-weight:600;}
+.takeaway{background:var(--ink);border-radius:12px;padding:1.75rem 2rem;margin:2.5rem 0;}
+.takeaway-label{font-family:var(--fm);font-size:.62rem;color:var(--vl);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.75rem;}
+.takeaway p{color:rgba(255,255,255,.75)!important;font-size:1rem!important;line-height:1.8!important;margin-bottom:0!important;}
+.takeaway strong{color:var(--white)!important;}
+.post-cta{background:linear-gradient(135deg,var(--v) 0%,#3b0764 100%);border-radius:14px;padding:2rem 2rem;margin-top:2.5rem;position:relative;overflow:hidden;}
+.cta-grain{position:absolute;inset:0;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.cta-inner{position:relative;z-index:1;}
+.cta-eyebrow{font-family:var(--fm);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.48);margin-bottom:.85rem;display:flex;align-items:center;gap:.5rem;}
+.cta-eyebrow::before{content:'';display:block;width:18px;height:1px;background:rgba(255,255,255,.32);}
+.post-cta h3{font-family:var(--ff);font-size:clamp(1.25rem,2.2vw,1.6rem);font-weight:600;color:var(--white);letter-spacing:-.03em;line-height:1.1;margin-bottom:.6rem;}
+.post-cta p{font-size:.95rem;color:rgba(255,255,255,.55)!important;line-height:1.72;margin-bottom:1.75rem!important;}
+.cta-acts{display:flex;gap:.85rem;flex-wrap:wrap;}
+.btn-cw{display:inline-flex;align-items:center;gap:.45rem;background:var(--white);color:var(--v);padding:.88rem 1.8rem;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none;border:none;transition:all .2s;}
+.btn-cw:hover{background:var(--cream);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.25);}
+.btn-gh{display:inline-flex;align-items:center;gap:.45rem;background:rgba(255,255,255,.12);color:#ffffff!important;padding:.86rem 1.8rem;border-radius:8px;font-weight:600;font-size:.9rem;text-decoration:none;border:1.5px solid rgba(255,255,255,.6);transition:all .2s;-webkit-font-smoothing:antialiased;}
+.btn-gh:hover{background:rgba(255,255,255,.22);border-color:#ffffff;color:#ffffff!important;}
+.footer{background:#111;color:rgba(255,255,255,.68);padding:1.75rem 1.5rem;}
+.footer-in{max-width:var(--max);margin:0 auto;}
+.ft{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:1.25rem;flex-wrap:wrap;}
+.flogo{display:flex;align-items:center;gap:.55rem;flex-shrink:0;}
+.fsoc{display:flex;gap:.5rem;align-items:center;}
+.fsoc a{width:32px;height:32px;background:rgba(255,255,255,.08);border-radius:7px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.52);font-size:.82rem;text-decoration:none;font-weight:700;transition:background .2s,color .2s;border:none;}
+.fsoc a:hover{background:var(--v);color:var(--white);}
+.fcol ul{list-style:none;display:flex;flex-direction:row;gap:1.25rem;flex-wrap:wrap;}
+.fcol a{font-size:.83rem;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s;border:none;white-space:nowrap;}
+.fcol a:hover{color:var(--white);}
+.fb{display:flex;justify-content:space-between;font-size:.76rem;color:rgba(255,255,255,.26);flex-wrap:wrap;gap:.5rem;}
+.nl-popup{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);z-index:9500;align-items:center;justify-content:center;padding:1.5rem;}
+.nl-popup.open{display:flex;}
+.nl-box{background:var(--white);border-radius:18px;max-width:440px;width:100%;position:relative;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.2);max-height:90vh;overflow-y:auto;}
+.nl-top{background:linear-gradient(135deg,var(--v),#3b0764);padding:1.75rem;text-align:center;position:relative;}
+.nl-close{position:absolute;top:.75rem;right:.75rem;background:rgba(255,255,255,.15);border:none;width:28px;height:28px;border-radius:50%;cursor:pointer;color:var(--white);font-size:.9rem;display:flex;align-items:center;justify-content:center;}
+.nl-title{font-family:var(--ff);font-size:1.35rem;font-weight:600;color:var(--white);letter-spacing:-.03em;margin-bottom:.3rem;}
+.nl-sub-title{font-size:.8rem;color:rgba(255,255,255,.58);}
+.nl-body{padding:1.35rem;}
+.nl-form{display:flex;flex-direction:column;gap:.6rem;}
+.nl-form input{border:1.5px solid var(--border);border-radius:8px;padding:.7rem 1rem;font-size:.88rem;font-family:var(--fb);color:var(--ink);outline:none;transition:border-color .2s;width:100%;}
+.nl-form input:focus{border-color:var(--vl);}
+.nl-form-btn{background:var(--v);color:var(--white);border:none;padding:.8rem;border-radius:8px;font-weight:600;font-size:.88rem;cursor:pointer;font-family:var(--fb);}
+.nl-skip{display:block;text-align:center;font-size:.72rem;color:var(--muted);margin-top:.6rem;cursor:pointer;text-decoration:underline;}
+.nl-success{display:none;text-align:center;padding:1.5rem;}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s var(--ease),transform .65s var(--ease);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+@media(max-width:960px){
+  .nav-cta{display:none;}.nav{padding:0 1.25rem;}.nav-links{display:none;}.hamburger{display:flex;}
+  .post-hero{padding:2rem 0 1.75rem;}
+  .post-wrap{padding:1.75rem 1rem 3rem;}
+  .stats-strip{padding:0;}
+  .stats-inner{grid-template-columns:repeat(3,1fr);gap:0;}
+  .stat-item{padding:1.25rem .5rem;}
+  .stat-num{font-size:1.7rem;}
+  .stat-label{font-size:.56rem;letter-spacing:.06em;}
+  .card-grid{grid-template-columns:1fr;}
+  .card-grid.col2{grid-template-columns:1fr;}
+  .ft{flex-wrap:wrap;gap:1.25rem;}
+  .fcol ul{gap:.85rem;}
+  .fb{flex-direction:column;gap:.35rem;text-align:center;}
+  .footer{padding:1.25rem 1rem 1rem;}
+  .cta-acts{flex-direction:column;}
+  .btn-cw,.btn-gh{justify-content:center;}
+}
+@media(max-width:400px){
+  .stat-item{padding:1rem .25rem;}
+  .stat-num{font-size:1.4rem;}
+  .stat-label{font-size:.5rem;letter-spacing:.04em;}
+  .post-cta{padding:1.5rem 1.25rem;}
+}
+</style>
+</head>
+<body>
+<div class="nl-popup" id="nlPopup">
+  <div class="nl-box">
+    <div class="nl-top">
+      <button class="nl-close" onclick="closePopup()">&#x2715;</button>
+      <h2 class="nl-title">Marketing that compounds.</h2>
+      <p class="nl-sub-title">Real tactics from real campaigns. Free, weekly.</p>
+    </div>
+    <div class="nl-body">
+      <div id="nlForm">
+        <div class="nl-form">
+          <input type="text" placeholder="Your first name" id="nlName" autocomplete="given-name">
+          <input type="email" placeholder="Your email address" id="nlEmail" autocomplete="email" inputmode="email">
+          <button class="nl-form-btn" onclick="submitPopup()">Subscribe free &#x2192;</button>
+        </div>
+        <span class="nl-skip" onclick="closePopup()">No thanks</span>
+      </div>
+      <div class="nl-success" id="nlSuccess">
+        <p style="font-size:1.6rem;margin-bottom:.4rem">&#x2713;</p>
+        <p style="font-family:var(--ff);font-size:1.1rem;font-weight:600;color:var(--ink)">You're in!</p>
+      </div>
+    </div>
+  </div>
+</div>
+<nav class="nav" id="mainNav">
+  <a href="/" class="nav-logo">
+    <img src="/logo-nav.png" alt="Compound." height="32" style="width:auto;display:block" fetchpriority="high">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/about">About</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/work">Work</a></li>
+    <li><a href="/courses">Courses</a></li>
+    <li><a href="/newsletter">Newsletter</a></li>
+    <li><a href="/blog" class="active">Blog</a></li>
+  </ul>
+  <a href="https://calendly.com/compounddigital/discovery-call" target="_blank" rel="noopener" class="nav-cta">Work with us &#x2192;</a>
+  <button class="hamburger" id="hbg" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mob" id="mob">
+  <a href="/about">About</a>
+  <a href="/services">Services</a>
+  <a href="/work">Work</a>
+  <a href="/courses">Courses</a>
+  <a href="/newsletter">Newsletter</a>
+  <a href="/blog">Blog</a>
+  <a href="https://calendly.com/compounddigital/discovery-call" class="mob-cta">Work with us &#x2192;</a>
+</div>
+<div class="post-hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="ey">Strategy</div>
+    <h1>Why do B2B SaaS brands keep spending on acquisition when their conversion problem is actually retention?</h1>
+    <div class="post-meta">
+      <span class="pm-item">Compound.</span>
+      <span class="pm-sep"></span>
+      <span class="pm-item">June 2026</span>
+      <span class="pm-sep"></span>
+      <span class="pm-item">3 min read</span>
+      <span class="pm-sep"></span>
+      <span class="pm-item">Issue 06</span>
+    </div>
+  </div>
+</div>
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-item reveal"><div class="stat-num">3-5%</div><div class="stat-label">Minimum healthy free-to-paid rate</div></div><div class="stat-item reveal"><div class="stat-num">5%</div><div class="stat-label">Retention lift beats equivalent CAC cut</div></div><div class="stat-item reveal"><div class="stat-num">4</div><div class="stat-label">Diagnostics to run before more spend</div></div>
+  </div>
+</div>
+<div class="post-wrap">
+  <div class="post-body">
+    
+<p>Acquisition spend is visible. You can point to it in a dashboard, tie a budget line to it, report on the leads it produced. Retention problems are quieter. They show up in churn rates, in expansion revenue that never materialised, in net revenue retention (NRR) figures that refuse to move.</p>
+<p>The result is that most B2B SaaS brands over-invest in acquisition and under-invest in retention, not because they have decided that is the right trade-off, but because acquisition is the default.</p>
+<h2>How do you tell if you have a retention problem dressed as an acquisition problem?</h2>
+<p>The signal is in the cohort data. If revenue from each acquisition cohort degrades faster than you are replacing it with new customers, no amount of acquisition spend fixes that. You are filling a leaking bucket.</p>
+<p>The secondary signal is free-to-paid conversion rate. If you have a freemium or trial model and you are not seeing meaningful conversion from free to paid within the first 30 to 60 days of a user signing up, spending more on acquisition puts more people into a funnel that is not working. The acquisition spend is not the problem. The funnel is.</p>
+<h2>Why do the economics favour fixing retention first?</h2>
+<p>A 5% improvement in monthly retention has a larger compounding effect on lifetime value (LTV) than a 5% reduction in customer acquisition cost (CAC). And improving retention is almost always cheaper than the equivalent CAC reduction, because it involves better onboarding, better activation, and better customer success investment rather than more media spend.</p>
+<p>The reason this does not happen is organisational. Marketing owns acquisition. Customer success or product owns retention. The budget lines do not talk to each other.</p>
+<h2>Where should you look before increasing acquisition spend?</h2>
+<div class="card-grid col2 reveal">
+<div class="info-card"><div class="card-num">01</div><div class="card-title">Activation rate</div><div class="card-body">What percentage of new signups reach the activation milestone, the point where the product delivers its first clear piece of value? If this is below 40%, onboarding is the constraint, not awareness.</div></div>
+<div class="info-card"><div class="card-num">02</div><div class="card-title">Time-to-value</div><div class="card-body">How long does it take a new user to get to first value? If it takes more than one session or more than 24 hours, drop-off during trial is almost certainly high.</div></div>
+<div class="info-card"><div class="card-num">03</div><div class="card-title">Expansion revenue</div><div class="card-body">Are existing customers expanding? Upgrading? Adding seats? If expansion is low or flat, the product is not generating enough ongoing value. That is a retention signal before it is a product signal.</div></div>
+<div class="info-card"><div class="card-num">04</div><div class="card-title">Churn by acquisition channel</div><div class="card-body">Customers acquired from certain channels churn faster than others. If paid channels produce customers who churn at twice the rate of organic, that changes the real CAC calculation significantly.</div></div>
+</div><div class="takeaway reveal"><div class="takeaway-label">The compounding logic</div><p>Every improvement you make to onboarding, activation, or retention works on every new user going forward. Acquisition spend produces a one-time result per campaign. Retention improvements compound. The economics are not close.</p></div>
+
+<h2>What to do with this</h2>
+<p>Before approving the next acquisition budget increase, run the four diagnostics above against your own data. If any of them reveal a gap, that is where the investment belongs. Not because acquisition is bad, but because acquisition spend on a leaking funnel accelerates the problem rather than solving it.</p>
+<p>Fix the funnel first. Then scale acquisition into something that actually works.</p>
+    <div class="post-cta reveal">
+      <div class="cta-grain"></div>
+      <div class="cta-inner">
+        <div class="cta-eyebrow">Work with us</div>
+        <h3>30 minutes. No pitch. Real ideas.</h3>
+        <p>Every discovery call ends with at least one useful idea, whether or not we work together.</p>
+        <div class="cta-acts">
+          <a href="https://calendly.com/compounddigital/discovery-call" target="_blank" rel="noopener" class="btn-cw">Book a call &#x2192;</a>
+          <a href="https://compounddigital.co/newsletter" class="btn-gh">Subscribe to the newsletter &#x2192;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="footer">
+  <div class="footer-in">
+    <div class="ft">
+      <div class="flogo">
+        <img src="/logo.png" alt="Compound." height="26" width="auto" loading="lazy">
+      </div>
+      <div class="fcol">
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/work">Work</a></li>
+          <li><a href="/courses">Courses</a></li>
+          <li><a href="/newsletter">Newsletter</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="fsoc">
+        <a href="https://www.linkedin.com/company/compounddigital/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+        <a href="https://www.instagram.com/compound.digital/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none"><g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></g></svg>
+        </a>
+        <a href="mailto:info@compounddigital.co" aria-label="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none"><g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></g></svg>
+        </a>
+      </div>
+    </div>
+    <div class="fb">
+      <p>&#169; 2026 Compound. All rights reserved.</p>
+      <p>Strategy-led. Execution that compounds.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var nav=document.getElementById('mainNav'),hbg=document.getElementById('hbg'),mob=document.getElementById('mob');
+  if(nav)window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>20);},{passive:true});
+  if(hbg&&mob){
+    hbg.addEventListener('click',function(){var o=mob.classList.toggle('open');hbg.classList.toggle('open',o);hbg.setAttribute('aria-expanded',String(o));});
+    mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mob.classList.remove('open');hbg.classList.remove('open');hbg.setAttribute('aria-expanded','false');});});
+    document.addEventListener('click',function(e){if(mob.classList.contains('open')&&!mob.contains(e.target)&&!hbg.contains(e.target)){mob.classList.remove('open');hbg.classList.remove('open');hbg.setAttribute('aria-expanded','false');}});
+  }
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target);}});},{threshold:0.07});
+  document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+  function closePopup(){var p=document.getElementById('nlPopup');if(p)p.classList.remove('open');localStorage.setItem('nl_dismissed',String(Date.now()));}
+  async function submitPopup(){
+    var name=(document.getElementById('nlName')||{}).value||'';
+    var email=(document.getElementById('nlEmail')||{}).value||'';
+    if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())){var inp=document.getElementById('nlEmail');if(inp)inp.style.borderColor='#ef4444';return;}
+    var btn=document.querySelector('.nl-form-btn');if(btn){btn.disabled=true;btn.textContent='Subscribing...';}
+    try{await fetch('https://compound-subscribe.orange-math-2481.workers.dev',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email.trim(),firstName:name.trim()})});}catch(e){console.warn(e);}
+    var f=document.getElementById('nlForm'),s=document.getElementById('nlSuccess');
+    if(f)f.style.display='none';if(s)s.style.display='block';
+    setTimeout(closePopup,2800);
+  }
+  (function(){
+    var dismissed=localStorage.getItem('nl_dismissed'),now=Date.now();
+    if(dismissed&&(now-parseInt(dismissed,10))>30*24*60*60*1000)dismissed=null;
+    if(dismissed)return;
+    var last=parseInt(localStorage.getItem('nl_last_shown')||'0',10);
+    if(now-last<86400000)return;
+    setTimeout(function(){var p=document.getElementById('nlPopup');if(p)p.classList.add('open');localStorage.setItem('nl_last_shown',String(now));},2500);
+  })();
+  var popup=document.getElementById('nlPopup');
+  if(popup)popup.addEventListener('click',function(e){if(e.target===this)closePopup();});
+  window.closePopup=closePopup;window.submitPopup=submitPopup;
+})();
+</script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog — Compound. Marketing Insights</title>
+<title>Blogs by Compound. Marketing Insights</title>
 <meta name="description" content="Practical articles on marketing strategy, paid media, SEO, and analytics from Compound.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://compounddigital.co/blog">
@@ -205,8 +205,9 @@ body { font-family: var(--fb); background: var(--white); color: var(--ink); over
 .blog-wrap { max-width: var(--max); margin: 0 auto; padding: 4rem 2.5rem 5rem; }
 .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
 
-.bc { background: var(--white); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; transition: box-shadow .2s, transform .2s; }
+.bc { background: var(--white); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; transition: box-shadow .2s, transform .2s; position: relative; }
 .bc:hover { box-shadow: 0 8px 32px rgba(0,0,0,.08); transform: translateY(-3px); }
+.bc-link::after { content: ''; position: absolute; inset: 0; z-index: 1; }
 
 .bc-img { aspect-ratio: 16/9; background: var(--ow); display: flex; align-items: center; justify-content: center; }
 .bc-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
